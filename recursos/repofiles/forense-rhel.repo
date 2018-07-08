@@ -1,0 +1,6 @@
+[forense-redhat]
+name=Repository for _REPO_
+baseurl=http://_PROVIDER_/_IDIRECTORY_/_ISOS_/_serverType_
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release

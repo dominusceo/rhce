@@ -1,0 +1,142 @@
+#version=RHEL7
+# System authorization information
+auth --enableshadow --passalgo=sha512
+repo --name="EPEL" --baseurl=http://dl.fedoraproject.org/pub/epel/7/x86_64
+# Run the Setup Agent on first boot
+firstboot --enable
+# Accept Eula
+eula --agreed
+reboot
+# Use network installation
+#url --url="http://192.168.122.1/repositorios/rhel7/"
+#url --url="http://ricardo.carrillo:G00Y4.$@192.168.122.1/repositorios/rhel7/"
+url --url="http://ricardo.carrillo:G00Y4.$@192.168.122.1/repositorios/rhel7/"
+#url --url ftp://username:password@server/patho 
+# SELinux enabled
+selinux --enforcing
+# Firewall enabled
+firewall --enabled
+# Keyboard layouts
+keyboard --vckeymap=la-latin1 --xlayouts='latam'
+# System language
+lang es_MX.UTF-8
+# Network information
+#network  --bootproto=dhcp --device=eth0 --onboot=on --ipv6=off
+#network  --hostname=ipa.ine.mx
+network  --bootproto=dhcp --device=eth0 --onboot=on --nameserver=192.168.122.245 --hostname=template.example.com --gateway=192.168.122.1
+network  --bootproto=dhcp --device=eth1 --onboot=on --nameserver=192.168.122.245 --gateway=192.168.122.1
+
+# Root password
+rootpw --iscrypted $6$CDAITFPF07YkQ/9p$3CIeCH21P4TV81A7GX7tRvM/cndInu/iwpDhInytNJeD7Q2oUE9AjGJshSedYkZnIm9OhAhbWH5K.knodcObe1
+services --enabled=NetworkManager,sshd,chronyd
+# Evitando cualquier configuración mediante interfaz grafica
+user --name=super --groups=super,wheel --shell=/bin/bash --uid=500
+skipx
+text
+# System timezone
+timezone America/Mexico_City --isUtc
+# Partition clearing information
+#clearpart --drives=vda --all
+clearpart --none --initlabel
+# System bootloader configuration
+bootloader --location=mbr --boot-drive="vda" --append="rhgb quiet crashkernel=auto"
+autopart
+# Disk partitioning information
+#part /usr --fstype="ext4" --ondisk=vda --size=2500
+#part /var --fstype="ext4" --ondisk=vda --size=1048
+#part /boot --fstype="ext4" --ondisk=vda --size=500
+#part / --fstype="ext4" --ondisk=vda --size=1500
+#part swap --fstype="swap" --ondisk=vda --size=2048
+#part /tmp --fstype="xfs" --ondisk=vda --size=-1
+
+%packages
+@core
+openldap-clients
+openldap-servers
+openldap
+migrationtools
+wget
+vim-enhanced
+net-tools
+nfs-utils
+rpcbind
+vsftpd
+autofs
+net-tools
+expect
+bind
+bind-chroot
+mlocate
+#axel
+#htop
+#iperf
+#sysstat
+#psacct
+%end
+
+%post --log=/root/ks-post.log
+# We get the repo default configuration
+/usr/bin/wget -c http://192.168.122.1/main/forense-rhel7.repo -P /etc/yum.repos.d/
+sed -i -e "s/_provider_/192.168.122.1/g ; s/_isos_/rhel7/g;s/_repo_/repositorios/g" /etc/yum.repos.d/forense-rhel7.repo
+/usr/bin/wget -c http://192.168.122.1/laboratorio/rht-vmctl  -P /usr/local/bin/
+/usr/bin/wget -c http://192.168.122.1/laboratorio/.datalab -P /usr/local/bin/
+/usr/bin/wget -c http://192.168.122.1/laboratorio/init-functions -P /usr/local/bin/
+/usr/bin/wget -c http://192.168.122.1/laboratorio/servicios/certificados.exp -P /tmp/
+/usr/bin/wget -c http://192.168.122.1/laboratorio/servicios/ldap/changes.ldif -P /etc/openldap/
+/usr/bin/wget -c http://192.168.122.1/laboratorio/servicios/ldap/base.ldif -P /etc/openldap/
+/usr/bin/wget -c http://192.168.122.1/laboratorio/crea-usuarios.sh -P /tmp
+eth0=$(ip addr  | grep -i eth0  | awk '{print $2}' | head -2| tail -1  | awk -F "/"  '{print $1}')
+eth0_A=$(echo $eth0|cut -d"." -f1,2,3)
+eth1=$(ip addr  | grep -i eth1  | awk '{print $2}' | head -2| tail -1  | awk -F "/"  '{print $1}'|cut -d"." -f1,2,3)
+eth1_B=$(echo $eth1|cut -d"." -f1,2,3)
+DOMAIN_1=$(echo example.com| cut -d "." -f1)
+DOMAIN_2=$(echo example.com| cut -d "." -f2)
+sed -i -e "s/^source \.\/\.datalab*/source \/usr\/local\/bin\/\.datalab/g"  /usr/local/bin/rht-vmctl
+sed -i -e "s/.*source \.\/\.datalab*/\tsource \/usr\/local\/bin\/\.datalab/g"  /usr/local/bin/init-functions
+sed -i -e "s/^source \.\/\.init-functions*/source \/usr\/local\/bin\/\.init-functions/g"  /usr/local/bin/init-functions
+# Here we are going to configure NFS access from template.example.com server
+echo "/var/ftp/pub/		${eth0_A}.0/24(ro,no_root_squash)" >> /etc/exports
+echo "/var/ftp/pub/		${eth1_B}.0/24(ro,no_root_squash)" >> /etc/exports
+# Here we are going to configure 
+PASS=$(/usr/sbin/slappasswd -s redhat -n > /etc/openldap/passwd && /bin/cat /etc/openldap/passwd)
+# secure the ldap content  /etc/openldap/certs directory
+/usr/bin/expect /tmp/certificados.exp "template.example.com" "example.com"
+/usr/bin/chown ldap:ldap /etc/openldap/certs
+/bin/chmod 600 /etc/openldap/certs/priv.pem
+# Prepare the database
+/usr/bin/cp /usr/share/openldap-servers/DB_CONFIG.example /var/lib/ldap/DB_CONFIG
+# Generate database files (don’t worry about error messages!):
+/usr/sbin/slaptest 2>/dev/null
+#Change LDAP database ownership:
+/usr/bin/chown -Rv  ldap:ldap /var/lib/ldap/
+#Activate the slapd service at boot:
+/usr/bin/systemctl enable slapd.service
+#Start the slapd service:
+#sed -i  -e "s/\${SLAPD_URLS}/ldap:\/\/\/ ldapi:\/\/\//g"  /usr/lib/systemd/system/slapd.service
+#/usr/bin/systemctl start slapd.service
+/usr/sbin/slapd -u ldap -h "ldap:/// ldaps:/// ldapi:///"
+#To start the configuration of the LDAP server, add the cosine & nis LDAP schemas:
+/usr/bin/ldapadd -Y EXTERNAL -H ldapi:/// -D "cn=config" -f /etc/openldap/schema/cosine.ldif
+/usr/bin/ldapadd -Y EXTERNAL -H ldapi:/// -D "cn=config" -f /etc/openldap/schema/nis.ldif
+# Send the new configuration to the slapd server with the apropiate changes:
+sed -i -e "s/_DOMAIN1_/${DOMAIN_1}/g; s/_DOMAIN2_/${DOMAIN_2}/g" /etc/openldap/changes.ldif
+sed -i -e "s/_PASSWORD_/${PASS}/g" /etc/openldap/changes.ldif
+/usr/bin/ldapmodify -Y EXTERNAL -H ldapi:/// -f /etc/openldap/changes.ldif
+sed -i -e "s/_DOMAIN1_/${DOMAIN_1}/g;s/_DOMAIN2_/${DOMAIN_2}/g" /etc/openldap/base.ldif
+/usr/bin/ldapadd -x -w redhat -D cn=Manager,dc=${DOMAIN_1},dc=${DOMAIN_2} -f /etc/openldap/base.ldif
+echo "BASE	,dc=${DOMAIN_1},dc=${DOMAIN_2}" >> /etc/openldap/ldap.conf
+echo "URI	ldap://${eth0}" >> /etc/openldap/ldap.conf
+/bin/sh /tmp/crea-usuarios.sh
+sed -i -e "s/padl.com/example.com/g" /usr/share/migrationtools/migrate_common.ph
+sed -i -e "s/dc=padl,dc=com/dc=${DOMAIN_1},dc=${DOMAIN_2}/g" /usr/share/migrationtools/migrate_common.ph
+grep -e ":10[0-9][0-9]" /etc/passwd >/etc/openldap/passwd
+/usr/share/migrationtools/migrate_passwd.pl /etc/openldap/passwd /etc/openldap/users.ldif
+/usr/bin/ldapadd -x -w redhat -D cn=Manager,dc=${DOMAIN_1},dc=${DOMAIN_2} -f /etc/openldap/users.ldif
+
+# Definiendo los DNS's
+echo "domain example.com"> /etc/resolv.conf
+echo "search example.com">> /etc/resolv.conf
+echo "nameserver 192.168.100.226" >> /etc/resolv.conf
+echo "nameserver 192.168.122.1" >> /etc/resolv.conf
+echo "nameserver 192.168.122.245" >> /etc/resolv.conf
+%end

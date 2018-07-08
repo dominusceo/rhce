@@ -1,0 +1,13 @@
+$ORIGIN example.org.
+$TTL 800
+@	IN SOA	dns.example.org. hostmaster.example.org. (
+					2011112801 ;	 serial
+					1D 	 ; refresh
+					1H 	 ; retry
+					1W  	 ; expire
+					3H )	 ; minimum
+	IN	NS	dns.example.org.
+	IN 	MX	10	correo.example.org.
+dns	IN	A	192.168.122.245
+correo	IN	A	192.168.122.3
+ldap	IN	A	192.168.122.199

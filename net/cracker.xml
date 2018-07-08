@@ -1,0 +1,11 @@
+<network>
+  <name>cracker</name>
+  <uuid>83379187-0721-4f63-a99b-cf8da6851d44</uuid>
+  <forward mode='nat'/>
+  <bridge name='virbr%d' stp='on' delay='0' />
+  <ip address='172.18.45.1' netmask='255.255.255.0'>
+    <dhcp>
+      <range start='172.18.45.2' end='172.18.45.254' />
+    </dhcp>
+  </ip>
+</network>

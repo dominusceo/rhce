@@ -1,0 +1,30 @@
+$ORIGIN redhat.net.
+$TTL 800
+@	IN SOA	dns.redhat.net. hostmaster.redhat.net. (
+					2015120401	; serial
+					1D	; refresh
+					1H	; retry
+					1W	; expire
+					3H )	; minimum
+	IN	NS	dns.redhat.net.
+	IN	MX	10	correo.redhat.net.
+	IN 	MX	10	correo-n1.redhat.net.
+	IN 	MX	10	correo-n2.redhat.net.
+	IN 	MX	10	correo-n3.redhat.net.
+	IN 	MX	10 	correo-n4.redhat.net.
+	IN 	MX	10 	correo-n5.redhat.net.
+	IN 	MX	10 	correo-n0.redhat.net.
+dns	IN	A	192.168.100.226
+correo	IN	A	192.168.100.180
+correo-n0	IN	A	192.168.100.47
+correo-n1	IN	A	192.168.100.42
+correo-n2	IN	A	192.168.100.43
+correo-n3	IN	A	192.168.100.44
+correo-n4	IN	A	192.168.100.45
+correo-n5	IN	A	192.168.100.46
+ldap	IN	A	192.168.100.133
+webmail-n1 	IN	A 192.168.100.30
+imap	IN	CNAME	correo.redhat.net.
+pop	IN	CNAME	correo.redhat.net.
+smtp	IN	CNAME	correo.redhat.net.
+webmail	IN	CNAME	webmail-n1.redhat.net.

@@ -1,0 +1,14 @@
+dn: dc=_DOMAIN1_,dc=_DOMAIN2_
+dc: _DOMAIN1_
+objectClass: top
+objectClass: domain
+
+dn: ou=People,dc=_DOMAIN1_,dc=_DOMAIN2_
+ou: People
+objectClass: top
+objectClass: organizationalUnit
+
+dn: ou=Group,dc=_DOMAIN1_,dc=_DOMAIN2_
+ou: Group
+objectClass: top
+objectClass: organizationalUnit
