@@ -1,0 +1,11 @@
+<network>
+  <name>redhat-labs</name>
+  <uuid>4cab8dae-56c7-48b1-b807-d493864e5605</uuid>
+  <forward mode='nat'/>
+  <bridge name='virbr%d' stp='on' delay='0' />
+  <ip address='172.34.0.1' netmask='255.255.255.0'>
+    <dhcp>
+      <range start='172.34.0.2' end='172.34.0.254' />
+    </dhcp>
+  </ip>
+</network>

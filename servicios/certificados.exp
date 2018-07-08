@@ -1,0 +1,36 @@
+#!/usr/bin/expect -f
+set force_conservative 0  ;# set to 1 to force conservative mode even if
+			  ;# script wasn't run conservatively originally
+if {$force_conservative} {
+	set send_slow {1 .1}
+	proc send {ignore arg} {
+		sleep .1
+		exp_send -s -- $arg
+	}
+}
+set nhost [lindex $argv 0]
+set domain [lindex $argv 1]
+set timeout -1
+spawn $env(SHELL)
+match_max 100000
+expect "# "
+send -- "openssl req -new -x509 -nodes -out /etc/openldap/certs/cert.pem -keyout /etc/openldap/certs/priv.pem -days 365\r"
+expect ":"
+send -- "MX\r"
+expect ":"
+send -- "Ciudad de Mexico\r"
+expect  ":"
+send -- "Mexico\r"
+expect -exact ":"
+send -- "Red Hat Labs.\r"
+expect -exact ":"
+send -- "Red Hat Labs.\r"
+expect -exact ":"
+send -- "$nhost\r"
+expect -exact ":"
+send -- "ca@$domain\r"
+expect -exact "# "
+send -- "\r"
+expect -exact "\r"
+send -- "exit\r"
+expect eof

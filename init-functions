@@ -1,0 +1,281 @@
+#! /bin/bash
+function print_log(){
+	echo -e "[$(date +%Y%m%d)]: $0 $*" | tee -a /var/log/messages
+}
+function verify_user(){
+	source ./.datalab
+	user=$(id -u)
+	if [ "$user" != "0" ] ; then
+		print_log "This script must executed by root user" && exit 1
+		val="1"
+	else
+		val="0"
+	fi
+	echo $val
+}
+
+function getDomain(){
+	source ./.datalab
+	case $1 in 
+		redhat-labs)
+			DOMINIO=$DOMAIN1
+		;;
+		mynet)
+			DOMINIO=$DOMAIN2
+		;;
+		cracker)
+			DOMINIO=$DOMAIN3
+		;;
+		remote-test)
+			DOMINIO=$DOMAIN4
+		;;
+		*)
+			DOMINIO=$DOMAIN0
+		;;
+	esac
+	echo $DOMINIO
+}
+
+function getNetworkName(){
+       source ./.datalab
+       case $1 in
+		redhat-labs)
+			NETNAME=$NETNAME1
+		;;      
+		mynet)
+			NETNAME=$NETNAME2
+		;;
+		cracker)
+			NETNAME=$NETNAME3
+		;;
+		remote-test)
+			NETNAME=$NETNAME4
+		;;
+		*)
+        	NETNAME=$NETNAME0
+            ;;
+	esac
+	echo $NETNAME
+}
+
+function getNetworkGW(){
+        source ./.datalab
+       case $1 in
+                redhat-labs)
+			GATEWAY="172.34.0.1"
+                ;;
+                mynet)
+			GATEWAY="172.37.0.1"
+                ;;
+                cracker)
+			GATEWAY="172.16.36.1"
+                ;;
+                remote-test)
+			GATEWAY="192.168.2.1"
+                ;;
+                *)
+			GATEWAY=192.168.122.1
+                ;;
+        esac
+        echo $GATEWAY
+
+}
+function getDomainMachine(){
+	if [ -n $1 ] ; then
+		mv=$(virsh list --all | awk '{print $1" "$2}' | egrep -ve "^(N|Id)"| egrep -e "([a-zA-Z0-9-]{1,})"|cut -d" " -f2|egrep -e "$1" |awk -F"." {'print $2"."$3'})
+		if [ -n $mv ] ; then
+			echo $mv
+		else
+			echo null
+		fi
+	fi
+}
+
+function getMachineName(){
+        if [ -n $1 ] ; then
+                mv=$(virsh list --all | awk '{print $1" "$2}' | egrep -ve "^(N|Id)"| egrep -e "([a-zA-Z0-9-]{1,})"|cut -d" " -f2|egrep -e "$1" |awk -F"." {'print $1'})
+		if [[ ! -z $mv &&  "$mv" != "" ]] ; then
+                        echo $mv
+                else
+                        echo null
+                fi
+	else
+		echo null
+        fi
+}
+function validaNameMachine(){
+	if [[ ! -z $1 && $# -eq 1 ]] ; then
+		val=$(echo $1| egrep -e "[a-zA-Z-_]{3,}")
+		if [[ "$val" != "" ]]; then
+			echo $val
+		else
+			echo null
+		fi
+	else
+		print_log "${FUNCNAME[0]} machine_name"
+		print_log "${FUNCNAME[0]} servidor1 -> Expected result : servidor1 "
+		print_log "${FUNCNAME[0]} 1 -> Expected result : null "
+	fi
+}
+function getNameMachineId(){
+	if [ -n $1 ] ; then
+		 mvId=($(sudo virsh list --all | awk '{print $1" "$2}' | egrep -ve "^(N|Id)"| egrep -e "([a-zA-Z0-9-]{1,})"|egrep -e "cliente1" |awk -F"." {'print $1'} | egrep -v "[-]{2,}"))
+		 echo $mvId
+	else
+		echo null
+	fi
+}
+function getDistro(){
+	case $1 in
+		centos)
+			REPO="centos"
+			;;
+		rhel)
+			REPO="rhel"
+			;;
+		sl)
+			REPO="sl"
+			;;
+		*)
+			REPO=$REPO
+			;;
+	esac
+	echo $REPO
+}
+function getLiveNodes(){
+	vm=$(virsh list --state-running | awk '{print $1" "$2}'  | egrep -ve "^(N|Id)"| sed "/^ $/d"| egrep -e "([0-9-]{1,2} [a-zA-Z0-9-]{1,}|^- )"|cut -d" " -f2)
+	echo $vm
+}
+
+function getStopNodes(){
+        vm=$(virsh list --inactive | awk '{print $1" "$2}'  | egrep -ve "^(N|Id)"| sed "/^ $/d"| egrep -e "([0-9-]{1,2} [a-zA-Z0-9-]{1,}|^- )"|cut -d" " -f2)
+	echo $vm
+}
+
+function getNodes(){
+        if [[ -n $1 && "$1" == "live" ]] ; then
+                gN=$(getLiveNodes)
+	elif [[ -n $1 && "$1" == "dead" ]] ; then
+                gN=$(getStopNodes)
+        fi
+	echo $gN
+}
+function listAllNodes(){
+	n=0
+	for i in $(getNodes live ; getNodes dead); do
+		let n=$((n+1))
+		echo "$n) $(getMachineName $i)"
+	done
+}
+function exitNode(){
+	if [ -n "$1" ] ; then
+		nd=$(getNode $1)
+		if [ "$nd" != "" ] ; then
+			echo "ok"
+		fi
+		echo "null"
+	fi	
+}
+function doHelp(){
+	case "$0" in
+		"crea-nodo.sh")
+			print_log "$(echo $0) nombre_maquina red-posible repositorio-posible"
+        		print_log "Redes posibles: redhat-labs myorg.net example cracker remote-test"
+        		print_log "Repositorios posibles: centos rhel7 sl7"
+			;;
+		"crea-lab.sh")
+			print_log "Debes de poner el nombre de la red (dominio) a la cual se va a asociar el nodo. El uso es \"sh $(echo $0) \$1 \$2\""
+                        print_log "Donde el valor de \"\$1\" es uno de las siguientes redes posibles:\tredhat-labs,myorg.net,example,cracker,remote-test"
+                        print_log "Donde el valor de \"\$2\" es uno de los sigientes repositorios posibles:\tcentos7,rhel7,sl7"
+			;;
+		*)
+			print_log "${FUNCNAME[0]}"
+			;;
+	esac
+}
+function deleteMachine(){
+	if [ ! -z $1 ] ; then
+		$(which virsh) shutdown $1 2>/dev/null >&1 && sleep 1.5
+		$(which virsh) undefine $1 2>/dev/null >&1 && sleep 1.2
+		$(which virsh) destroy $1 2>/dev/null >&1 && sleep 1.2
+		rm -fv ${CONFIG_XML}$mv.xml && rm -fv ${KICKSTARTPATH}/$mv.ks && rm -fvr ${vdirectory}$mv*
+	else
+		getNodes
+	fi
+}
+function shutDownMachines(){
+	if [[ ! -z "$1" && ! -z "$2" && $# -eq 2 ]] ; then
+		if [ "$2" != "null" ] ; then
+			virsh shutdown ${1}"."$2 && echo "Maquina $1 apagada."
+		elif [[ ! -z "$1" && "$2" == "null"|| -z "$2" ]] ; then
+			virsh shutdown ${1} && echo "Maquina $1 apagada."
+		fi
+	else
+		print_log "Se esperaban valores $*"
+	fi
+}
+function determinaOSVariant(){
+	if [[ ! -z $1 ]] ; then
+		if [ "$1" == "centos7.4" ] ; then
+			os="centos7.0"
+		elif [ "$1" == "rhel7.4" ] ;then
+			os="rhel7.4"
+		fi
+		echo $os
+	else
+		echo "null"	
+	fi
+}
+function list_live_machines(){
+        title=$1 && echo $title
+        live=($(getNodes live) "Listar dir IP" "Salir")
+        select opt in "${live[@]}" ;do
+                case $REPLY in
+                        *)
+                                if [ "$opt" != "Salir" ] ; then
+					if [ "$opt" != "Listar dir IP" ] ; then
+                                        	sudo $(which virt-viewer) -a --domain-name $opt 2>/dev/null&
+                                	else
+						sh determina-vivas.sh
+					fi
+				else
+                                        print_log "Salida ${FUNCNAME[0]}" && break
+                                fi
+                                ;;
+                esac
+        done
+}
+function list_dead_machines(){
+        title=$1 && echo $title
+        dead=($(getNodes dead) "Salir")
+        select opt in "${dead[@]}" ;do
+                case $REPLY in
+                        *)
+                                if [ "$opt" != "Salir" ] ; then
+                                        #sudo $(which virsh) start --domain $opt 2>/dev/null&
+                                        sudo $(which virsh) start --domain $opt
+                                        sudo $(which virt-viewer) -a --domain-name $opt 2>/dev/null&
+                                else
+                                        print_log "Salida ${FUNCNAME[0]}" && break
+                                fi
+                                ;;
+                esac
+        done
+}
+function kill_machines(){
+	dead=($(getNodes live ; getNodes dead) "Salir")
+	select opt in "${dead[@]}" ;do
+		case $REPLY in
+			*)
+				if [ "$opt" != "Salir" ] ; then
+					machine=$(getMachineName $opt)
+					domain=$(getDomainMachine $opt)
+                			deleteMachine $opt
+                                else
+                                        print_log "Salida ${FUNCNAME[0]}" && break
+                                fi
+                               ;;
+                esac
+        done
+}
+#getNetworkGW $1

@@ -1,0 +1,26 @@
+# rhce
+exam
+ks-templates
+ks
+net
+recursos
+servicios
+.datalab
+.foundation
+.vivas
+adjunta-disco.sh
+apaga-nodo.sh
+copia-rsync.sh
+crea-lab.sh
+crea-nodo.sh
+crea-usuarios.sh
+detecta-nics.sh
+determina-redes.sh
+determina-vivas-redes.sh
+determina-vivas.sh
+ejemplo.sh
+elimina-nodo.sh
+generatemac.py
+init-functions
+menu-inicial.sh
+preprara-ambiente-lab.sh

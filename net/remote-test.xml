@@ -1,0 +1,11 @@
+<network>
+  <name>remote-test</name>
+  <uuid>7bbc0f01-8886-4943-a98b-930c6fc9ee64</uuid>
+  <forward mode='nat'/>
+  <bridge name='virbr%d' stp='on' delay='0' />
+  <ip address='192.2.1.0' netmask='255.255.255.0'>
+    <dhcp>
+      <range start='192.2.1.2' end='192.2.1.254' />
+    </dhcp>
+  </ip>
+</network>

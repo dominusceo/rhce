@@ -1,0 +1,5 @@
+AuthType Basic
+AuthName "Kickstarts based for automatized installations"
+AuthUserFile "/etc/passwd-httpd"
+AuthGroupFile "/www/passwords/group.file"
+Require user ricardo.carrillo

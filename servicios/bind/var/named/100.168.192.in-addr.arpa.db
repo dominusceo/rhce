@@ -1,0 +1,22 @@
+$ORIGIN 100.168.192.in-addr.arpa.
+$TTL 3600
+@	IN SOA	dns.redhat.net. hostmaster.redhat.net. (
+					2015120401	; serial
+					1D	; refresh
+					1H	; retry
+					1W	; expire
+					3H )	; minimum
+	IN 	NS	dns.redhat.net.
+226	IN	PTR	dns.redhat.net.
+42	IN	PTR	correo-n1.redhat.net.
+43	IN	PTR	correo-n2.redhat.net.
+44	IN	PTR	correo-n3.redhat.net.
+45	IN	PTR	correo-n4.redhat.net.
+46	IN	PTR	correo-n5.redhat.net.
+47	IN	PTR	correo-n0.redhat.net.
+133	IN	PTR	ldap.redhat.net.
+60	IN	PTR	correo.redhat.net.
+60	IN	PTR	pop.redhat.net.
+60	IN	PTR	imap.redhat.net.
+60	IN	PTR	smtp.redhat.net.
+30	IN	PTR	webmail-n1.redhat.net.

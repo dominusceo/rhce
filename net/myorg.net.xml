@@ -1,0 +1,11 @@
+<network>
+  <name>myorg.net</name>
+  <uuid>e1fdf59e-7ba8-4f83-9131-dd8b6168301c</uuid>
+  <forward mode='nat'/>
+  <bridge name='virbr%d' stp='on' delay='0' />
+  <ip address='172.37.0.1' netmask='255.255.255.0'>
+    <dhcp>
+      <range start='172.37.0.2' end='172.37.0.254' />
+    </dhcp>
+  </ip>
+</network>
