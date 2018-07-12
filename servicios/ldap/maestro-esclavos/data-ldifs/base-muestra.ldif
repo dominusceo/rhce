@@ -1,0 +1,101 @@
+dn: uid=esther.leandro,ou=People,dc=example,dc=com
+mailHost: correo.example.com
+mailRoutingAddress: local
+objectClass: account
+objectClass: posixAccount
+objectClass: top
+objectClass: shadowAccount
+objectClass: inetLocalMailRecipient
+objectClass: ipHost
+loginShell: /bin/false
+gidNumber: 11
+ipHostNumber: 10.0.56.26
+macAddress: 00:12:3f:5d:cd:45
+uidNumber: 000001
+mailLocalAddress: esther.leandro
+uid: esther.leandro
+mail: esther.leandro@example.com
+telephoneNumber: 5558984605
+personalTitle: SECRETARIA DEL PODER LEGISLATIVO
+postalAddress: AVENIDA SIEMPRE VIVA No. 1000 EDIF. A PB, COL. BARRIO BAJO, SPRINFIELD
+cn: LEANDRO SANCHEZ ESTHER
+homePostalAddress: AVENIDA SIEMPRE VIVA No. 1000 EDIF. A PB, COL. BARRIO BAJO, SPRINFIELD
+gecos: LEANDRO SANCHEZ ESTHER
+ou: CONSEJERO DEL PODER LEGISLATIVO
+st: CIUDAD DE MEXICO
+l: SPRINFIELD
+c: MX
+sn: LEANDRO SANCHEZ
+givenName: ESTHER
+o: INSTITUTO NACIONAL EXAMPLE COM
+postalCode: 14610
+homeDirectory: /home/esther.leandro
+
+dn: uid=svetlana.garcia,ou=People,dc=example,dc=com
+mailRoutingAddress: local
+objectClass: account
+objectClass: posixAccount
+objectClass: top
+objectClass: shadowAccount
+objectClass: inetLocalMailRecipient
+loginShell: /bin/false
+uidNumber: 000002
+gidNumber: 11
+mailLocalAddress: svetlana.garcia
+uid: svetlana.garcia
+homeDirectory: /home/svetlana.garcia
+mail: svetlana.garciaa@example.com
+telephoneNumber: 5557890447
+mailHost: correo.example.com
+personalTitle: JEFE DE DEPARTAMENTO DE TRANSVERSALIZACION
+postalAddress: AVENIDA SIEMPRE VIVA No. 1000 EDIF. A PB, COL. BARRIO BAJO, SPRINFIELD
+cn: GARCIA MOTA SVETLANA CARMEN PATRICIA
+homePostalAddress: AVENIDA SIEMPRE VIVA No. 1000 EDIF. A PB, COL. BARRIO BAJO, SPRINFIELD
+gecos:  GARCIA MOTA SVETLANA CARMEN PATRICIA
+ou: INSTITUTO NACIONAL EXAMPLE COM
+idDistrito: 0
+st: CIUDAD DE MEXICO
+l: SPRINFIELD
+c: MX
+sn: RIVERA MONTER
+givenName: SVETLANA
+o: INSTITUTO NACIONAL EXAMPLE COM
+postalCode: 01090
+
+dn: uid=marie.gadoy,ou=People,dc=example,dc=com
+mailRoutingAddress: local
+objectClass: account
+objectClass: posixAccount
+objectClass: top
+objectClass: shadowAccount
+objectClass: inetLocalMailRecipient
+loginShell: /bin/false
+uidNumber: 000003
+mailLocalAddress: marie.gadoy
+gidNumber: 11
+uid: marie.gadoy
+homeDirectory: /home/marie.godoy
+mail: marie.gadoy@example.com
+telephoneNumber: 5556512300
+personalTitle: SUBDIRECTOR DE ARCHIVO
+postalAddress:  AVENIDA SIEMPRE VIVA No. 1000 EDIF. A PB, COL. BARRIO BAJO, SPRINFIELD
+cn: GODOY RAMIREZ MARIE TELECRACIA
+homePostalAddress: AVENIDA SIEMPRE VIVA No. 1000 EDIF. A PB, COL. BARRIO BAJO, SPRINFIELD
+gecos: GODOY RAMIREZ MARIE TERESA
+ou: DIRECCION DEL SECRETARIADO
+st: CIUDAD DE MEXICO
+l: SPRINFIELD
+c: MX
+sn: GADOY RAMIREZ
+givenName: MARIE TELECRACIA
+o: INSTITUTO NACIONAL EXAMPLE COM
+postalCode: 15129
+mailHost: example.com
+
+# EMPLOYEES, Groups, example.com
+dn: cn=EMPLOYEES,ou=Groups,dc=example,dc=com
+objectClass: posixGroup
+objectClass: top
+cn: EMPLOYEES
+gidNumber: 1000
+description: EMPLOYEES from example.org Organization

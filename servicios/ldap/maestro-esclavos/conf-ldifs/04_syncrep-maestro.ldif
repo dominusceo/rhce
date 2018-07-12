@@ -1,0 +1,23 @@
+dn: olcDatabase={2}hdb,cn=config
+changetype: modify
+add: olcSyncRepl
+olcSyncRepl: rid=001
+  provider=ldaps://ldap-master.ine.mx:636
+  bindmethod=simple
+  binddn="uid=replicacion,ou=Generica,dc=example,dc=com"
+  credentials=R3pl1c4c10n.U3R
+  searchbase="dc=example,dc=com"
+  filter="(objectclass=*)" 
+  scope=sub
+  schemachecking=on
+  type=refreshAndPersist
+  retry="60 +"
+  interval=00:00:05:00
+# TLS/SSL Support feature disabled
+#  tls_cert=/etc/pki/tls/certs/host.example.com.crt
+#  tls_key=/etc/pki/tls/private/cert-host.example.com.key
+#  tls_cacert=/etc/pki/CA/certs/CA-cert.crt
+#  starttls=no 
+#  tls_reqcert="try"
+#  retry="30 5 300 3"
+#  provider=ldap://pro-reppp-ldap-master.ine.mx:389/
