@@ -1,4 +1,4 @@
-dn: uid=replicacion,ou=Generica,dc=example,dc=com
+dn: uid=replication,ou=Generic,dc=example,dc=com
 objectClass: top
 objectClass: account
 objectClass: posixAccount

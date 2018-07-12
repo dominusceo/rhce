@@ -33,7 +33,7 @@ cd $HOME_LDAP
 ldapadd -Y EXTERNAL -H ldapi:/// -D "cn=config" -f 00_hdb_monitor_log.ldif
 chown -Rv ldap.ldap /etc/openldap/slapd.d/cn\=config/cn\=schema/*
 chmod -Rv 600 /etc/openldap/slapd.d/cn\=config/cn\=schema/*
-cd /etc/openldap/slapd.d/cn\=config/cn\=schema/                                                        
+cd /etc/openldap/slapd.d/cn\=config/cn\=schema/
 chcon --reference=cn\=\{2\}inetorgperson.ldif cn\=\{*
 cd $HOME_LDAP
 echo "Reiniciando servicios" && sleep 1.2
@@ -48,4 +48,3 @@ ldapadd -Y EXTERNAL -H ldapi:/// -D "cn=config" -f 05_total-acl.ldif
 ldapadd -x -h $(hostname) -D "cn=manager,dc=example,dc=com" -f 02_rama_inicial.ldif -w redhat
 ldapadd -x -h $(hostname) -D "cn=manager,dc=example,dc=com" -f 04d_usuario-rep.ldif -w redhat
 ldapadd -Y EXTERNAL -H ldapi:/// -D "cn=config" -f 07a_agregar_indices.ldif
-#ldapadd -Y EXTERNAL -H ldapi:/// -D "cn=config" -f 08a_activacion_tls_01.ldif
