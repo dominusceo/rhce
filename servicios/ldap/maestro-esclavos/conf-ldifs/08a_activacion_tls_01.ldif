@@ -1,17 +1,17 @@
 dn: cn=config
 changetype: modify
 replace: olcTLSCACertificateFile
-olcTLSCACertificateFile: /etc/pki/CA/certs/CertCA.crt
+olcTLSCACertificateFile: /etc/pki/CA/certs/DigiCertCA.crt
 
 dn: cn=config
 changetype: modify
 replace: olcTLSCertificateFile
-olcTLSCertificateFile: /etc/pki/tls/certs/ldap-master.example.com.crt
+olcTLSCertificateFile: /etc/pki/tls/certs/ldap-ext-n1.ine.mx.crt
 
 dn: cn=config
 changetype: modify
 replace: olcTLSCertificateKeyFile
-olcTLSCertificateKeyFile: /etc/pki/tls/private/ldap-master.example.com.key
+olcTLSCertificateKeyFile: /etc/pki/tls/private/ldap-ext-n1.ine.mx.key
 -
 replace: olcTLSVerifyClient
 olcTLSVerifyClient: try
