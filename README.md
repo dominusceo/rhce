@@ -1,5 +1,5 @@
 # rhce
-<<<<<<< HEAD
+=======
 exam
 ks-templates
 ks
@@ -25,5 +25,3 @@ generatemac.py
 init-functions
 menu-inicial.sh
 preprara-ambiente-lab.sh
-=======
->>>>>>> 5e08b0aa2a83424834370213e223202b542c51ce

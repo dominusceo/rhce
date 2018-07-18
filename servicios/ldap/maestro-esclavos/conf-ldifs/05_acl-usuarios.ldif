@@ -3,11 +3,11 @@ changetype: modify
 replace: olcAccess
 olcAccess: {0} to attrs=userPassword by self write
                by dn.base="cn=Manager,dc=example,dc=com" write
-               by dn.base="uid=replicacion,ou=Generica,dc=example,dc=com" read
+               by dn.base="uid=replicacion,ou=Generic,dc=example,dc=com" read
                by anonymous auth
                by * none
 -
 add: olcAccess
 olcAccess: {1}to dn.subtree="dc=example,dc=com"
-              by dn.base="cn=manager,dc=example,dc=com" write 
+              by dn.base="cn=Manager,dc=example,dc=com" write
               by * read

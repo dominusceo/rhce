@@ -11,7 +11,7 @@ loginShell: /bin/false
 gidNumber: 11
 ipHostNumber: 10.0.56.26
 macAddress: 00:12:3f:5d:cd:45
-uidNumber: 000001
+uidNumber: 2
 mailLocalAddress: esther.leandro
 uid: esther.leandro
 mail: esther.leandro@example.com
@@ -39,7 +39,7 @@ objectClass: top
 objectClass: shadowAccount
 objectClass: inetLocalMailRecipient
 loginShell: /bin/false
-uidNumber: 000002
+uidNumber: 3
 gidNumber: 11
 mailLocalAddress: svetlana.garcia
 uid: svetlana.garcia
@@ -70,7 +70,7 @@ objectClass: top
 objectClass: shadowAccount
 objectClass: inetLocalMailRecipient
 loginShell: /bin/false
-uidNumber: 000003
+uidNumber: 4
 mailLocalAddress: marie.gadoy
 gidNumber: 11
 uid: marie.gadoy
