@@ -1,4 +1,9 @@
 #!/bin/bash
+################################################################################
+## Goal: This script file set a ldap configuration in slave mode
+## Date: @vie jul 20 10:43:40 CDT 2018
+## Autor: Ricardo D. Carrillo Sanchez <dominus.ceo@gmail.com> @openinsecureit
+################################################################################
 source ./.functions
 # Validating/Installing  rsyslog service with ldap loggin
 validating_rsyslog_ldap
@@ -21,12 +26,13 @@ echo "set_lg_max             20971520"              | tee -a ${DB_LDAP}/$DB_CONF
 echo "set_lg_dir             /var/lib/ldap"         | tee -a ${DB_LDAP}/$DB_CONFIG
 chown ldap.ldap $DB_LDAP/DB_*
 chmod 700 $DB_LDAP/*
-echo "Eliminando/Creando configuracion"
-cd $ETC_SLAPD && rm -rfv slapd.d/ && sleep 1.2
+echo "Deleting folder ldap configuration ..." && sleep 1.2
+cd $ETC_SLAPD && rm -rfv slapd.d/
 echo "Reinstalling packages..." && sleep 1
 installing_ldap_packages
 systemctl restart slapd && sleep 1.2 && systemctl enable slapd
 cd /etc/openldap/schema/
+echo "Adding principal schemas..." && sleep 1.2
 for i in $(echo cosine nis misc inetorgperson openldap ppolicy dyngroup) ; do
     ldapadd -Y EXTERNAL -H ldapi:/// -D "cn=config" -f ${i}.ldif
 done
@@ -40,10 +46,6 @@ cd $HOME_LDIFSC && echo "Restarting services" && sleep 1.2
 systemctl stop slapd  &&  systemctl start slapd && systemctl status slapd && sleep 1.2
 ldapadd -Y EXTERNAL -H ldapi:/// -D "cn=config" -f 01_sinlimite-busqueda.ldif
 ldapadd -Y EXTERNAL -H ldapi:/// -D "cn=config" -f EXAMPLE.ldif
-#cd $HOME_LDIFSD
-#ldapadd -x -h $(hostname) -D "cn=manager,dc=example,dc=com" -f 02_rama_inicial.ldif -w redhat
-#ldapadd -x -h $(hostname) -D "cn=manager,dc=example,dc=com" -f 04d_usuario-rep.ldif -w redhat
-#ldapadd -x -h $(hostname) -D "cn=manager,dc=example,dc=com" -f base-muestra.ldif -w redhat
 cd $HOME_LDIFSC
 ldapadd -Y EXTERNAL -H ldapi:/// -D "cn=config" -f 03a_modulo-replicacion.ldif
 ldapadd -Y EXTERNAL -H ldapi:/// -D "cn=config" -f 03b_overlay-replicacion.ldif
