@@ -2,6 +2,7 @@ dn: uid=esther.leandro,ou=People,dc=example,dc=com
 mailHost: correo.example.com
 mailRoutingAddress: local
 objectClass: top
+objectClass: ExAccount
 objectClass: inetOrgPerson
 objectClass: posixAccount
 objectClass: shadowAccount

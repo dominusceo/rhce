@@ -3,6 +3,7 @@ mailHost: correo.example.com
 mailRoutingAddress: local
 objectClass: posixAccount
 objectClass: top
+objectClass: ExAccount
 objectClass: inetOrgPerson
 objectClass: shadowAccount
 objectClass: inetLocalMailRecipient
@@ -32,6 +33,7 @@ dn: uid=svetlana.garcia,ou=People,dc=example,dc=com
 mailRoutingAddress: local
 objectClass: posixAccount
 objectClass: top
+objectClass: ExAccount
 objectClass: inetOrgPerson
 objectClass: shadowAccount
 objectClass: inetLocalMailRecipient
@@ -50,7 +52,6 @@ cn: GARCIA MOTA SVETLANA CARMEN PATRICIA
 homePostalAddress: AVENIDA SIEMPRE VIVA No. 1000 EDIF. A PB, COL. BARRIO BAJO, SPRINFIELD
 gecos:  GARCIA MOTA SVETLANA CARMEN PATRICIA
 ou: INSTITUTO NACIONAL EXAMPLE COM
-idDistrito: 0
 st: CIUDAD DE MEXICO
 l: SPRINFIELD
 c: MX
@@ -63,6 +64,7 @@ dn: uid=marie.gadoy,ou=People,dc=example,dc=com
 mailRoutingAddress: local
 objectClass: posixAccount
 objectClass: top
+objectClass: ExAccount
 objectClass: inetOrgPerson
 objectClass: shadowAccount
 objectClass: inetLocalMailRecipient

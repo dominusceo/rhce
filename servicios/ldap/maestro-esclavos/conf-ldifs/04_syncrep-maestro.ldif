@@ -1,3 +1,5 @@
+# In order to the configuration master-slave works, you must change the rid parameter for each replica.
+# For example, for ldap-slave-n1 rid=001, for ldap-slave-n2 rid=002, for ldap-slave-n3 rid=003 and so on.
 dn: olcDatabase={2}hdb,cn=config
 changetype: modify
 add: olcSyncRepl
@@ -20,4 +22,3 @@ olcSyncRepl: rid=001
 #  starttls=no
 #  tls_reqcert="try"
 #  retry="30 5 300 3"
-#  provider=ldap://pro-reppp-ldap-master.ine.mx:389/

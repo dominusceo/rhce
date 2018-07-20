@@ -1,4 +1,8 @@
 #!/bin/bash
+#########################################################
+##
+##
+##
 source ./.functions
 # Validating/Installing  rsyslog service with ldap loggin
 validating_rsyslog_ldap
@@ -23,11 +27,11 @@ chown ldap.ldap $DB_LDAP/DB_*
 chmod 700 $DB_LDAP/*
 echo "Eliminando/Creando configuracion"
 cd $ETC_SLAPD && rm -rfv slapd.d/ && sleep 1.2
-echo "Reinsitalando paquetes..." && sleep 1
+echo "Reinstalling packages..." && sleep 1
 installing_ldap_packages
 systemctl restart slapd && sleep 1.2 && systemctl enable slapd
 cd /etc/openldap/schema/
-for i in $(echo core cosine nis misc inetorgperson openldap ppolicy dyngroup) ; do
+for i in $(echo cosine nis misc inetorgperson openldap ppolicy dyngroup) ; do
     ldapadd -Y EXTERNAL -H ldapi:/// -D "cn=config" -f ${i}.ldif
 done
 cd $HOME_LDIFSC

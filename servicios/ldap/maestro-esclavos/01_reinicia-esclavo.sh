@@ -23,11 +23,11 @@ chown ldap.ldap $DB_LDAP/DB_*
 chmod 700 $DB_LDAP/*
 echo "Eliminando/Creando configuracion"
 cd $ETC_SLAPD && rm -rfv slapd.d/ && sleep 1.2
-echo "Reinsitalando paquetes..." && sleep 1
+echo "Reinstalling packages..." && sleep 1
 installing_ldap_packages
 systemctl restart slapd && sleep 1.2 && systemctl enable slapd
 cd /etc/openldap/schema/
-for i in $(echo core cosine nis misc inetorgperson openldap ppolicy dyngroup) ; do
+for i in $(echo cosine nis misc inetorgperson openldap ppolicy dyngroup) ; do
     ldapadd -Y EXTERNAL -H ldapi:/// -D "cn=config" -f ${i}.ldif
 done
 cd $HOME_LDIFSC
@@ -40,15 +40,15 @@ cd $HOME_LDIFSC && echo "Restarting services" && sleep 1.2
 systemctl stop slapd  &&  systemctl start slapd && systemctl status slapd && sleep 1.2
 ldapadd -Y EXTERNAL -H ldapi:/// -D "cn=config" -f 01_sinlimite-busqueda.ldif
 ldapadd -Y EXTERNAL -H ldapi:/// -D "cn=config" -f EXAMPLE.ldif
-cd $HOME_LDIFSD
-ldapadd -x -h $(hostname) -D "cn=manager,dc=example,dc=com" -f 02_rama_inicial.ldif -w redhat
-ldapadd -x -h $(hostname) -D "cn=manager,dc=example,dc=com" -f 04d_usuario-rep.ldif -w redhat
-ldapadd -x -h $(hostname) -D "cn=manager,dc=example,dc=com" -f base-muestra.ldif -w redhat
+#cd $HOME_LDIFSD
+#ldapadd -x -h $(hostname) -D "cn=manager,dc=example,dc=com" -f 02_rama_inicial.ldif -w redhat
+#ldapadd -x -h $(hostname) -D "cn=manager,dc=example,dc=com" -f 04d_usuario-rep.ldif -w redhat
+#ldapadd -x -h $(hostname) -D "cn=manager,dc=example,dc=com" -f base-muestra.ldif -w redhat
 cd $HOME_LDIFSC
 ldapadd -Y EXTERNAL -H ldapi:/// -D "cn=config" -f 03a_modulo-replicacion.ldif
 ldapadd -Y EXTERNAL -H ldapi:/// -D "cn=config" -f 03b_overlay-replicacion.ldif
 ldapadd -Y EXTERNAL -H ldapi:/// -D "cn=config" -f 03c_modulo-replicacion.ldif
-#ldapadd -Y EXTERNAL -H ldapi:/// -D "cn=config" -f 04_syncrep-maestro.ldif
+ldapadd -Y EXTERNAL -H ldapi:/// -D "cn=config" -f 04_syncrep-maestro.ldif
 ldapadd -Y EXTERNAL -H ldapi:/// -D "cn=config" -f 05_acl-usuarios.ldif
 ldapadd -Y EXTERNAL -H ldapi:/// -D "cn=config" -f 07a_agregar_indices.ldif
 #ldapadd -Y EXTERNAL -H ldapi:/// -D "cn=config" -f 08a_activacion_tls_01.ldif
