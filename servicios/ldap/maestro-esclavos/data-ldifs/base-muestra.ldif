@@ -1,16 +1,13 @@
 dn: uid=esther.leandro,ou=People,dc=example,dc=com
 mailHost: correo.example.com
 mailRoutingAddress: local
-objectClass: account
 objectClass: posixAccount
 objectClass: top
+objectClass: inetOrgPerson
 objectClass: shadowAccount
 objectClass: inetLocalMailRecipient
-objectClass: ipHost
 loginShell: /bin/false
 gidNumber: 11
-ipHostNumber: 10.0.56.26
-macAddress: 00:12:3f:5d:cd:45
 uidNumber: 2
 mailLocalAddress: esther.leandro
 uid: esther.leandro
@@ -33,9 +30,9 @@ homeDirectory: /home/esther.leandro
 
 dn: uid=svetlana.garcia,ou=People,dc=example,dc=com
 mailRoutingAddress: local
-objectClass: account
 objectClass: posixAccount
 objectClass: top
+objectClass: inetOrgPerson
 objectClass: shadowAccount
 objectClass: inetLocalMailRecipient
 loginShell: /bin/false
@@ -64,9 +61,9 @@ postalCode: 01090
 
 dn: uid=marie.gadoy,ou=People,dc=example,dc=com
 mailRoutingAddress: local
-objectClass: account
 objectClass: posixAccount
 objectClass: top
+objectClass: inetOrgPerson
 objectClass: shadowAccount
 objectClass: inetLocalMailRecipient
 loginShell: /bin/false

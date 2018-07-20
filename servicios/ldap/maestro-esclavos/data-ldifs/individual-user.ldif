@@ -1,0 +1,29 @@
+dn: uid=esther.leandro,ou=People,dc=example,dc=com
+mailHost: correo.example.com
+mailRoutingAddress: local
+objectClass: top
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+objectClass: inetLocalMailRecipient
+loginShell: /bin/false
+gidNumber: 11
+uidNumber: 2
+mailLocalAddress: esther.leandro
+uid: esther.leandro
+mail: esther.leandro@example.com
+telephoneNumber: 5558984605
+personalTitle: SECRETARIA DEL PODER LEGISLATIVO
+postalAddress: AVENIDA SIEMPRE VIVA No. 1000 EDIF. A PB, COL. BARRIO BAJO, SPRINFIELD
+cn: LEANDRO SANCHEZ ESTHER
+homePostalAddress: AVENIDA SIEMPRE VIVA No. 1000 EDIF. A PB, COL. BARRIO BAJO, SPRINFIELD
+gecos: LEANDRO SANCHEZ ESTHER
+ou: CONSEJERO DEL PODER LEGISLATIVO
+st: CIUDAD DE MEXICO
+l: SPRINFIELD
+c: MX
+sn: LEANDRO SANCHEZ
+givenName: ESTHER
+o: INSTITUTO NACIONAL EXAMPLE COM
+postalCode: 14610
+homeDirectory: /home/esther.leandro

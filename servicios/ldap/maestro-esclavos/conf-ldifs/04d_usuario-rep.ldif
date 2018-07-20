@@ -4,10 +4,9 @@ objectClass: account
 objectClass: posixAccount
 objectClass: shadowAccount
 objectClass: inetLocalMailRecipient
-uid: replicacion
 description: Replication User
+uid: replicacion
 uidNumber: 1
 gidNumber: 1
 homeDirectory: /home/replication
 userPassword: {SSHA}F+fCAcZ+nXxTspj0SxtLHO/0yxVkFcy4
-cn: SYSTEM REPLICATION DATA ACCOUNT

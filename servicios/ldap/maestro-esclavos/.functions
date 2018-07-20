@@ -28,12 +28,13 @@ function validating_rsyslog_ldap(){
 }
 
 function installing_ldap_packages(){
-    verify=$(rpm -qa | grep -i openldap  | wc -l )
-    if [[ ! -z "$verify"  && "$verify" == "1"  ]] ; then
-        $(which yum) install -y openldap-clients openldap-servers openldap\*
-        systemctl restart rsyslog && systemctl status rsyslog  &&  systemctl restart slapd
+    verify=$(rpm -qa | egrep -i -e "(openldap|-clients|openldap-devel|openldap-servers)"  | wc -l )
+    if [[ ! -z "$verify"  && "$verify" == "1" ]] ; then
+        $(which yum) install -y openldap-clients openldap-devel openldap-servers openldap-servers-sql
+        systemctl restart rsyslog && systemctl status rsyslog && systemctl restart slapd
     else
-        $(which yum) reinstall -y openldap-clients openldap-servers
+        $(which yum) remove -y openldap-clients openldap-devel openldap-servers  openldap-servers-sql
+        $(which yum) install -y openldap-clients openldap-devel openldap-servers  openldap-servers-sql   
         systemctl restart rsyslog && systemctl status rsyslog  &&  systemctl restart slapd
     fi
 }

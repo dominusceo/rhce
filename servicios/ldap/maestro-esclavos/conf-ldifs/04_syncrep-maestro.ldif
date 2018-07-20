@@ -2,7 +2,7 @@ dn: olcDatabase={2}hdb,cn=config
 changetype: modify
 add: olcSyncRepl
 olcSyncRepl: rid=001
-  provider=ldaps://ldap-master.example.com:389
+  provider=ldap://ldap-master.example.com:389
   bindmethod=simple
   binddn="uid=replicacion,ou=Generic,dc=example,dc=com"
   credentials=redhat

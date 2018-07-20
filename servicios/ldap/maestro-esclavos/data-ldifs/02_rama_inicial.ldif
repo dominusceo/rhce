@@ -2,7 +2,6 @@ dn: dc=example,dc=com
 objectClass: top
 objectClass: domain
 dc: example
-o: example
 description: ldap.example.com
 
 dn: ou=People,dc=example,dc=com
