@@ -16,11 +16,11 @@
 
 #!/bin/sh
 ## Loading Variables
-IP_ADDR=192.168.232.XXX
-HOSTNAME=SERVER_NAME.example.com
-SHORTNAME=SERVER_NAME
-DOMAIN=example.com
-REALM=EXAMPLE.COM
+IP_ADDR=192.168.122.215
+HOSTNAME=ipa.example.org
+SHORTNAME=IPA
+DOMAIN=example.org
+REALM=EXAMPLE.ORG
 LDAPHOME=/home/ldap
 
 ## Starting and Enabling Firewalld
@@ -36,7 +36,7 @@ yum install -y ipa-server ipa-server-dns bind-dyndb-ldap
 echo "$IP_ADDR $HOSTNAME $SHORTNAME" >> /etc/hosts
 
 # Installing everything unattended
-ipa-server-install --domain=$DOMAIN --realm=$REALM --ds-password=password --admin-password=password --hostname=$HOSTNAME --ip-address=$IP_ADDR --reverse-zone=4.168.192.in-addr.arpa. --forwarder=8.8.8.8 --allow-zone-overlap --setup-dns --unattended
+ipa-server-install --domain=$DOMAIN --realm=$REALM --ds-password=password --admin-password=password --hostname=$HOSTNAME --ip-address=$IP_ADDR --reverse-zone=122.168.192.in-addr.arpa. --forwarder=8.8.8.8 --allow-zone-overlap --setup-dns --unattended
 
 # Opening ports
 for i in http https ldap ldaps kerberos kpasswd dns ntp; do firewall-cmd --permanent --add-service $i; done
@@ -100,7 +100,7 @@ chown ldapuser4 ldapuser4
 chown ldapuser5 ldapuser5
 
 # Fixing resolv.conf
-sed -i 's/nameserver 127.0.0.1/nameserver 192.168.4.XXX/' /etc/resolv.conf
+sed -i 's/nameserver 127.0.0.1/nameserver 192.168.122.215/' /etc/resolv.conf
 
 # Samba Configuration
 mkdir /srv/samba
@@ -157,21 +157,20 @@ restorecon -Rv /srv
 systemctl restart smb
 systemctl restart nmb
 
-nmcli connection modify eth0 ipv4.dns 192.168.4.XXX
+nmcli connection modify eth0 ipv4.dns 192.168.122.215
 nmcli connection down eth0
 nmcli connection up eth0
 
 # Creating Network repo
-mkdir -p /var/ftp/pub/repos/rhel7
-cp -Rf /mnt/iso/* /var/ftp/pub/repos/rhel7
+#mkdir -p /var/ftp/pub/repos/rhel7
+#cp -Rf /mnt/iso/* /var/ftp/pub/repos/rhel7
 
 # Creating Base Repo File - base
 ## base:
 ## ftp://serverall.example.com/pub/repos/base.repo
-echo "[base]" >> /var/ftp/pub/repos/base.repo
-echo "name = Base Reporitory for RHEL 7.3" >> /var/ftp/pub/repos/base.repo
-echo "baseurl = ftp://SERVER_NAME.example.com/pub/repos/rhel7" >> /var/ftp/pub/repos/base.repo
-echo "enabled = 0" >> /var/ftp/pub/repos/base.repo
-echo "gpgcheck = 0" >> /var/ftp/pub/repos/base.repo
-
+#echo "[base]" >> /var/ftp/pub/repos/base.repo
+#echo "name = Base Reporitory for RHEL 7.3" >> /var/ftp/pub/repos/base.repo
+#echo "baseurl = ftp://SERVER_NAME.example.com/pub/repos/rhel7" >> /var/ftp/pub/repos/base.repo
+#echo "enabled = 0" >> /var/ftp/pub/repos/base.repo
+#echo "gpgcheck = 0" >> /var/ftp/pub/repos/base.repo
 systemctl restart vsftpd
