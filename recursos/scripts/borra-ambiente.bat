@@ -2,7 +2,8 @@ echo off
 REM Autor: Ricardo David Carrillo Sanchez
 REM Objetivo: Generar ambiente
 SET "RUTA=F:\My Virtual  Machines"
-SET "SCRIPTS=C:\Users\CARRILLO RICARDo\Documents\scripts\"
+REM SET "SCRIPTS=C:\Users\CARRILLO RICARDo\Documents\scripts\"
+SET "SCRIPTS=C:\Users\CARRILLO RICARDo\Documents\GitHub\rhce"
 cd "%SCRIPTS%"
 
 REM echo "Borrando idm"
