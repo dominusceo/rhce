@@ -1,0 +1,22 @@
+dn: olcDatabase={2}hdb,cn=config
+changetype: modify
+replace: olcDbIndex
+olcDbIndex: objectClass pres,eq
+olCDbIndex: userpassword,createtimestamp,creatorsname pres
+olcDbIndex: entryUUID eq
+olcDbIndex: entryCSN eq
+olcDbIndex: cn pres,eq,sub
+olcDbIndex: uid pres,eq,sub
+olcDbIndex: uidNumber pres,eq
+olcDbIndex: gidNumber pres,eq
+olcDbIndex: ou pres,eq,sub
+olcDbIndex: mail pres,eq,sub
+olcDbIndex: sn pres,eq,sub
+olcDbIndex: givenName pres,eq,sub
+olcDbIndex: loginShell pres,eq
+olcDbIndex: nisMapEntry pres,eq,sub
+olcDbIndex: memberUid pres,eq,sub
+olcDbIndex: nisMapName pres,eq,sub
+olcDbIndex: mailRoutingAddress eq
+olcDbIndex: mailLocalAddress eq
+olcDbIndex: mailHost eq

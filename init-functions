@@ -147,6 +147,11 @@ function getLiveNodes(){
 	echo $vm
 }
 
+function getLiveNodesOff(){
+        vm=$(virsh list --state-shutoff | awk '{print $1" "$2}'  | egrep -ve "^(N|Id)"| sed "/^ $/d"| egrep -e "([0-9-]{1,2} [a-zA-Z0-9-]{1,}|^- )"|cut -d" " -f2)
+	echo $vm
+}
+
 function getStopNodes(){
         vm=$(virsh list --inactive | awk '{print $1" "$2}'  | egrep -ve "^(N|Id)"| sed "/^ $/d"| egrep -e "([0-9-]{1,2} [a-zA-Z0-9-]{1,}|^- )"|cut -d" " -f2)
 	echo $vm
@@ -277,5 +282,34 @@ function kill_machines(){
                                ;;
                 esac
         done
+}
+function kill_machines_fast(){
+	if [ "$1" != "" ] ; then
+		deleteMachine $1
+	else
+		print_log "Salida ${FUNCNAME[0]}" && break
+	fi
+}
+function setPowerUPMachine(){
+	if [[ ! -z $1 && "$1" != "" ]] ; then
+		sudo $(which virsh) start --domain $1 && sudo $(which virt-viewer) -a --domain-name $1 2>/dev/null&
+	else
+		print_log "Salida ${FUNCNAME[0]}" && break
+	fi
+
+}
+function powerup_machines(){
+	livesOff=($(getLiveNodesOff) "Salir")
+	select opt in "${livesOff[@]}" ; do
+		case $REPLY in
+			*)
+				if [ "$opt" != "Salir" ] ; then
+                                        setPowerUPMachine $opt
+                                else
+                                        print_log "Salida ${FUNCNAME[0]}" && break
+                                fi
+                               ;;
+		esac
+	done
 }
 #getNetworkGW $1

@@ -1,0 +1,32 @@
+dn: cn=config
+changetype: modify
+replace: olcTLSCACertificateFile
+olcTLSCACertificateFile: /etc/pki/CA/certs/DigiCertCA.crt
+
+dn: cn=config
+changetype: modify
+replace: olcTLSCertificateFile
+olcTLSCertificateFile: /etc/pki/tls/certs/ldap-ext-n1.ine.mx.crt
+
+dn: cn=config
+changetype: modify
+replace: olcTLSCertificateKeyFile
+olcTLSCertificateKeyFile: /etc/pki/tls/private/ldap-ext-n1.ine.mx.key
+-
+replace: olcTLSVerifyClient
+olcTLSVerifyClient: try
+-
+replace: olcTLSCipherSuite
+olcTLSCipherSuite: MEDIUM:!ADH:+TLSv1.2:-TLSv1.1:-TLSv1.0:+SSLv3:-SSLv2
+-
+replace: olcTLSProtocolMin
+olcTLSProtocolMin: 3.2
+-
+replace: olcIdleTimeout
+olcIdleTimeout: 120
+-
+replace: olcTLSCACertificatePath
+olcTLSCACertificatePath: /etc/pki/CA/certs
+#-
+#add: olcSecurity
+#olcSecurity: tls=1

@@ -1,0 +1,9 @@
+#R3pl1c4c10n.U3R
+dn: uid=replicacion,dc=example,dc=com
+objectClass: simpleSecurityObject
+objectclass: account
+objectClass: top
+objectClass: organizationalUnit
+uid: replicacion
+description: Usuario de replicacion
+userPassword: {SSHA}F+fCAcZ+nXxTspj0SxtLHO/0yxVkFcy4
