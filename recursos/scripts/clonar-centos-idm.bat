@@ -2,7 +2,6 @@ echo off
 REM Autor: Ricardo David Carrillo Sanchez
 REM Objetivo: Clonar una maquina virtual a partir de una plantilla
 REM Variable que define la plantilla de cual se va a clonar
-REM plantilla-idm-cl2.vmdk -> para el cliente
 SET "RUTA=F:\My Virtual  Machines"
 SET "SCRIPTS=C:\Users\CARRILLO RICARDo\Documents\scripts\"
 SET "RPLANTILLA=plantilla-centos-idm-example.org\"

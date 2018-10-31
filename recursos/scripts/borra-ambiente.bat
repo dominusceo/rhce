@@ -3,7 +3,7 @@ REM Autor: Ricardo David Carrillo Sanchez
 REM Objetivo: Generar ambiente
 SET "RUTA=F:\My Virtual  Machines"
 SET "SCRIPTS=C:\Users\CARRILLO RICARDo\Documents\scripts\"
-cd "%SRIPTS%"
+cd "%SCRIPTS%"
 
 REM echo "Borrando idm"
 del /s /f /q "%RUTA%\idm"
@@ -24,5 +24,4 @@ rmdir "%RUTA%\cliente2" /s /q
 echo "Borrando AD"
 del /s /f /q "%RUTA%\ad"
 rmdir "%RUTA%\ad" /s /q
-
 cd "%SCRIPTS%"

@@ -6,7 +6,7 @@ SET "RUTA=F:\My Virtual  Machines"
 SET "SCRIPTS=C:\Users\CARRILLO RICARDo\Documents\scripts\"
 SET "RPLANTILLA=plantilla-cliente1.example.org\"
 SET "PLANTILLA=plantilla-cliente1.example.org.vmx"
-set "arg1=%~1"
+SET "arg1=%~1"
 if "%arg1%"=="" ( goto :Use ) ELSE ( goto :Create )
 
 :Use
