@@ -1,0 +1,12 @@
+dn: uid=replicacion,ou=Generic,dc=example,dc=com
+objectClass: top
+objectClass: account
+objectClass: posixAccount
+objectClass: shadowAccount
+objectClass: inetLocalMailRecipient
+description: Replication User
+uid: replicacion
+uidNumber: 1
+gidNumber: 1
+homeDirectory: /home/replication
+userPassword: {SSHA}F+fCAcZ+nXxTspj0SxtLHO/0yxVkFcy4

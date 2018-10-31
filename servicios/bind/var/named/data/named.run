@@ -1,0 +1,1201 @@
+managed-keys-zone/ife: loaded serial 0
+zone 0.122.168.192.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone ife.org.mx/IN/ife: loaded serial 2011112801
+all zones loaded
+running
+zone ife.org.mx/IN/ife: sending notifies (serial 2011112801)
+zone 0.122.168.192.in-addr.arpa/IN/ife: sending notifies (serial 2011112801)
+received control channel command 'stop'
+shutting down: flushing changes
+stopping command channel on 127.0.0.1#953
+stopping command channel on ::1#953
+no longer listening on 192.168.122.245#53
+exiting
+managed-keys-zone/ife: loaded serial 0
+zone 0.122.168.192.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone ife.org.mx/IN/ife: loaded serial 2011112801
+all zones loaded
+running
+zone ife.org.mx/IN/ife: sending notifies (serial 2011112801)
+zone 0.122.168.192.in-addr.arpa/IN/ife: sending notifies (serial 2011112801)
+received control channel command 'stop'
+shutting down: flushing changes
+stopping command channel on 127.0.0.1#953
+stopping command channel on ::1#953
+no longer listening on 192.168.122.245#53
+exiting
+managed-keys-zone/ife: loaded serial 0
+zone 0.146.16.172.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone ife.org.mx/IN/ife: loaded serial 2011112801
+zone 0.122.168.192.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone ine.mx/IN/ife: loaded serial 2011112801
+all zones loaded
+running
+zone ife.org.mx/IN/ife: sending notifies (serial 2011112801)
+zone 0.122.168.192.in-addr.arpa/IN/ife: sending notifies (serial 2011112801)
+received control channel command 'stop'
+shutting down: flushing changes
+stopping command channel on 127.0.0.1#953
+stopping command channel on ::1#953
+no longer listening on 192.168.122.245#53
+exiting
+managed-keys-zone/ife: loaded serial 0
+zone 0.146.16.172.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone 0.122.168.192.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone ine.mx/IN/ife: loaded serial 2011112801
+zone ife.org.mx/IN/ife: loaded serial 2011112801
+all zones loaded
+running
+zone 0.122.168.192.in-addr.arpa/IN/ife: sending notifies (serial 2011112801)
+received control channel command 'stop'
+shutting down: flushing changes
+stopping command channel on 127.0.0.1#953
+stopping command channel on ::1#953
+no longer listening on 192.168.122.245#53
+exiting
+managed-keys-zone/ife: loaded serial 0
+zone 0.146.16.172.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone 0.122.168.192.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone ine.mx/IN/ife: loaded serial 2011112801
+zone ife.org.mx/IN/ife: loaded serial 2011112801
+all zones loaded
+running
+zone 0.122.168.192.in-addr.arpa/IN/ife: sending notifies (serial 2011112801)
+received control channel command 'stop'
+shutting down: flushing changes
+stopping command channel on 127.0.0.1#953
+stopping command channel on ::1#953
+no longer listening on 192.168.122.245#53
+exiting
+managed-keys-zone/ife: loaded serial 0
+zone 0.146.16.172.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone 0.122.168.192.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone ine.mx/IN/ife: loaded serial 2011112801
+zone ife.org.mx/IN/ife: loaded serial 2011112801
+all zones loaded
+running
+zone 0.122.168.192.in-addr.arpa/IN/ife: sending notifies (serial 2011112801)
+received control channel command 'stop'
+shutting down: flushing changes
+stopping command channel on 127.0.0.1#953
+stopping command channel on ::1#953
+no longer listening on 192.168.122.245#53
+exiting
+managed-keys-zone/ife: loaded serial 0
+zone 0.146.16.172.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone ine.mx/IN/ife: loaded serial 2011112801
+zone 0.122.168.192.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone ife.org.mx/IN/ife: loaded serial 2011112801
+all zones loaded
+running
+zone 0.122.168.192.in-addr.arpa/IN/ife: sending notifies (serial 2011112801)
+received control channel command 'stop'
+shutting down: flushing changes
+stopping command channel on 127.0.0.1#953
+stopping command channel on ::1#953
+no longer listening on 192.168.122.245#53
+exiting
+managed-keys-zone/ife: loaded serial 0
+zone 0.146.16.172.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone 122.168.192.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone ine.mx/IN/ife: loaded serial 2011112801
+zone ife.org.mx/IN/ife: loaded serial 2011112801
+all zones loaded
+running
+zone 122.168.192.in-addr.arpa/IN/ife: sending notifies (serial 2011112801)
+received control channel command 'stop'
+shutting down: flushing changes
+stopping command channel on 127.0.0.1#953
+stopping command channel on ::1#953
+no longer listening on 192.168.122.245#53
+exiting
+managed-keys-zone/ife: loaded serial 0
+zone 146.16.172.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone 122.168.192.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone ine.mx/IN/ife: loaded serial 2011112801
+zone ife.org.mx/IN/ife: loaded serial 2011112801
+all zones loaded
+running
+zone 122.168.192.in-addr.arpa/IN/ife: sending notifies (serial 2011112801)
+received control channel command 'stop'
+shutting down: flushing changes
+stopping command channel on 127.0.0.1#953
+stopping command channel on ::1#953
+no longer listening on 192.168.122.245#53
+exiting
+managed-keys-zone/ife: loaded serial 0
+zone 146.16.172.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone 122.168.192.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone ine.mx/IN/ife: loaded serial 2011112801
+zone ife.org.mx/IN/ife: loaded serial 2011112801
+all zones loaded
+running
+zone 122.168.192.in-addr.arpa/IN/ife: sending notifies (serial 2011112801)
+received control channel command 'stop'
+shutting down: flushing changes
+stopping command channel on 127.0.0.1#953
+stopping command channel on ::1#953
+no longer listening on 192.168.122.245#53
+exiting
+managed-keys-zone/ife: loaded serial 0
+zone 146.16.172.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone 122.168.192.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone ine.mx/IN/ife: loaded serial 2011112801
+zone ife.org.mx/IN/ife: loaded serial 2011112801
+all zones loaded
+running
+zone 122.168.192.in-addr.arpa/IN/ife: sending notifies (serial 2011112801)
+received control channel command 'stop'
+shutting down: flushing changes
+stopping command channel on 127.0.0.1#953
+stopping command channel on ::1#953
+no longer listening on 192.168.122.245#53
+exiting
+managed-keys-zone/ife: loaded serial 0
+zone 146.16.172.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone 122.168.192.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone ine.mx/IN/ife: loaded serial 2011112801
+zone ife.org.mx/IN/ife: loaded serial 2011112801
+all zones loaded
+running
+zone 122.168.192.in-addr.arpa/IN/ife: sending notifies (serial 2011112801)
+received control channel command 'reload'
+loading configuration from '/etc/named.conf'
+using default UDP/IPv4 port range: [1024, 65535]
+using default UDP/IPv6 port range: [1024, 65535]
+sizing zone task pool based on 5 zones
+reloading configuration succeeded
+reloading zones succeeded
+all zones loaded
+running
+received control channel command 'reload'
+loading configuration from '/etc/named.conf'
+using default UDP/IPv4 port range: [1024, 65535]
+using default UDP/IPv6 port range: [1024, 65535]
+sizing zone task pool based on 5 zones
+reloading configuration succeeded
+reloading zones succeeded
+all zones loaded
+running
+received control channel command 'reload'
+loading configuration from '/etc/named.conf'
+using default UDP/IPv4 port range: [1024, 65535]
+using default UDP/IPv6 port range: [1024, 65535]
+no longer listening on 192.168.122.245#53
+not listening on any interfaces
+sizing zone task pool based on 5 zones
+reloading configuration succeeded
+reloading zones succeeded
+all zones loaded
+running
+received control channel command 'stop'
+shutting down: flushing changes
+stopping command channel on 127.0.0.1#953
+stopping command channel on ::1#953
+exiting
+managed-keys-zone/ife: loaded serial 0
+zone 146.16.172.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone ine.mx/IN/ife: loaded serial 2011112801
+zone 122.168.192.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone ife.org.mx/IN/ife: loaded serial 2011112801
+all zones loaded
+running
+zone 122.168.192.in-addr.arpa/IN/ife: sending notifies (serial 2011112801)
+received control channel command 'reload'
+loading configuration from '/etc/named.conf'
+using default UDP/IPv4 port range: [1024, 65535]
+using default UDP/IPv6 port range: [1024, 65535]
+sizing zone task pool based on 5 zones
+reloading configuration succeeded
+reloading zones succeeded
+all zones loaded
+running
+received control channel command 'stop'
+shutting down: flushing changes
+stopping command channel on 127.0.0.1#953
+stopping command channel on ::1#953
+no longer listening on 192.168.122.245#53
+exiting
+managed-keys-zone/ife: loaded serial 0
+zone 146.16.172.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone 122.168.192.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone ine.mx/IN/ife: loaded serial 2011112801
+zone ife.org.mx/IN/ife: loaded serial 2011112801
+all zones loaded
+running
+zone 122.168.192.in-addr.arpa/IN/ife: sending notifies (serial 2011112801)
+received control channel command 'reload'
+loading configuration from '/etc/named.conf'
+using default UDP/IPv4 port range: [1024, 65535]
+using default UDP/IPv6 port range: [1024, 65535]
+sizing zone task pool based on 5 zones
+reloading configuration succeeded
+reloading zones succeeded
+all zones loaded
+running
+received control channel command 'reload'
+loading configuration from '/etc/named.conf'
+using default UDP/IPv4 port range: [1024, 65535]
+using default UDP/IPv6 port range: [1024, 65535]
+sizing zone task pool based on 5 zones
+reloading configuration succeeded
+reloading zones succeeded
+all zones loaded
+running
+received control channel command 'reload'
+loading configuration from '/etc/named.conf'
+using default UDP/IPv4 port range: [1024, 65535]
+using default UDP/IPv6 port range: [1024, 65535]
+no longer listening on 192.168.122.245#53
+not listening on any interfaces
+sizing zone task pool based on 5 zones
+reloading configuration succeeded
+reloading zones succeeded
+all zones loaded
+running
+received control channel command 'reload'
+loading configuration from '/etc/named.conf'
+using default UDP/IPv4 port range: [1024, 65535]
+using default UDP/IPv6 port range: [1024, 65535]
+not listening on any interfaces
+sizing zone task pool based on 5 zones
+reloading configuration succeeded
+reloading zones succeeded
+all zones loaded
+running
+received control channel command 'reload'
+loading configuration from '/etc/named.conf'
+using default UDP/IPv4 port range: [1024, 65535]
+using default UDP/IPv6 port range: [1024, 65535]
+listening on IPv4 interface eth0, 192.168.122.245#53
+sizing zone task pool based on 5 zones
+reloading configuration succeeded
+reloading zones succeeded
+all zones loaded
+running
+received control channel command 'reload'
+loading configuration from '/etc/named.conf'
+using default UDP/IPv4 port range: [1024, 65535]
+using default UDP/IPv6 port range: [1024, 65535]
+sizing zone task pool based on 5 zones
+reloading configuration succeeded
+reloading zones succeeded
+all zones loaded
+running
+received control channel command 'reload'
+loading configuration from '/etc/named.conf'
+using default UDP/IPv4 port range: [1024, 65535]
+using default UDP/IPv6 port range: [1024, 65535]
+sizing zone task pool based on 5 zones
+reloading configuration succeeded
+reloading zones succeeded
+all zones loaded
+running
+received control channel command 'reload'
+loading configuration from '/etc/named.conf'
+using default UDP/IPv4 port range: [1024, 65535]
+using default UDP/IPv6 port range: [1024, 65535]
+no longer listening on 192.168.122.245#53
+not listening on any interfaces
+sizing zone task pool based on 5 zones
+reloading configuration succeeded
+reloading zones succeeded
+all zones loaded
+running
+received control channel command 'reload'
+loading configuration from '/etc/named.conf'
+using default UDP/IPv4 port range: [1024, 65535]
+using default UDP/IPv6 port range: [1024, 65535]
+not listening on any interfaces
+sizing zone task pool based on 5 zones
+reloading configuration succeeded
+reloading zones succeeded
+all zones loaded
+running
+received control channel command 'stop'
+shutting down: flushing changes
+stopping command channel on 127.0.0.1#953
+stopping command channel on ::1#953
+exiting
+managed-keys-zone/ife: loaded serial 0
+zone 146.16.172.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone 122.168.192.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone ine.mx/IN/ife: loaded serial 2011112801
+zone ife.org.mx/IN/ife: loaded serial 2011112801
+all zones loaded
+running
+zone 122.168.192.in-addr.arpa/IN/ife: sending notifies (serial 2011112801)
+received control channel command 'reload'
+loading configuration from '/etc/named.conf'
+using default UDP/IPv4 port range: [1024, 65535]
+using default UDP/IPv6 port range: [1024, 65535]
+sizing zone task pool based on 5 zones
+reloading configuration succeeded
+reloading zones succeeded
+all zones loaded
+running
+received control channel command 'reload'
+loading configuration from '/etc/named.conf'
+using default UDP/IPv4 port range: [1024, 65535]
+using default UDP/IPv6 port range: [1024, 65535]
+sizing zone task pool based on 5 zones
+reloading configuration succeeded
+reloading zones succeeded
+all zones loaded
+running
+received control channel command 'reload'
+loading configuration from '/etc/named.conf'
+using default UDP/IPv4 port range: [1024, 65535]
+using default UDP/IPv6 port range: [1024, 65535]
+sizing zone task pool based on 5 zones
+reloading configuration succeeded
+reloading zones succeeded
+all zones loaded
+running
+received control channel command 'reload'
+loading configuration from '/etc/named.conf'
+using default UDP/IPv4 port range: [1024, 65535]
+using default UDP/IPv6 port range: [1024, 65535]
+no longer listening on 192.168.122.245#53
+not listening on any interfaces
+sizing zone task pool based on 5 zones
+reloading configuration succeeded
+reloading zones succeeded
+all zones loaded
+running
+received control channel command 'reload'
+loading configuration from '/etc/named.conf'
+using default UDP/IPv4 port range: [1024, 65535]
+using default UDP/IPv6 port range: [1024, 65535]
+not listening on any interfaces
+sizing zone task pool based on 5 zones
+reloading configuration succeeded
+reloading zones succeeded
+all zones loaded
+running
+received control channel command 'reload'
+loading configuration from '/etc/named.conf'
+using default UDP/IPv4 port range: [1024, 65535]
+using default UDP/IPv6 port range: [1024, 65535]
+listening on IPv4 interface eth0, 192.168.122.245#53
+sizing zone task pool based on 5 zones
+reloading configuration succeeded
+reloading zones succeeded
+all zones loaded
+running
+received control channel command 'reload'
+loading configuration from '/etc/named.conf'
+using default UDP/IPv4 port range: [1024, 65535]
+using default UDP/IPv6 port range: [1024, 65535]
+sizing zone task pool based on 5 zones
+reloading configuration succeeded
+reloading zones succeeded
+all zones loaded
+running
+received control channel command 'reload'
+loading configuration from '/etc/named.conf'
+using default UDP/IPv4 port range: [1024, 65535]
+using default UDP/IPv6 port range: [1024, 65535]
+sizing zone task pool based on 5 zones
+reloading configuration succeeded
+reloading zones succeeded
+all zones loaded
+running
+zone 146.16.172.in-addr.arpa/IN/ife: zone serial (2011112801) unchanged. zone may fail to transfer to slaves.
+zone 146.16.172.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone ine.mx/IN/ife: zone serial (2011112801) unchanged. zone may fail to transfer to slaves.
+zone ine.mx/IN/ife: loaded serial 2011112801
+received control channel command 'reload'
+loading configuration from '/etc/named.conf'
+using default UDP/IPv4 port range: [1024, 65535]
+using default UDP/IPv6 port range: [1024, 65535]
+sizing zone task pool based on 5 zones
+reloading configuration succeeded
+reloading zones succeeded
+all zones loaded
+running
+received control channel command 'reload'
+loading configuration from '/etc/named.conf'
+using default UDP/IPv4 port range: [1024, 65535]
+using default UDP/IPv6 port range: [1024, 65535]
+no longer listening on 192.168.122.245#53
+not listening on any interfaces
+sizing zone task pool based on 5 zones
+reloading configuration succeeded
+reloading zones succeeded
+all zones loaded
+running
+received control channel command 'reload'
+loading configuration from '/etc/named.conf'
+using default UDP/IPv4 port range: [1024, 65535]
+using default UDP/IPv6 port range: [1024, 65535]
+not listening on any interfaces
+sizing zone task pool based on 5 zones
+reloading configuration succeeded
+reloading zones succeeded
+all zones loaded
+running
+received control channel command 'reload'
+loading configuration from '/etc/named.conf'
+using default UDP/IPv4 port range: [1024, 65535]
+using default UDP/IPv6 port range: [1024, 65535]
+not listening on any interfaces
+sizing zone task pool based on 5 zones
+reloading configuration succeeded
+reloading zones succeeded
+all zones loaded
+running
+received control channel command 'reload'
+loading configuration from '/etc/named.conf'
+using default UDP/IPv4 port range: [1024, 65535]
+using default UDP/IPv6 port range: [1024, 65535]
+listening on IPv4 interface eth0, 192.168.122.245#53
+sizing zone task pool based on 5 zones
+reloading configuration succeeded
+reloading zones succeeded
+all zones loaded
+running
+received control channel command 'reload'
+loading configuration from '/etc/named.conf'
+using default UDP/IPv4 port range: [1024, 65535]
+using default UDP/IPv6 port range: [1024, 65535]
+sizing zone task pool based on 5 zones
+reloading configuration succeeded
+reloading zones succeeded
+all zones loaded
+running
+received control channel command 'stop'
+shutting down: flushing changes
+stopping command channel on 127.0.0.1#953
+stopping command channel on ::1#953
+no longer listening on 192.168.122.245#53
+exiting
+managed-keys-zone/ife: loaded serial 0
+zone 146.16.172.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone 122.168.192.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone ine.mx/IN/ife: loaded serial 2011112801
+zone ife.org.mx/IN/ife: loaded serial 2011112801
+all zones loaded
+running
+zone 122.168.192.in-addr.arpa/IN/ife: sending notifies (serial 2011112801)
+received control channel command 'stop'
+shutting down: flushing changes
+stopping command channel on 127.0.0.1#953
+stopping command channel on ::1#953
+no longer listening on 192.168.122.245#53
+exiting
+managed-keys-zone/ife: loaded serial 0
+zone 146.16.172.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone 122.168.192.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone ine.mx/IN/ife: loaded serial 2011112801
+zone ife.org.mx/IN/ife: loaded serial 2011112801
+all zones loaded
+running
+zone 122.168.192.in-addr.arpa/IN/ife: sending notifies (serial 2011112801)
+received control channel command 'stop'
+shutting down: flushing changes
+stopping command channel on 127.0.0.1#953
+stopping command channel on ::1#953
+no longer listening on 192.168.122.245#53
+exiting
+managed-keys-zone/ife: loaded serial 0
+zone 146.16.172.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone 122.168.192.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone ine.mx/IN/ife: loaded serial 2011112801
+zone ife.org.mx/IN/ife: loaded serial 2011112801
+all zones loaded
+running
+zone 122.168.192.in-addr.arpa/IN/ife: sending notifies (serial 2011112801)
+received control channel command 'stop'
+shutting down: flushing changes
+stopping command channel on 127.0.0.1#953
+stopping command channel on ::1#953
+no longer listening on 192.168.122.245#53
+exiting
+managed-keys-zone/ife: loaded serial 0
+zone 146.16.172.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone 122.168.192.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone ine.mx/IN/ife: loaded serial 2011112801
+zone ife.org.mx/IN/ife: loaded serial 2011112801
+all zones loaded
+running
+zone 122.168.192.in-addr.arpa/IN/ife: sending notifies (serial 2011112801)
+received control channel command 'stop'
+shutting down: flushing changes
+stopping command channel on 127.0.0.1#953
+stopping command channel on ::1#953
+no longer listening on 192.168.122.245#53
+exiting
+managed-keys-zone/ife: loaded serial 0
+zone 146.16.172.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone 122.168.192.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone ine.mx/IN/ife: loaded serial 2011112801
+zone ife.org.mx/IN/ife: loaded serial 2011112801
+all zones loaded
+running
+zone 122.168.192.in-addr.arpa/IN/ife: sending notifies (serial 2011112801)
+received control channel command 'reload'
+loading configuration from '/etc/named.conf'
+using default UDP/IPv4 port range: [1024, 65535]
+using default UDP/IPv6 port range: [1024, 65535]
+sizing zone task pool based on 5 zones
+reloading configuration succeeded
+reloading zones succeeded
+all zones loaded
+running
+received control channel command 'reload'
+loading configuration from '/etc/named.conf'
+using default UDP/IPv4 port range: [1024, 65535]
+using default UDP/IPv6 port range: [1024, 65535]
+sizing zone task pool based on 5 zones
+reloading configuration succeeded
+reloading zones succeeded
+all zones loaded
+running
+received control channel command 'reload'
+loading configuration from '/etc/named.conf'
+using default UDP/IPv4 port range: [1024, 65535]
+using default UDP/IPv6 port range: [1024, 65535]
+no longer listening on 192.168.122.245#53
+not listening on any interfaces
+sizing zone task pool based on 5 zones
+reloading configuration succeeded
+reloading zones succeeded
+all zones loaded
+running
+received control channel command 'reload'
+loading configuration from '/etc/named.conf'
+using default UDP/IPv4 port range: [1024, 65535]
+using default UDP/IPv6 port range: [1024, 65535]
+not listening on any interfaces
+sizing zone task pool based on 5 zones
+reloading configuration succeeded
+reloading zones succeeded
+all zones loaded
+running
+received control channel command 'reload'
+loading configuration from '/etc/named.conf'
+using default UDP/IPv4 port range: [1024, 65535]
+using default UDP/IPv6 port range: [1024, 65535]
+listening on IPv4 interface eth0, 192.168.122.245#53
+sizing zone task pool based on 5 zones
+reloading configuration succeeded
+reloading zones succeeded
+all zones loaded
+running
+received control channel command 'stop'
+shutting down: flushing changes
+stopping command channel on 127.0.0.1#953
+stopping command channel on ::1#953
+no longer listening on 192.168.122.245#53
+exiting
+managed-keys-zone/ife: loaded serial 0
+zone 146.16.172.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone ine.mx/IN/ife: loaded serial 2011112801
+zone 122.168.192.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone ife.org.mx/IN/ife: loaded serial 2011112801
+all zones loaded
+running
+zone 122.168.192.in-addr.arpa/IN/ife: sending notifies (serial 2011112801)
+received control channel command 'reload'
+loading configuration from '/etc/named.conf'
+using default UDP/IPv4 port range: [1024, 65535]
+using default UDP/IPv6 port range: [1024, 65535]
+sizing zone task pool based on 5 zones
+reloading configuration succeeded
+reloading zones succeeded
+all zones loaded
+running
+received control channel command 'reload'
+loading configuration from '/etc/named.conf'
+using default UDP/IPv4 port range: [1024, 65535]
+using default UDP/IPv6 port range: [1024, 65535]
+sizing zone task pool based on 5 zones
+reloading configuration succeeded
+reloading zones succeeded
+all zones loaded
+running
+received control channel command 'reload'
+loading configuration from '/etc/named.conf'
+using default UDP/IPv4 port range: [1024, 65535]
+using default UDP/IPv6 port range: [1024, 65535]
+sizing zone task pool based on 5 zones
+reloading configuration succeeded
+reloading zones succeeded
+all zones loaded
+running
+received control channel command 'reload'
+loading configuration from '/etc/named.conf'
+using default UDP/IPv4 port range: [1024, 65535]
+using default UDP/IPv6 port range: [1024, 65535]
+no longer listening on 192.168.122.245#53
+not listening on any interfaces
+sizing zone task pool based on 5 zones
+reloading configuration succeeded
+reloading zones succeeded
+all zones loaded
+running
+received control channel command 'reload'
+loading configuration from '/etc/named.conf'
+using default UDP/IPv4 port range: [1024, 65535]
+using default UDP/IPv6 port range: [1024, 65535]
+not listening on any interfaces
+sizing zone task pool based on 5 zones
+reloading configuration succeeded
+reloading zones succeeded
+all zones loaded
+running
+received control channel command 'reload'
+loading configuration from '/etc/named.conf'
+using default UDP/IPv4 port range: [1024, 65535]
+using default UDP/IPv6 port range: [1024, 65535]
+listening on IPv4 interface eth0, 192.168.122.245#53
+sizing zone task pool based on 5 zones
+reloading configuration succeeded
+reloading zones succeeded
+all zones loaded
+running
+received control channel command 'reload'
+loading configuration from '/etc/named.conf'
+using default UDP/IPv4 port range: [1024, 65535]
+using default UDP/IPv6 port range: [1024, 65535]
+sizing zone task pool based on 5 zones
+reloading configuration succeeded
+reloading zones succeeded
+all zones loaded
+running
+received control channel command 'stop'
+shutting down: flushing changes
+stopping command channel on 127.0.0.1#953
+stopping command channel on ::1#953
+no longer listening on 192.168.122.245#53
+exiting
+managed-keys-zone/ife: loaded serial 0
+zone 146.16.172.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone 122.168.192.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone ine.mx/IN/ife: loaded serial 2011112801
+zone ife.org.mx/IN/ife: loaded serial 2011112801
+all zones loaded
+running
+zone 122.168.192.in-addr.arpa/IN/ife: sending notifies (serial 2011112801)
+received control channel command 'reload'
+loading configuration from '/etc/named.conf'
+using default UDP/IPv4 port range: [1024, 65535]
+using default UDP/IPv6 port range: [1024, 65535]
+sizing zone task pool based on 5 zones
+reloading configuration succeeded
+reloading zones succeeded
+all zones loaded
+running
+received control channel command 'stop'
+shutting down: flushing changes
+stopping command channel on 127.0.0.1#953
+stopping command channel on ::1#953
+no longer listening on 192.168.122.245#53
+exiting
+managed-keys-zone/ife: loaded serial 0
+zone 146.16.172.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone 122.168.192.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone ine.mx/IN/ife: loaded serial 2011112801
+zone ife.org.mx/IN/ife: loaded serial 2011112801
+all zones loaded
+running
+zone 122.168.192.in-addr.arpa/IN/ife: sending notifies (serial 2011112801)
+received control channel command 'stop'
+shutting down: flushing changes
+stopping command channel on 127.0.0.1#953
+stopping command channel on ::1#953
+no longer listening on 192.168.122.245#53
+exiting
+managed-keys-zone/ife: loaded serial 0
+zone 146.16.172.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone 122.168.192.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone ine.mx/IN/ife: loaded serial 2011112801
+zone ife.org.mx/IN/ife: loaded serial 2011112801
+all zones loaded
+running
+zone 122.168.192.in-addr.arpa/IN/ife: sending notifies (serial 2011112801)
+received control channel command 'reload'
+loading configuration from '/etc/named.conf'
+using default UDP/IPv4 port range: [1024, 65535]
+using default UDP/IPv6 port range: [1024, 65535]
+sizing zone task pool based on 5 zones
+reloading configuration succeeded
+reloading zones succeeded
+all zones loaded
+running
+received control channel command 'stop'
+shutting down: flushing changes
+stopping command channel on 127.0.0.1#953
+stopping command channel on ::1#953
+no longer listening on 192.168.122.245#53
+exiting
+managed-keys-zone/ife: loaded serial 0
+zone 100.168.192.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone 122.168.192.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone ine.mx/IN/ife: loaded serial 2011112801
+zone ife.org.mx/IN/ife: loaded serial 2011112801
+all zones loaded
+running
+zone 122.168.192.in-addr.arpa/IN/ife: sending notifies (serial 2011112801)
+received control channel command 'stop'
+shutting down: flushing changes
+stopping command channel on 127.0.0.1#953
+stopping command channel on ::1#953
+no longer listening on 192.168.122.245#53
+exiting
+managed-keys-zone/ife: loaded serial 0
+zone 100.168.192.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone 122.168.192.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone ine.mx/IN/ife: loaded serial 2011112801
+zone ife.org.mx/IN/ife: loaded serial 2011112801
+all zones loaded
+running
+zone 122.168.192.in-addr.arpa/IN/ife: sending notifies (serial 2011112801)
+received control channel command 'stop'
+shutting down: flushing changes
+stopping command channel on 127.0.0.1#953
+stopping command channel on ::1#953
+no longer listening on 192.168.122.245#53
+exiting
+managed-keys-zone/ife: loaded serial 0
+zone 100.168.192.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone 122.168.192.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone ine.mx/IN/ife: loaded serial 2011112801
+zone ife.org.mx/IN/ife: loaded serial 2011112801
+all zones loaded
+running
+zone 122.168.192.in-addr.arpa/IN/ife: sending notifies (serial 2011112801)
+received control channel command 'stop'
+shutting down: flushing changes
+stopping command channel on 127.0.0.1#953
+stopping command channel on ::1#953
+no longer listening on 192.168.122.245#53
+exiting
+managed-keys-zone/ife: loaded serial 0
+zone 100.168.192.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone ife.org.mx/IN/ife: loaded serial 2011112801
+zone 122.168.192.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone ine.mx/IN/ife: loaded serial 2011112801
+all zones loaded
+running
+zone 122.168.192.in-addr.arpa/IN/ife: sending notifies (serial 2011112801)
+received control channel command 'stop'
+shutting down: flushing changes
+stopping command channel on 127.0.0.1#953
+stopping command channel on ::1#953
+no longer listening on 192.168.122.245#53
+exiting
+managed-keys-zone/ife: loaded serial 0
+zone 100.168.192.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone 122.168.192.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone ine.mx/IN/ife: loaded serial 2011112801
+zone ife.org.mx/IN/ife: ife.org.mx/MX 'correo.ife.org.mx' has no address records (A or AAAA)
+zone ife.org.mx/IN/ife: loaded serial 2011112801
+all zones loaded
+running
+zone 122.168.192.in-addr.arpa/IN/ife: sending notifies (serial 2011112801)
+received control channel command 'stop'
+shutting down: flushing changes
+stopping command channel on 127.0.0.1#953
+stopping command channel on ::1#953
+no longer listening on 192.168.122.245#53
+exiting
+managed-keys-zone/ife: loaded serial 0
+zone 100.168.192.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone 122.168.192.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone ine.mx/IN/ife: loaded serial 2011112801
+zone ife.org.mx/IN/ife: ife.org.mx/MX 'correo.ife.org.mx' has no address records (A or AAAA)
+zone ife.org.mx/IN/ife: loaded serial 2011112801
+all zones loaded
+running
+zone 122.168.192.in-addr.arpa/IN/ife: sending notifies (serial 2011112801)
+received control channel command 'stop'
+shutting down: flushing changes
+stopping command channel on 127.0.0.1#953
+stopping command channel on ::1#953
+no longer listening on 192.168.122.245#53
+exiting
+managed-keys-zone/ife: loaded serial 0
+zone 100.168.192.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone 122.168.192.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone ine.mx/IN/ife: loaded serial 2011112801
+zone ife.org.mx/IN/ife: ife.org.mx/MX 'correo.ife.org.mx' has no address records (A or AAAA)
+zone ife.org.mx/IN/ife: loaded serial 2011112801
+all zones loaded
+running
+zone 122.168.192.in-addr.arpa/IN/ife: sending notifies (serial 2011112801)
+received control channel command 'stop'
+shutting down: flushing changes
+stopping command channel on 127.0.0.1#953
+stopping command channel on ::1#953
+no longer listening on 192.168.122.245#53
+exiting
+managed-keys-zone/ife: loaded serial 0
+zone 100.168.192.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone 122.168.192.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone ine.mx/IN/ife: loaded serial 2011112801
+zone ife.org.mx/IN/ife: loaded serial 2011112801
+all zones loaded
+running
+zone 122.168.192.in-addr.arpa/IN/ife: sending notifies (serial 2011112801)
+received control channel command 'stop'
+shutting down: flushing changes
+stopping command channel on 127.0.0.1#953
+stopping command channel on ::1#953
+no longer listening on 192.168.122.245#53
+exiting
+managed-keys-zone/ife: loaded serial 0
+zone 100.168.192.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone 122.168.192.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone ine.mx/IN/ife: loaded serial 2011112801
+zone ife.org.mx/IN/ife: loaded serial 2011112801
+all zones loaded
+running
+zone 122.168.192.in-addr.arpa/IN/ife: sending notifies (serial 2011112801)
+received control channel command 'stop'
+shutting down: flushing changes
+stopping command channel on 127.0.0.1#953
+stopping command channel on ::1#953
+no longer listening on 192.168.122.245#53
+exiting
+managed-keys-zone/ife: loaded serial 0
+zone 100.168.192.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone ine.mx/IN/ife: loaded serial 2011112801
+zone 122.168.192.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone ife.org.mx/IN/ife: loaded serial 2011112801
+all zones loaded
+running
+zone 122.168.192.in-addr.arpa/IN/ife: sending notifies (serial 2011112801)
+received control channel command 'stop'
+shutting down: flushing changes
+stopping command channel on 127.0.0.1#953
+stopping command channel on ::1#953
+no longer listening on 192.168.122.245#53
+exiting
+managed-keys-zone/ife: loaded serial 0
+zone 100.168.192.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone 122.168.192.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone ine.mx/IN/ife: loaded serial 2011112801
+zone ife.org.mx/IN/ife: loaded serial 2011112801
+all zones loaded
+running
+zone 122.168.192.in-addr.arpa/IN/ife: sending notifies (serial 2011112801)
+received control channel command 'stop'
+shutting down: flushing changes
+stopping command channel on 127.0.0.1#953
+stopping command channel on ::1#953
+no longer listening on 192.168.122.245#53
+exiting
+managed-keys-zone/ife: loaded serial 0
+zone 100.168.192.in-addr.arpa/IN/ife: loaded serial 2015120201
+zone 122.168.192.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone ine.mx/IN/ife: loaded serial 2015120201
+zone ife.org.mx/IN/ife: loaded serial 2011112801
+all zones loaded
+running
+zone 122.168.192.in-addr.arpa/IN/ife: sending notifies (serial 2011112801)
+received control channel command 'stop'
+shutting down: flushing changes
+stopping command channel on 127.0.0.1#953
+stopping command channel on ::1#953
+no longer listening on 192.168.122.245#53
+exiting
+managed-keys-zone/ife: loaded serial 0
+zone 100.168.192.in-addr.arpa/IN/ife: loaded serial 2015120201
+zone 122.168.192.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone ine.mx/IN/ife: loaded serial 2015120201
+zone ife.org.mx/IN/ife: loaded serial 2011112801
+all zones loaded
+running
+zone 122.168.192.in-addr.arpa/IN/ife: sending notifies (serial 2011112801)
+received control channel command 'stop'
+shutting down: flushing changes
+stopping command channel on 127.0.0.1#953
+stopping command channel on ::1#953
+no longer listening on 192.168.122.245#53
+exiting
+managed-keys-zone/ife: loaded serial 0
+zone 100.168.192.in-addr.arpa/IN/ife: loaded serial 2015120201
+zone 122.168.192.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone ine.mx/IN/ife: loaded serial 2015120201
+zone ife.org.mx/IN/ife: loaded serial 2011112801
+all zones loaded
+running
+zone 122.168.192.in-addr.arpa/IN/ife: sending notifies (serial 2011112801)
+received control channel command 'stop'
+shutting down: flushing changes
+stopping command channel on 127.0.0.1#953
+stopping command channel on ::1#953
+no longer listening on 192.168.122.245#53
+exiting
+managed-keys-zone/ife: loaded serial 0
+zone 100.168.192.in-addr.arpa/IN/ife: loaded serial 2015120201
+zone 122.168.192.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone ife.org.mx/IN/ife: loaded serial 2011112801
+zone ine.mx/IN/ife: loaded serial 2015120201
+all zones loaded
+running
+zone 122.168.192.in-addr.arpa/IN/ife: sending notifies (serial 2011112801)
+received control channel command 'stop'
+shutting down: flushing changes
+stopping command channel on 127.0.0.1#953
+stopping command channel on ::1#953
+no longer listening on 192.168.122.245#53
+exiting
+managed-keys-zone/ife: loaded serial 0
+zone 100.168.192.in-addr.arpa/IN/ife: loaded serial 2015120201
+zone 122.168.192.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone ine.mx/IN/ife: loaded serial 2015120201
+zone ife.org.mx/IN/ife: loaded serial 2011112801
+all zones loaded
+running
+zone 122.168.192.in-addr.arpa/IN/ife: sending notifies (serial 2011112801)
+received control channel command 'stop'
+shutting down: flushing changes
+stopping command channel on 127.0.0.1#953
+stopping command channel on ::1#953
+no longer listening on 192.168.122.245#53
+exiting
+managed-keys-zone/ife: loaded serial 0
+zone 100.168.192.in-addr.arpa/IN/ife: loaded serial 2015120201
+zone 122.168.192.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone ine.mx/IN/ife: loaded serial 2015120201
+zone ife.org.mx/IN/ife: loaded serial 2011112801
+all zones loaded
+running
+zone 122.168.192.in-addr.arpa/IN/ife: sending notifies (serial 2011112801)
+received control channel command 'stop'
+shutting down: flushing changes
+stopping command channel on 127.0.0.1#953
+stopping command channel on ::1#953
+no longer listening on 192.168.122.245#53
+exiting
+managed-keys-zone/ife: loaded serial 0
+zone 100.168.192.in-addr.arpa/IN/ife: loaded serial 2015120201
+zone 122.168.192.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone ine.mx/IN/ife: loaded serial 2015120201
+zone ife.org.mx/IN/ife: loaded serial 2011112801
+all zones loaded
+running
+zone 122.168.192.in-addr.arpa/IN/ife: sending notifies (serial 2011112801)
+received control channel command 'stop'
+shutting down: flushing changes
+stopping command channel on 127.0.0.1#953
+stopping command channel on ::1#953
+no longer listening on 192.168.122.245#53
+exiting
+managed-keys-zone/ife: loaded serial 0
+zone 100.168.192.in-addr.arpa/IN/ife: loaded serial 2015120201
+zone 122.168.192.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone ine.mx/IN/ife: loaded serial 2015120201
+zone ife.org.mx/IN/ife: loaded serial 2011112801
+all zones loaded
+running
+zone 122.168.192.in-addr.arpa/IN/ife: sending notifies (serial 2011112801)
+received control channel command 'stop'
+shutting down: flushing changes
+stopping command channel on 127.0.0.1#953
+stopping command channel on ::1#953
+no longer listening on 192.168.122.245#53
+exiting
+managed-keys-zone/ife: loaded serial 0
+zone 100.168.192.in-addr.arpa/IN/ife: loaded serial 2015120201
+zone 122.168.192.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone ine.mx/IN/ife: loaded serial 2015120201
+zone ife.org.mx/IN/ife: loaded serial 2011112801
+all zones loaded
+running
+zone 122.168.192.in-addr.arpa/IN/ife: sending notifies (serial 2011112801)
+received control channel command 'stop'
+shutting down: flushing changes
+stopping command channel on 127.0.0.1#953
+stopping command channel on ::1#953
+no longer listening on 192.168.122.245#53
+exiting
+managed-keys-zone/ife: loaded serial 0
+zone 100.168.192.in-addr.arpa/IN/ife: loaded serial 2015120401
+zone 122.168.192.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone ine.mx/IN/ife: loaded serial 2015120401
+zone ife.org.mx/IN/ife: loaded serial 2011112801
+all zones loaded
+running
+zone 122.168.192.in-addr.arpa/IN/ife: sending notifies (serial 2011112801)
+received control channel command 'reload'
+loading configuration from '/etc/named.conf'
+using default UDP/IPv4 port range: [1024, 65535]
+using default UDP/IPv6 port range: [1024, 65535]
+sizing zone task pool based on 5 zones
+reloading configuration succeeded
+reloading zones succeeded
+all zones loaded
+running
+received control channel command 'stop'
+shutting down: flushing changes
+stopping command channel on 127.0.0.1#953
+stopping command channel on ::1#953
+no longer listening on 192.168.122.245#53
+exiting
+managed-keys-zone/ife: loaded serial 0
+zone 100.168.192.in-addr.arpa/IN/ife: loaded serial 2015120401
+zone 122.168.192.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone ine.mx/IN/ife: loaded serial 2015120401
+zone ife.org.mx/IN/ife: loaded serial 2011112801
+all zones loaded
+running
+zone 122.168.192.in-addr.arpa/IN/ife: sending notifies (serial 2011112801)
+received control channel command 'reload'
+loading configuration from '/etc/named.conf'
+using default UDP/IPv4 port range: [1024, 65535]
+using default UDP/IPv6 port range: [1024, 65535]
+sizing zone task pool based on 5 zones
+reloading configuration succeeded
+reloading zones succeeded
+all zones loaded
+running
+managed-keys-zone/ife: loaded serial 0
+zone 100.168.192.in-addr.arpa/IN/ife: loaded serial 2015120401
+zone 122.168.192.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone ine.mx/IN/ife: loaded serial 2015120401
+zone ife.org.mx/IN/ife: loaded serial 2011112801
+all zones loaded
+running
+zone 122.168.192.in-addr.arpa/IN/ife: sending notifies (serial 2011112801)
+received control channel command 'reload'
+loading configuration from '/etc/named.conf'
+using default UDP/IPv4 port range: [1024, 65535]
+using default UDP/IPv6 port range: [1024, 65535]
+sizing zone task pool based on 5 zones
+reloading configuration succeeded
+reloading zones succeeded
+all zones loaded
+running
+received control channel command 'reload'
+loading configuration from '/etc/named.conf'
+using default UDP/IPv4 port range: [1024, 65535]
+using default UDP/IPv6 port range: [1024, 65535]
+sizing zone task pool based on 5 zones
+reloading configuration succeeded
+reloading zones succeeded
+all zones loaded
+running
+managed-keys-zone/ife: loaded serial 0
+zone 100.168.192.in-addr.arpa/IN/ife: loaded serial 2015120401
+zone 122.168.192.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone ine.mx/IN/ife: loaded serial 2015120401
+zone ife.org.mx/IN/ife: loaded serial 2011112801
+all zones loaded
+running
+zone 122.168.192.in-addr.arpa/IN/ife: sending notifies (serial 2011112801)
+received control channel command 'reload'
+loading configuration from '/etc/named.conf'
+using default UDP/IPv4 port range: [1024, 65535]
+using default UDP/IPv6 port range: [1024, 65535]
+sizing zone task pool based on 5 zones
+reloading configuration succeeded
+reloading zones succeeded
+all zones loaded
+running
+received control channel command 'reload'
+loading configuration from '/etc/named.conf'
+using default UDP/IPv4 port range: [1024, 65535]
+using default UDP/IPv6 port range: [1024, 65535]
+sizing zone task pool based on 5 zones
+reloading configuration succeeded
+reloading zones succeeded
+all zones loaded
+running
+received control channel command 'reload'
+loading configuration from '/etc/named.conf'
+using default UDP/IPv4 port range: [1024, 65535]
+using default UDP/IPv6 port range: [1024, 65535]
+no longer listening on 192.168.122.245#53
+not listening on any interfaces
+sizing zone task pool based on 5 zones
+reloading configuration succeeded
+reloading zones succeeded
+all zones loaded
+running
+received control channel command 'reload'
+loading configuration from '/etc/named.conf'
+using default UDP/IPv4 port range: [1024, 65535]
+using default UDP/IPv6 port range: [1024, 65535]
+not listening on any interfaces
+sizing zone task pool based on 5 zones
+reloading configuration succeeded
+reloading zones succeeded
+all zones loaded
+running
+received control channel command 'reload'
+loading configuration from '/etc/named.conf'
+using default UDP/IPv4 port range: [1024, 65535]
+using default UDP/IPv6 port range: [1024, 65535]
+listening on IPv4 interface eth0, 192.168.122.245#53
+sizing zone task pool based on 5 zones
+reloading configuration succeeded
+reloading zones succeeded
+all zones loaded
+running
+received control channel command 'reload'
+loading configuration from '/etc/named.conf'
+using default UDP/IPv4 port range: [1024, 65535]
+using default UDP/IPv6 port range: [1024, 65535]
+sizing zone task pool based on 5 zones
+reloading configuration succeeded
+reloading zones succeeded
+all zones loaded
+running
+received control channel command 'reload'
+loading configuration from '/etc/named.conf'
+using default UDP/IPv4 port range: [1024, 65535]
+using default UDP/IPv6 port range: [1024, 65535]
+no longer listening on 192.168.122.245#53
+not listening on any interfaces
+sizing zone task pool based on 5 zones
+reloading configuration succeeded
+reloading zones succeeded
+all zones loaded
+running
+received control channel command 'reload'
+loading configuration from '/etc/named.conf'
+using default UDP/IPv4 port range: [1024, 65535]
+using default UDP/IPv6 port range: [1024, 65535]
+not listening on any interfaces
+sizing zone task pool based on 5 zones
+reloading configuration succeeded
+reloading zones succeeded
+all zones loaded
+running
+received control channel command 'reload'
+loading configuration from '/etc/named.conf'
+using default UDP/IPv4 port range: [1024, 65535]
+using default UDP/IPv6 port range: [1024, 65535]
+listening on IPv4 interface eth0, 192.168.122.245#53
+sizing zone task pool based on 5 zones
+reloading configuration succeeded
+reloading zones succeeded
+all zones loaded
+running
+received control channel command 'stop'
+shutting down: flushing changes
+stopping command channel on 127.0.0.1#953
+stopping command channel on ::1#953
+no longer listening on 192.168.122.245#53
+exiting
+managed-keys-zone/ife: loaded serial 0
+zone 100.168.192.in-addr.arpa/IN/ife: loaded serial 2015120401
+zone ine.mx/IN/ife: loaded serial 2015120401
+zone 122.168.192.in-addr.arpa/IN/ife: loaded serial 2011112801
+zone ife.org.mx/IN/ife: loaded serial 2011112801
+all zones loaded
+running
+zone 122.168.192.in-addr.arpa/IN/ife: sending notifies (serial 2011112801)
+received control channel command 'reload'
+loading configuration from '/etc/named.conf'
+using default UDP/IPv4 port range: [1024, 65535]
+using default UDP/IPv6 port range: [1024, 65535]
+sizing zone task pool based on 5 zones
+reloading configuration succeeded
+reloading zones succeeded
+all zones loaded
+running
