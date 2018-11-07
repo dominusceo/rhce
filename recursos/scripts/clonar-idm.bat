@@ -5,7 +5,7 @@ REM Variable que define la plantilla de cual se va a clonar
 REM plantilla-idm-cl2.vmdk -> para el cliente
 SET "RUTA=F:\My Virtual  Machines"
 REM SET "SCRIPTS=C:\Users\CARRILLO RICARDo\Documents\scripts\"
-SET "SCRIPTS=C:\Users\CARRILLO RICARDo\Documents\GitHub\rhce"
+SET "SCRIPTS=C:\Users\CARRILLO RICARDo\Documents\GitHub\rhce\recursos\scripts"
 SET "RPLANTILLA=plantilla-rhel57-sin-bl\"
 SET "PLANTILLA=plantilla-idm.vmx"
 SET "arg1=%~1"

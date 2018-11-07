@@ -1,7 +1,7 @@
 echo off
 REM Autor: Ricardo David Carrillo Sanchez
 REM Objetivo: Generar ambiente
-SET "SCRIPTS=C:\Users\CARRILLO RICARDo\Documents\GitHub\rhce"
+SET "SCRIPTS=C:\Users\CARRILLO RICARDo\Documents\GitHub\rhce\recursos\scripts"
 echo "Generando idm"
 call clonar-idm.bat idm
 echo "Generando acceso1"

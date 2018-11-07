@@ -4,7 +4,7 @@ REM Objetivo: Clonar una maquina virtual a partir de una plantilla
 REM Variable que define la plantilla de cual se va a clonar
 SET "RUTA=F:\My Virtual  Machines"
 REM SET "SCRIPTS=C:\Users\CARRILLO RICARDo\Documents\scripts\"
-SET "SCRIPTS=C:\Users\CARRILLO RICARDo\Documents\GitHub\rhce"
+SET "SCRIPTS=C:\Users\CARRILLO RICARDo\Documents\GitHub\rhce\recursos\scripts"
 SET "RPLANTILLA=plantilla-ad.example.org\"
 SET "PLANTILLA=plantilla-ad.example.org.vmx"
 SET "arg1=%~1"

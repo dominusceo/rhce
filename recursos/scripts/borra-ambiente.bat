@@ -3,7 +3,7 @@ REM Autor: Ricardo David Carrillo Sanchez
 REM Objetivo: Generar ambiente
 SET "RUTA=F:\My Virtual  Machines"
 REM SET "SCRIPTS=C:\Users\CARRILLO RICARDo\Documents\scripts\"
-SET "SCRIPTS=C:\Users\CARRILLO RICARDo\Documents\GitHub\rhce"
+SET "SCRIPTS=C:\Users\CARRILLO RICARDo\Documents\GitHub\rhce\recursos\scripts"
 cd "%SCRIPTS%"
 
 REM echo "Borrando idm"
