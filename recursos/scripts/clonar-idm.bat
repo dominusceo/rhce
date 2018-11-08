@@ -2,12 +2,12 @@ echo off
 REM Autor: Ricardo David Carrillo Sanchez
 REM Objetivo: Clonar una maquina virtual a partir de una plantilla
 REM Variable que define la plantilla de cual se va a clonar
-REM plantilla-idm-cl2.vmdk -> para el cliente
-SET "RUTA=F:\My Virtual  Machines"
-REM SET "SCRIPTS=C:\Users\CARRILLO RICARDo\Documents\scripts\"
+SET "RUTA=F:\My Virtual Machines"
+SET "CMDS=c:\Program Files (x86)\VMware\VMware Workstation\"
 SET "SCRIPTS=C:\Users\CARRILLO RICARDo\Documents\GitHub\rhce\recursos\scripts"
-SET "RPLANTILLA=plantilla-rhel57-sin-bl\"
-SET "PLANTILLA=plantilla-idm.vmx"
+SET "RPLANTILLA=plantilla-idm.example.org\"
+SET "PLANTILLA=plantilla-idm.example.org.vmx"
+SET "DOMAIN=example.org"
 SET "arg1=%~1"
 if "%arg1%"=="" ( goto :Use ) ELSE ( goto :Create )
 
@@ -18,15 +18,26 @@ echo Uso: clonar-mv-ws.bat "cliente1" & BREAK=ON
 REM Creando directorio %arg1% y clonando maquina
 IF NOT EXIST "%RUTA%\%arg1%" (
   echo Creando directorio "%arg1%"
-  cd "c:\Program Files (x86)\VMware\VMware Workstation"
+  cd "%CMDS%"
   mkdir  "%RUTA%\%arg1%"
   REM Clonando maquina %arg1%
   echo Clonando maquina "%arg1%"
-  vmrun -T ws clone "%RUTA%\%RPLANTILLA%\%PLANTILLA%"  "%RUTA%\%arg1%\%arg1%.vmx" full -cloneName="%arg1%.example.org"
+  vmrun -T ws clone "%RUTA%\%RPLANTILLA%\%PLANTILLA%" "%RUTA%\%arg1%\%arg1%.vmx" full -cloneName="%arg1%.%DOMAIN%"
   vmware.exe "%RUTA%\%arg1%\%arg1%.vmx"
   vmrun -T ws start "%RUTA%\%arg1%\%arg1%.vmx"
-) ELSE (
+) ELSE IF EXIST "%RUTA%\%arg1%\" (
+  cd "%CMDS%"
+  vmrun -T ws stop "%RUTA%\%arg1%.%DOMAIN%\%arg1%.%DOMAIN%.vmx"
   del /s /f /q "%RUTA%\%arg1%"
-  rmdir "%RUTA%\%arg1%" /s /q
+  rmdir "%RUTA%\%arg1%\" /s /q
+) ELSE (
+  echo No se hace nada %arg1%
 )
 cd "%SCRIPTS%"
+
+REM --ipAllocationPolicy
+REM --net:s1=t1
+REM --powerOn
+REM ovftool vmxs/Nostalgia.vmx ovfs/Nostalgia.ova
+REM ovftool --machineOutput source target
+REM ovftool.exe --compress=9 "F:\My Virtual Machines\acceso1\acceso1.vmx" "F:\ovas\acceso.ova"
