@@ -1,29 +1,80 @@
 #!/bin/bash
-# Anontymous "rht-vmctl"  script overview
-source ./.datalab
-source ./init-functions
-val=$(cat .foundation)
-nsnapshot=$foundation${val}
-if [ "$1" = "reset" ] ; then
-	if [ "$2" = "desktop" ] ; then
-		cd ${sdirectory}$nsnapshot && rm -f rh124-desktop-snap.ovl
-           	qemu-img create -b ${sdirectory}rh124-$OSVARIANT-template.img -f qcow2 ${sdirectory}${nsnapshot}/rh124-desktop-snap.ovl
-	elif [ "$2" = "server" ] ; then
-		cd ${sdirectory}$nsnapshot && rm -f rh124-server-snap.ovl
-		qemu-img create -b ${sdirectory}rh124-$OSVARIANT-template.img -f qcow2 ${sdirectory}${nsnapshot}/rh124-server-snap.ovl
-	elif [ "$2" = "all" ] ; then
-  		cd ${sdirectory}$nsnapshot && rm -f rh124-desktop-snap.ovl && rm -f rh124-server-snap.ovl
-                qemu-img create -b ${sdirectory}rh124-$OSVARIANT-template.img -f qcow2 ${sdirectory}${nsnapshot}/rh124-desktop-snap.ovl
-                qemu-img create -b ${sdirectory}rh124-$OSVARIANT-template.img -f qcow2 ${sdirectory}${nsnapshot}/rh124-server-snap.ovl
+# Based on anontymous "rht-vmctl" script overview
+# Modifications: Ricardo David Carrillo Sanchez
+action=$(echo $1| tr "[[:upper:]]" "[[:lower:]]")
+machinet=$(echo $2| tr "[[:upper:]]" "[[:lower:]]")
+templates="/home/ricardo.carrillo/Virtual_Machines/"
+xml_path="/etc/libvirt/qemu/"
+xml_tpl_ss="${xml_path}rh124-plantilla-servidor.xml"
+xml_tpl_sd="${xml_path}rh124-plantilla-cliente.xml"
+xml_tpl_rh="${xml_path}rhcsa-plantilla-random.xml"
+function resetDeskTop {
+		cd $templates && rm -f ${templates}/rh124-desktop-snap.ovl && rm -f ${xml_path}rh124-plantilla-desktop.xml \
+			&& virsh undefine cliente.example.com && virsh destroy cliente.example.com
+			cp -vap ${xml_tpl_sd} ${xml_path}rh124-plantilla-desktop.xml \
+			&& sed -i -e "s/rh124-plantilla-cliente/cliente\.example\.com/g" ${xml_path}rh124-plantilla-desktop.xml \
+			&& sed -i -e "s/d0670c2a-a7f3-4b54-b3ab-7a1180053717/$(uuidgen)/g" ${xml_path}rh124-plantilla-desktop.xml \
+			&& sed -i -e "s/centos7\.0\.qcow2/rh124-desktop-snap\.ovl/g" ${xml_path}rh124-plantilla-desktop.xml
+			cd $templates &&	qemu-img create -f qcow2 -b ${templates}/centos7.0.qcow2 ${templates}rh124-desktop-snap.ovl \
+			&& virsh define ${xml_path}rh124-plantilla-desktop.xml && virsh start --domain cliente.example.com
+}
+
+function resetServer {
+	cd $templates && rm -f ${templates}/rh124-server-snap.ovl && rm -f ${xml_path}rh124-plantilla-server.xml \
+	&& virsh undefine servidor.example.com && virsh destroy servidor.example.com
+	cp -vap ${xml_tpl_ss} ${xml_path}rh124-plantilla-server.xml \
+	&& sed -i -e "s/rh124-plantilla-servidor/servidor\.example\.com/g" ${xml_path}rh124-plantilla-server.xml \
+	&& sed -i -e "s/be01ea9c-3284-4978-95a7-2bc71ad94107/$(uuidgen)/g" ${xml_path}rh124-plantilla-server.xml \
+	&& sed -i -e "s/centos7\.0-clone\.qcow2/rh124-server-snap\.ovl/g" ${xml_path}rh124-plantilla-server.xml
+	cd $templates && qemu-img create -f qcow2 -b ${templates}/centos7.0-clone.qcow2 ${templates}/rh124-server-snap.ovl \
+	&& virsh define ${xml_path}rh124-plantilla-server.xml && virsh start --domain servidor.example.com
+}
+
+function createNewServer {
+	rdnid=$(uuidgen) && uuid=$(echo $rdnid|cut -b 1-6)
+	nameMachXML="rhcsa-${uuid}.xml"
+	nameServer="rhcsa-${uuid}.example.com"
+	nameServerTPL="rhcsa-plantilla-random"
+	cd $templates && virt-clone --original ${nameServerTPL} --name ${nameServer} --auto-clone \
+	&& virsh start --domain ${nameServer}
+	sleep 23 && echo "Maquina: ${nameServer} cuenta con IP: $(detectIP)"
+}
+
+function detectIP(){
+	nameserver=$1
+	if [ ! -z "$uuid" ] ; then
+		for i in $(sudo virsh net-dhcp-leases  default | awk '{print $5}' | egrep -v "(^$|Pro)" | awk -F"/"  '{print $1}') ; do
+			getIP=$(ping -c1 $i -W1 | egrep -B1 " 0% packet loss"|awk '{print $2}' | grep -v packets)
+			echo $getIP
+		done
+	fi
+}
+
+function  helpCmd {
+	echo "Usage: $(basename $0) [new] [reset|view] [desktop|server|all]"
+}
+if [[ "$action" != "" && "$machinet" != ""  ]] ; then
+	if [ "$action" = "reset" ] ; then
+		if [ "$machinet" = "desktop" ] ; then
+			resetDeskTop
+		elif [ "$machinet" = "server" ] ; then
+			resetServer
+		elif [ "$machinet" = "all" ] ; then
+			resetDeskTop && resetServer
+		else
+			helpCmd
+		fi
+	elif [ "$action" = "view" ] ; then
+		if [ "$machinet" = "desktop" ] ; then
+			echo alv, not implemented yet virt-viewer --vnc
+		elif [ "$machinet" = "server" ] ; then
+			echo alv, not implemented yet virt-viewer ${server}$val"."$(getDomainMachine ${server}$val)
+		fi
 	else
-		echo "Usage \"desktop\" or \"server\" or \"all\"."
+		helpCmd
 	fi
-elif [ "$1" = "view" ] ; then
-	if [ "$2" = "desktop" ] ; then
-		virt-viewer ${desktop}$val"."$(getDomainMachine ${desktop}$val)
-	elif [ "$2" = "server" ] ; then
-		virt-viewer ${server}$val"."$(getDomainMachine ${server}$val)		
-	fi
-else 
-	echo "Usage \"reset\""
+elif [ "$action" = "new" ] ; then
+	createNewServer
+else
+	helpCmd
 fi
