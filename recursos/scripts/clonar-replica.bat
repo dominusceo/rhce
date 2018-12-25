@@ -5,14 +5,14 @@ REM Variable que define la plantilla de cual se va a clonar
 SET "RUTA=F:\My Virtual Machines"
 SET "CMDS=c:\Program Files (x86)\VMware\VMware Workstation\"
 SET "SCRIPTS=C:\Users\CARRILLO RICARDo\Documents\GitHub\rhce\recursos\scripts"
-SET "RPLANTILLA=plantilla-general.example.org\"
-SET "PLANTILLA=plantilla-general.example.org.vmx"
+SET "RPLANTILLA=plantilla-replica.example.org\"
+SET "PLANTILLA=plantilla-replica.example.org.vmx"
 SET "DOMAIN=example.org"
 SET "arg1=%~1"
 if "%arg1%"=="" ( goto :Use ) ELSE ( goto :Create )
 
 :Use
-echo Uso: clonar-mv-ws.bat "general" & BREAK=ON
+echo Uso: clonar-mv-ws.bat "cliente1" & BREAK=ON
 
 :Create
 REM Creando directorio %arg1% y clonando maquina

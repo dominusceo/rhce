@@ -1,4 +1,5 @@
 #!/bin/bash
+<<<<<<< HEAD
 # Based on anontymous "rht-vmctl" script overview
 # Modifications: Ricardo David Carrillo Sanchez
 action=$(echo $1| tr "[[:upper:]]" "[[:lower:]]")
@@ -77,4 +78,34 @@ elif [ "$action" = "new" ] ; then
 	createNewServer
 else
 	helpCmd
+=======
+# Author: Anontymous "rht-vmctl" script overview
+# Modifications: Carrillo Sanchez Ricardo David @dominus.ceo @openinsecure(it) http://tuxcursos.com/webas
+source ./.datalab
+source ./init-functions
+val=$(cat .foundation)
+nsnapshot=$foundation${val}
+if [ "$1" = "reset" ] ; then
+	if [ "$2" = "desktop" ] ; then
+		cd ${sdirectory}$nsnapshot && rm -f rh124-desktop-snap.ovl
+		qemu-img create -b ${sdirectory}rh124-$OSVARIANT-template.img -f qcow2 ${sdirectory}${nsnapshot}/rh124-desktop-snap.ovl
+	elif [ "$2" = "server" ] ; then
+		cd ${sdirectory}$nsnapshot && rm -f rh124-server-snap.ovl
+		qemu-img create -b ${sdirectory}rh124-$OSVARIANT-template.img -f qcow2 ${sdirectory}${nsnapshot}/rh124-server-snap.ovl
+	elif [ "$2" = "all" ] ; then
+		cd ${sdirectory}$nsnapshot && rm -f rh124-desktop-snap.ovl && rm -f rh124-server-snap.ovl
+  	qemu-img create -b ${sdirectory}rh124-$OSVARIANT-template.img -f qcow2 ${sdirectory}${nsnapshot}/rh124-desktop-snap.ovl
+		qemu-img create -b ${sdirectory}rh124-$OSVARIANT-template.img -f qcow2 ${sdirectory}${nsnapshot}/rh124-server-snap.ovl
+	else
+		echo "Usage \"desktop\" or \"server\" or \"all\"."
+	fi
+elif [ "$1" = "view" ] ; then
+	if [ "$2" = "desktop" ] ; then
+		virt-viewer ${desktop}$val"."$(getDomainMachine ${desktop}$val)
+	elif [ "$2" = "server" ] ; then
+		virt-viewer ${server}$val"."$(getDomainMachine ${server}$val)
+	fi
+else
+	echo "Usage \"reset\""
+>>>>>>> 728273ebca2402f26c8e69c410745067a8f46428
 fi
