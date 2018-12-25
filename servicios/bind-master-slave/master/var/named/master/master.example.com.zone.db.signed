@@ -1,0 +1,169 @@
+; File written on Mon Nov 26 14:03:42 2018
+; dnssec_signzone version 9.9.4-RedHat-9.9.4-61.el7_5.1
+example.com.			100	IN SOA	dns.example.com. hostmaster.example.com. (
+					2018112602 ; serial
+					86400      ; refresh (1 day)
+					3600       ; retry (1 hour)
+					604800     ; expire (1 week)
+					10800      ; minimum (3 hours)
+					)
+			100	RRSIG	SOA 5 2 100 (
+					20181226171954 20181126171954 6447 example.com.
+					kJgypwd8a0XiHHg2Dfy4dppDt8I76fBrskzB
+					/M5ddIyW7yappKIC2Pm/vZKMDow8LLLl5Why
+					o+ipOJac1HFMgsnsdXqt79Bcow0ZgSf3q2hq
+					02AflSIc6/dA+WiGZ2c9KiCy0EUe0EzsGhDe
+					j7c4lKVjIBW9oww/kQeewRa0Jrg= )
+			100	NS	dns.example.com.
+			100	RRSIG	NS 5 2 100 (
+					20181226171954 20181126171954 6447 example.com.
+					c8FuH/rYvAKqmA6CGuJdsKVl26aqWcJLMQtH
+					OTjMK5wGuECg2cchZWbDpx8J9VQhRhqGhFS4
+					33bTEsENBXKX4t/C2JqS9r1ggDslISI0wcjg
+					WNmXsvtzilz60tWLRvUaMz+kKhjLD7Zrnfbc
+					uo7uD6P6NztA4TiMi0ePBAGrgYE= )
+			100	MX	10 correo.example.com.
+			100	RRSIG	MX 5 2 100 (
+					20181226171954 20181126171954 6447 example.com.
+					nR3GUfJjtizjvNnmxV1z4v/zoDixb6tsthjY
+					OpzBoJDjHH4YdKouaOW50nLgAAw0CacP6Tcl
+					vU1Q/2tB3j2QiqOQJzxkLoYgou7r2o81LGF7
+					K+rqFcvirOhO/7KfHtl3WXdYzZdO8aNyDijQ
+					7ZpxkSZrfZW6vapXgsPpupAt5KU= )
+			10800	NSEC	correo.example.com. NS SOA MX RRSIG NSEC DNSKEY
+			10800	RRSIG	NSEC 5 2 10800 (
+					20181226171954 20181126171954 6447 example.com.
+					Vj8H74vwPPQ3e3V+HSCGuzWNe64gSRuM1C5j
+					PcdulsEeS5WoIQE3RFnk1RVgu1GAHyIMSBAo
+					v1Lmyo2QTkmT7Es1d1gjSRmSULBuh0eXrJDd
+					a99AYX8+DMOBSZwePbWeGTirdMMdWgs/2T2U
+					671zkBBDvk/pR8fNmAcUNabO41M= )
+			100	DNSKEY	256 3 5 (
+					AwEAAcA5sXCkvu1c0wOFBsNuyAUUEm8S98lk
+					qzyerFgCX1nJKQlGVmlUQD/Mzc6wuBWoqefF
+					1HJWcLvMOBv/Umx9tNwCoHqrLgCTFbGF2d0y
+					9fq15GVDXB5vCwy3NDRr1s1aRmpqcspX/6sg
+					kfLvJBd2pL+LQD4nZUDN9oyyjMFXTtlV
+					) ; ZSK; alg = RSASHA1; key id = 6447
+			100	DNSKEY	257 3 5 (
+					AwEAAbQQbIxEFrcaF9j7ALwwtVdusF79Pzkb
+					IIPwB6YMnbEUx4QU+0Pq68LnhvyYtya+mZPn
+					khI1sWvXqT1aWDF1aC6hcawfy+0u2tym/1uC
+					q2ydWhdRhnFEMAeZpIUV4N8z+JNMYZt0JfMX
+					3tBnM9RY+3uc80NTbQyZWkt2fYLup3u+a518
+					qaVjyqawuoYSEQK+kJeAPjb035Dkd4CYA4vX
+					UF8v46627clKJcuR5qbw5wd4PcCE5A8iZjSL
+					Yrp0HTFMbKCoyJYlo/4Pa6jDc1LmO26n9u3V
+					KXbyW1SCOgxIJ3dF2iW8BG44bgcXqjLkzV8E
+					aNLjFHWz+LcZQF8eFrX3kXs=
+					) ; KSK; alg = RSASHA1; key id = 8968
+			100	RRSIG	DNSKEY 5 2 100 (
+					20181226171954 20181126171954 6447 example.com.
+					NECzN1bjrj4o0QH1g6QapQm3S0kp4Ggtyg5A
+					FiSGblHN7TDO4KvbOJvOvseUSok5PjMiQUJD
+					WByoFdtlHxc4PMektXBARMvQs+7wOWf/yS3u
+					s9BGzf9J/owAUAs59l+tSesq5gt7uxcEV2Fn
+					2tcG3ujAoU1IGKjb5LwBxdvMHvA= )
+			100	RRSIG	DNSKEY 5 2 100 (
+					20181226171954 20181126171954 8968 example.com.
+					KSJAzRf4dpJROtEiS+kQemTvQ0m8ZLlinoRM
+					L4jyCJHDQM9CvFISAcK5JycwP0t2qYdS18BQ
+					0SrEgHqy09y/1M809A2jQ2h6AjkO2IQPwesl
+					LbKhGhjZqvd99tRsxTvu6UQlPZs8cYIW+RaN
+					e773/wj2J5jukyZOyfuHtzme5G4pabjAzcHS
+					EXq78WkLW028HQJZCyik/wPL4nC178EBxfF0
+					EoNUNfiA83SSV/1IAjuq5+5OfgO4f+uXSE/d
+					yIvIQ+EbeMS/B96Jk/HzhyEnlsKzTMXC9qjw
+					IaAwswOZfRvdxpSnmowAicPSlQvxQ2Vk8fzn
+					ea7Wa5tE6graoha6Kg== )
+correo.example.com.		100	IN A	10.9.33.3
+			100	RRSIG	A 5 3 100 (
+					20181226171954 20181126171954 6447 example.com.
+					R8xxBJxzP5ajtGfmiDZTilco0BwHRduBYHk3
+					GhLzQ3VeSk6i8BfbGH+d0NXhVxXlHiGvyyAB
+					T3UbWcNC/VtZvXQycXB1OEYv6iHWOUFOG8C5
+					46IdWC2s57yhp44REB1ZE2iHnKY+YfHF5Wx/
+					YxkW2zofw6/2/swLWEgC9Oy2glc= )
+			10800	NSEC	desarrollo.example.com. A RRSIG NSEC
+			10800	RRSIG	NSEC 5 3 10800 (
+					20181226171954 20181126171954 6447 example.com.
+					EbM9f3NCr0zO3X0l6XYbmD3gbp9zqQq3IGto
+					7zx+rkKSsohZr3HJhbAgxy7Xwpiz4K8JhMEI
+					O5w3n4VCiRLGB0W4oFkw4/J9ZnB3qS+VTljb
+					OFJJMpwJmSDm995EC0kZr0ghdR4eEyFwBw3Y
+					lxMnp5LVdDZijTJrmMT4Bv5PxXU= )
+desarrollo.example.com.	100	IN CNAME dstation.example.com.
+			100	RRSIG	CNAME 5 3 100 (
+					20181226171954 20181126171954 6447 example.com.
+					rhf2UvoSxbrYc1Xs7T6i6Albm8IYpBTAesRr
+					4fJUAoALBEAD6L8KjBklR6+rGTk/AzMkidkh
+					5o7OMDgmbf/TVSxrWXt3z5ZnrrlNKClIuzvr
+					afk+ThmFVPz9MHis24SUf5g4DgO+QbSHwxIt
+					0ocY3jC/wYhvNZmQh42fxHyNM20= )
+			10800	NSEC	dns.example.com. CNAME RRSIG NSEC
+			10800	RRSIG	NSEC 5 3 10800 (
+					20181226171954 20181126171954 6447 example.com.
+					L1NDmK7AArAqL3/H9yYPo6RSMYU6zLIPbyKN
+					BIvqR8CrzbVaTNkCSqbmSyL8MYrBYOinKrEM
+					M/mhQPZL268PlLP+w5wqu5yGaeOonVK3m0Aq
+					KCkvzYBBRf0/KWKMucvC2mXpfT8eL+LrVSuC
+					xCt4ppsGq1TMopsH0ygZ+/ZXVnU= )
+dns.example.com.		100	IN A	10.9.33.180
+			100	RRSIG	A 5 3 100 (
+					20181226171954 20181126171954 6447 example.com.
+					SqD5xRScBelV24by9vDI4MLaPwNmLiaMxUuf
+					ixh96BYI0GwcvhGFkcLFf/yqOUrg0dR5EUVJ
+					O4eztFEfVH68EEVTGMHF5u5P+7zTHjK9THcm
+					L2g6C5qdaYHCk8LkvtzNHBcCto3wcbBQGxUZ
+					tkA7jeiUsn6b8LMj27w0QqdVU5A= )
+			10800	NSEC	dstation.example.com. A RRSIG NSEC
+			10800	RRSIG	NSEC 5 3 10800 (
+					20181226171954 20181126171954 6447 example.com.
+					sSB1wx5VcCYjhPQcO9R0ZQosiBByB4BHvnF/
+					SgqlUW5VrCtptmO2oRolpZCPihrQNXNyKNoB
+					o+r8IAkh46hH1YzmjkziVTAjW24neAQjhxp5
+					mKCyIuZveshTUL/X6zd30U1eNUaiwBCiD3cZ
+					mgNDrIVK75y2m5Geq5mUK2Wy1Y4= )
+dstation.example.com.	100	IN A	10.9.33.122
+			100	RRSIG	A 5 3 100 (
+					20181226171954 20181126171954 6447 example.com.
+					qEBpJElHMrvw+UC/9opjwD8P5wCeiFXpNNG4
+					qDe/vK+UIGWoBDrt7+/19g/ca5dzaoE+MXGX
+					6/cUvGo2MrdA26+w0narxgpx8ZrJhDIdIqzk
+					9KWp0oa6lMsDO58jUgzSPerRreuAcvxjZ131
+					/WWoLXFWV/j2ZM2ANcTOHCuJPjM= )
+			10800	NSEC	idm.example.com. A RRSIG NSEC
+			10800	RRSIG	NSEC 5 3 10800 (
+					20181226171954 20181126171954 6447 example.com.
+					jWnb4S95bMX5fI3Kgx+Zhi/51Tth9udeLzzW
+					K91NkGWKaaKsTE8WnQ4RPLn3ZQp4HBmqgh2m
+					uqzchS83kFSC/ktn7aTQjPGttDKcZXiPkqXJ
+					BmOGyEyvTh5pv2ok0rX7bQC0OTNJD5wJfukY
+					yxCEfM9tfiXdZzGwtdX824F5aJY= )
+dns2.idm.example.com.	100	IN A	10.9.33.181
+idm.example.com.		100	IN NS	dns2.idm.example.com.
+			100	IN NS	dns.example.com.
+			10800	NSEC	ldap.example.com. NS RRSIG NSEC
+			10800	RRSIG	NSEC 5 3 10800 (
+					20181226180342 20181126180342 6447 example.com.
+					o72AEfps7if0lEGp6SaakBJvHxA5iBPx0rTq
+					+GkA+eFHI7c7wMAKX1bFBE8sotWgCfbhragt
+					p/7fqzUCc6p7y8LyF62+W6fp6ViK+QOmGQe3
+					nYMXCdVwkLTYx7jkx6vdDgGXrgYaVCAracYj
+					l0cgXky17QbqH0fqTLm9bYPsnEc= )
+ldap.example.com.		100	IN A	10.9.33.199
+			100	RRSIG	A 5 3 100 (
+					20181226171954 20181126171954 6447 example.com.
+					NSTV0GVNx/8yEkEPv7rrKlejSb40LQnHSI9r
+					RM9BTwl3YwWKXSzF9M1Irlnig21/viWtJdHw
+					+EfRuXq24PdftyLFLqaCQhA7H6Xv7QMKEAKx
+					Z4h3q0rUHoQjRAkXi6kn/UPMmbwVfKxDJplV
+					EzJTm5forMA61KDtd66yRJiGti0= )
+			10800	NSEC	example.com. A RRSIG NSEC
+			10800	RRSIG	NSEC 5 3 10800 (
+					20181226171954 20181126171954 6447 example.com.
+					B8BPJp/x4yt89Y9vYKvzsr52Ubsp+T+CgR92
+					Fy9QEltFAurS+r2r5xBoMSTzm9MM0rH0YgVG
+					ikMnMzg6KK4lFE9/t1ajaeMICgbUsKi/75dg
+					c4GGCCNFpb+QXnsPl7mOfHHGgs+xmloYLJsL
+					nmnY9iuWQ7T+r4V34zL7mEBPClI= )

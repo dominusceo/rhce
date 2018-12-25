@@ -1,0 +1,20 @@
+$TTL 100
+$ORIGIN example.com.
+@	IN SOA	dns.example.com. hostmaster.example.com. (
+					2018112001 ;	 serial
+					1D 	 ; refresh
+					1H 	 ; retry
+					1W  	 ; expire
+					3H )	 ; minimum
+	IN	NS	dns.example.com.
+	IN 	MX	10	correo.example.com.
+dns	IN	A	192.168.122.180
+correo	IN	A	192.168.122.3
+ldap	IN	A	192.168.122.199
+dstation	IN	A	192.168.122.122
+desarrollo	IN	CNAME	dstation.example.com.
+
+$ORIGIN idm.example.com.
+@             IN        NS      dns2.idm.example.com.
+              IN        NS      dns.example.com.
+dns2          IN        A       192.168.122.181 ; glue record

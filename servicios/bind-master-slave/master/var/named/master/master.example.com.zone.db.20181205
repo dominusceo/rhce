@@ -1,0 +1,29 @@
+$TTL 100
+$ORIGIN example.com.
+@	IN SOA	dns.example.com. hostmaster.example.com. (
+					2018112602 ;	 serial
+					1D 	 ; refresh
+					1H 	 ; retry
+					1W  	 ; expire
+					3H )	 ; minimum
+	IN	NS	dns.example.com.
+	IN 	MX	10	correo.example.com.
+dns	IN	A	10.9.33.180
+correo	IN	A	10.9.33.3
+ldap	IN	A	10.9.33.199
+dstation	IN	A	10.9.33.122
+desarrollo	IN	CNAME	dstation.example.com.
+$ORIGIN idm.example.com.
+@             IN        NS      dns2.idm.example.com.
+              IN        NS      dns.example.com.
+dns2          IN        A       10.9.33.181 ; glue record
+; This is a zone-signing key, keyid 6447, for example.com.
+; Created: 20181126020532 (Sun Nov 25 21:05:32 2018)
+; Publish: 20181126020532 (Sun Nov 25 21:05:32 2018)
+; Activate: 20181126020532 (Sun Nov 25 21:05:32 2018)
+example.com. IN DNSKEY 256 3 5 AwEAAcA5sXCkvu1c0wOFBsNuyAUUEm8S98lkqzyerFgCX1nJKQlGVmlU QD/Mzc6wuBWoqefF1HJWcLvMOBv/Umx9tNwCoHqrLgCTFbGF2d0y9fq1 5GVDXB5vCwy3NDRr1s1aRmpqcspX/6sgkfLvJBd2pL+LQD4nZUDN9oyy jMFXTtlV
+; This is a key-signing key, keyid 8968, for example.com.
+; Created: 20181126020452 (Sun Nov 25 21:04:52 2018)
+; Publish: 20181126020452 (Sun Nov 25 21:04:52 2018)
+; Activate: 20181126020452 (Sun Nov 25 21:04:52 2018)
+example.com. IN DNSKEY 257 3 5 AwEAAbQQbIxEFrcaF9j7ALwwtVdusF79PzkbIIPwB6YMnbEUx4QU+0Pq 68LnhvyYtya+mZPnkhI1sWvXqT1aWDF1aC6hcawfy+0u2tym/1uCq2yd WhdRhnFEMAeZpIUV4N8z+JNMYZt0JfMX3tBnM9RY+3uc80NTbQyZWkt2 fYLup3u+a518qaVjyqawuoYSEQK+kJeAPjb035Dkd4CYA4vXUF8v4662 7clKJcuR5qbw5wd4PcCE5A8iZjSLYrp0HTFMbKCoyJYlo/4Pa6jDc1Lm O26n9u3VKXbyW1SCOgxIJ3dF2iW8BG44bgcXqjLkzV8EaNLjFHWz+LcZ QF8eFrX3kXs=

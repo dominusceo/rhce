@@ -1,0 +1,17 @@
+$ORIGIN 122.168.192.in-addr.arpa.
+$TTL 200
+@	IN SOA	dns.example.com. hostmaster.example.com. (
+					2018122501 ; serial
+					1D	; refresh
+					1H	; retry
+					1W	; expire
+					3H )	; minimum
+	IN 	NS	dns.example.com.
+;181	IN	PTR	dns2.idm.example.com.
+3	IN	PTR	dns.example.com.
+120	IN	PTR	server.example.com.
+120	IN	PTR	servidor.example.com.
+121	IN	PTR	desktop.example.com.
+121	IN	PTR	cliente.example.com.
+4	IN	PTR	mail.example.com.
+199	IN	PTR	ldap.example.com.
