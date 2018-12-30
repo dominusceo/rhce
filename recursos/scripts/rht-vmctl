@@ -8,26 +8,36 @@ xml_path="/etc/libvirt/qemu/"
 xml_tpl_ss="${xml_path}rh124-plantilla-servidor.xml"
 xml_tpl_sd="${xml_path}rh124-plantilla-cliente.xml"
 xml_tpl_rh="${xml_path}rhcsa-plantilla-random.xml"
+ndestktop="desktop.example.com"
+nserver="server.example.com"
+LOG="/tmp/log"
+w="\e[97m"
+r="\e[91m"
+y="\e[93m"
+g="\e[32m"
+d="\e[m"
 function resetDeskTop {
-		cd $templates && rm -f ${templates}/rh124-desktop-snap.ovl && rm -f ${xml_path}rh124-plantilla-desktop.xml \
-			&& virsh undefine cliente.example.com && virsh destroy cliente.example.com
-			cp -vap ${xml_tpl_sd} ${xml_path}rh124-plantilla-desktop.xml \
-			&& sed -i -e "s/rh124-plantilla-cliente/cliente\.example\.com/g" ${xml_path}rh124-plantilla-desktop.xml \
+		cd $templates && rm -f ${templates}rh124-desktop-snap.ovl && rm -f ${xml_path}rh124-plantilla-desktop.xml \
+			&& virsh undefine $ndestktop >>$LOG&& virsh destroy $ndestktop >>$LOG
+			cp -vap ${xml_tpl_sd} ${xml_path}rh124-plantilla-desktop.xml >>$LOG \
+			&& sed -i -e "s/rh124-plantilla-cliente/desktop\.example\.com/g" ${xml_path}rh124-plantilla-desktop.xml \
 			&& sed -i -e "s/d0670c2a-a7f3-4b54-b3ab-7a1180053717/$(uuidgen)/g" ${xml_path}rh124-plantilla-desktop.xml \
-			&& sed -i -e "s/centos7\.0\.qcow2/rh124-desktop-snap\.ovl/g" ${xml_path}rh124-plantilla-desktop.xml
-			cd $templates &&	qemu-img create -f qcow2 -b ${templates}/centos7.0.qcow2 ${templates}rh124-desktop-snap.ovl \
-			&& virsh define ${xml_path}rh124-plantilla-desktop.xml && virsh start --domain cliente.example.com
+			&& sed -i -e "s/desktop.qcow2/rh124-desktop-snap\.ovl/g" ${xml_path}rh124-plantilla-desktop.xml
+			cd $templates &&	qemu-img create -f qcow2 -b ${templates}/desktop.qcow2 ${templates}rh124-desktop-snap.ovl >> $LOG \
+			&& virsh define ${xml_path}rh124-plantilla-desktop.xml 2>> $LOG && virsh start --domain $ndestktop 2>> $LOG
+			viewDesktop
 }
 
 function resetServer {
 	cd $templates && rm -f ${templates}/rh124-server-snap.ovl && rm -f ${xml_path}rh124-plantilla-server.xml \
-	&& virsh undefine servidor.example.com && virsh destroy servidor.example.com
-	cp -vap ${xml_tpl_ss} ${xml_path}rh124-plantilla-server.xml \
-	&& sed -i -e "s/rh124-plantilla-servidor/servidor\.example\.com/g" ${xml_path}rh124-plantilla-server.xml \
+	&& virsh undefine $nserver 2>> $LOG && virsh destroy $nserver 2>> $LOG
+	cp -vap ${xml_tpl_ss} ${xml_path}rh124-plantilla-server.xml >> $LOG\
+	&& sed -i -e "s/rh124-plantilla-servidor/server\.example\.com/g" ${xml_path}rh124-plantilla-server.xml \
 	&& sed -i -e "s/be01ea9c-3284-4978-95a7-2bc71ad94107/$(uuidgen)/g" ${xml_path}rh124-plantilla-server.xml \
-	&& sed -i -e "s/centos7\.0-clone\.qcow2/rh124-server-snap\.ovl/g" ${xml_path}rh124-plantilla-server.xml
-	cd $templates && qemu-img create -f qcow2 -b ${templates}/centos7.0-clone.qcow2 ${templates}/rh124-server-snap.ovl \
-	&& virsh define ${xml_path}rh124-plantilla-server.xml && virsh start --domain servidor.example.com
+	&& sed -i -e "s/server.qcow2/rh124-server-snap\.ovl/g" ${xml_path}rh124-plantilla-server.xml
+	cd $templates && qemu-img create -f qcow2 -b ${templates}/server.qcow2 ${templates}/rh124-server-snap.ovl >> $LOG\
+	&& virsh define ${xml_path}rh124-plantilla-server.xml 2>> $LOG&& virsh start --domain $nserver 2>> $LOG
+	viewServer
 }
 
 function createNewServer {
@@ -35,25 +45,53 @@ function createNewServer {
 	nameMachXML="rhcsa-${uuid}.xml"
 	nameServer="rhcsa-${uuid}.example.com"
 	nameServerTPL="rhcsa-plantilla-random"
-	cd $templates && virt-clone --original ${nameServerTPL} --name ${nameServer} --auto-clone \
-	&& virsh start --domain ${nameServer}
-	sleep 23 && echo "Maquina: ${nameServer} cuenta con IP: $(detectIP)"
+	cd $templates && virt-clone --original ${nameServerTPL} --name ${nameServer} --auto-clone && virsh start --domain ${nameServer} 2>>$LOG
+	sleep 20 && echo -e "${w}Maquina:${d} ${y}${nameServer}${d} ${w}cuenta con IP:${d} ${g}$(detectIP)${d}" && viewRandom ${nameServer}
 }
 
 function detectIP(){
 	nameserver=$1
 	if [ ! -z "$uuid" ] ; then
-		for i in $(sudo virsh net-dhcp-leases  default | awk '{print $5}' | egrep -v "(^$|Pro)" | awk -F"/"  '{print $1}') ; do
+		for i in $(sudo virsh net-dhcp-leases default | awk '{print $5}' | egrep -v "(^$|Pro)" | awk -F"/" '{print $1}') ; do
 			getIP=$(ping -c1 $i -W1 | egrep -B1 " 0% packet loss"|awk '{print $2}' | grep -v packets)
 			echo $getIP
 		done
 	fi
 }
 
-function  helpCmd {
-	echo "Usage: $(basename $0) [new] [reset|view] [desktop|server|all]"
+function viewServer(){
+	nomDomainS=$(virsh list --all | egrep -i  -e "$nserver" | awk '{print $3}')
+	if [[ "$nomDomainS" == "apagado" ]] ; then
+		virsh start $(echo $nserver) 2>>$LOG && virt-viewer --domain-name $nserver 2>/dev/null &
+	else
+		virt-viewer --domain-name $nserver 2>/dev/null >>$LOG &
+	fi
 }
-if [[ "$action" != "" && "$machinet" != ""  ]] ; then
+
+function viewDesktop(){
+	nomDomainS=$(virsh list --all | egrep -i -e "$ndestktop" | awk '{print $3}')
+	if [[ "$nomDomainS" == "apagado" ]] ; then
+		virsh start $(echo $ndestktop) >>$LOG && virt-viewer --domain-name $ndestktop 2>/dev/null >> $LOG &
+	else
+		virt-viewer --domain-name $ndestktop 2>/dev/null >> $LOG &
+	fi
+}
+
+function viewRandom(){
+	nomDomainS=$(virsh list --all | egrep -i -e "$1" | awk '{print $3}')
+	if [ ! -z $1 ] ; then
+		if [[ "$nomDomainS" == "apagado" ]] ; then
+			virsh start $(echo $1) >>$LOG && virt-viewer --domain-name $1 2>/dev/null >> $LOG &
+		else
+			virt-viewer --domain-name $1 2>/dev/null >> $LOG &
+		fi
+	fi
+}
+
+function  helpCmd {
+	echo -e "${w}Usage: ${y}$(basename $0)${d} ${r}[${g}new${d}${r}] [${d}${g}reset${d}${r}|${g}view${d}${r}] [${g}desktop${d}${r}|${g}server${d}${r}|${g}all${d}${r}]${d}"
+}
+if [[ "$action" != "" && "$machinet" != "" ]] ; then
 	if [ "$action" = "reset" ] ; then
 		if [ "$machinet" = "desktop" ] ; then
 			resetDeskTop
@@ -62,13 +100,13 @@ if [[ "$action" != "" && "$machinet" != ""  ]] ; then
 		elif [ "$machinet" = "all" ] ; then
 			resetDeskTop && resetServer
 		else
-				helpCmd
+			helpCmd
 		fi
 	elif [ "$action" = "view" ] ; then
 		if [ "$machinet" = "desktop" ] ; then
-			echo alv, not implemented yet virt-viewer --vnc
+			viewDesktop
 		elif [ "$machinet" = "server" ] ; then
-			echo alv, not implemented yet virt-viewer ${server}$val"."$(getDomainMachine ${server}$val)
+			viewServer
 		fi
 	else
 		helpCmd
@@ -76,5 +114,5 @@ if [[ "$action" != "" && "$machinet" != ""  ]] ; then
 elif [ "$action" = "new" ] ; then
 	createNewServer
 else
-		helpCmd
+	helpCmd
 fi
