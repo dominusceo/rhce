@@ -15,7 +15,9 @@ w="\e[97m"
 r="\e[91m"
 y="\e[93m"
 g="\e[32m"
+c="\e[36m"
 d="\e[m"
+u="\e[4m"
 function resetDeskTop {
 		cd $templates && rm -f ${templates}rh124-desktop-snap.ovl && rm -f ${xml_path}rh124-plantilla-desktop.xml \
 			&& virsh undefine $ndestktop >>$LOG&& virsh destroy $ndestktop >>$LOG
@@ -89,7 +91,7 @@ function viewRandom(){
 }
 
 function  helpCmd {
-	echo -e "${w}Usage: ${y}$(basename $0)${d} ${r}[${g}new${d}${r}] [${d}${g}reset${d}${r}|${g}view${d}${r}] [${g}desktop${d}${r}|${g}server${d}${r}|${g}all${d}${r}]${d}"
+	echo -e "${w}Usage: ${y}$(basename $0)${d} ${r}[${c}new${d}${r}] | [${d}${g}reset${d}${r}|${g}view ${r}${w}${u}desktop${d}${r}|${w}${u}server${d}${r}|${w}${u}all${d}${r}]${d}"
 }
 if [[ "$action" != "" && "$machinet" != "" ]] ; then
 	if [ "$action" = "reset" ] ; then
