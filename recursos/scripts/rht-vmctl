@@ -10,6 +10,7 @@ xml_tpl_sd="${xml_path}rh124-plantilla-cliente.xml"
 xml_tpl_rh="${xml_path}rhcsa-plantilla-random.xml"
 ndestktop="desktop.example.com"
 nserver="server.example.com"
+nguest="guest.example.com"
 LOG="/tmp/log"
 w="\e[97m"
 r="\e[91m"
@@ -61,18 +62,27 @@ function detectIP(){
 	fi
 }
 
-function viewServer(){
-	nomDomainS=$(virsh list --all | egrep -i  -e "$nserver" | awk '{print $3}')
-	if [[ "$nomDomainS" == "apagado" ]] ; then
-		virsh start $(echo $nserver) 2>>$LOG && virt-viewer --domain-name $nserver 2>/dev/null &
+function viewGuest(){
+	nomDomainS=$(virsh list --all | egrep -i  -e "$nguest" | awk '{print $3}')
+	if [[ "$nomDomainS" = "apagado" ]] ; then
+		virsh start $(echo $nguest) 2>>$LOG && virt-viewer --domain-name $nguest 2>/dev/null &
 	else
-		virt-viewer --domain-name $nserver 2>/dev/null >>$LOG &
+		virt-viewer --domain-name $nguest 2>/dev/null >>$LOG &
+	fi
+}
+
+function viewServer(){
+	nomDomainS=$(virsh list --all | egrep -i -e "$ndestktop" | awk '{print $3}')
+	if [[ "$nomDomainS" = "apagado" ]] ; then
+		virsh start $(echo $ndestktop) >>$LOG && virt-viewer --domain-name $ndestktop 2>/dev/null >> $LOG &
+	else
+		virt-viewer --domain-name $ndestktop 2>/dev/null >> $LOG &
 	fi
 }
 
 function viewDesktop(){
 	nomDomainS=$(virsh list --all | egrep -i -e "$ndestktop" | awk '{print $3}')
-	if [[ "$nomDomainS" == "apagado" ]] ; then
+	if [[ "$nomDomainS" = "apagado" ]] ; then
 		virsh start $(echo $ndestktop) >>$LOG && virt-viewer --domain-name $ndestktop 2>/dev/null >> $LOG &
 	else
 		virt-viewer --domain-name $ndestktop 2>/dev/null >> $LOG &
@@ -104,6 +114,9 @@ function helpOption {
 				new)
 				response="${w}Usage: ${y}$(basename $0)${d} ${g}${arg}${d}"
 				;;
+				*)
+					helpCmd
+				;;
 		esac
 		echo -e ${response}
 	fi
@@ -117,15 +130,18 @@ if [[ "$action" != "" && "$machinet" != "" ]] ; then
 			resetServer
 		elif [ "$machinet" = "all" ] ; then
 			resetDeskTop && resetServer
-		elif [ "$action" = "view" ] ; then
-			if [ "$machinet" = "desktop" ] ; then
-				viewDesktop
-			elif [ "$machinet" = "server" ] ; then
-				viewServer
-			elif [ -z "$machinet" ] ; then
-				helpOption $action
-			fi
 		else
+			helpOption $action
+		fi
+	elif [ "$action" = "view" ] ; then
+		if [ "$machinet" = "desktop" ] ; then
+			viewDesktop
+		elif [ "$machinet" = "server" ] ; then
+			viewServer
+		elif [[ "$machinet" = "server" ]]; then
+			viewGuest
+		elif [ ! -z "$machinet" ] ; then
+			echo entra
 			helpOption $action
 		fi
 	elif [ "$action" = "new" ] ; then
