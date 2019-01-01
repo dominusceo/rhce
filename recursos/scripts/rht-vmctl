@@ -8,6 +8,7 @@ xml_path="/etc/libvirt/qemu/"
 xml_tpl_ss="${xml_path}rh124-plantilla-servidor.xml"
 xml_tpl_sd="${xml_path}rh124-plantilla-cliente.xml"
 xml_tpl_rh="${xml_path}rhcsa-plantilla-random.xml"
+xml_tpl_sg="${xml_path}rhcsa-plantilla-guest.xml"
 ndestktop="desktop.example.com"
 nserver="server.example.com"
 nguest="guest.example.com"
@@ -41,6 +42,18 @@ function resetServer {
 	cd $templates && qemu-img create -f qcow2 -b ${templates}/server.qcow2 ${templates}/rh124-server-snap.ovl >> $LOG\
 	&& virsh define ${xml_path}rh124-plantilla-server.xml 2>> $LOG&& virsh start --domain $nserver 2>> $LOG
 	viewServer
+}
+
+function resetGuest {
+	cd $templates && rm -f ${templates}/rh124-guest-snap.ovl && rm -f ${xml_path}rh124-plantilla-guest.xml \
+	&& virsh undefine $nserver 2>> $LOG && virsh destroy $nserver 2>> $LOG
+	cp -vap ${xml_tpl_sg} ${xml_path}rh124-plantilla-guest.xml >> $LOG\
+	&& sed -i -e "s/rhcsa-plantilla-guest/guest\.example\.com/g" ${xml_path}rh124-plantilla-guest.xml \
+	&& sed -i -e "s/9d49d447-a8b3-4f0e-8819-c011599a3f62/$(uuidgen)/g" ${xml_path}rh124-plantilla-guest.xml \
+	&& sed -i -e "s/guest.qcow2/rh124-guest-snap\.ovl/g" ${xml_path}rh124-plantilla-guest.xml
+	cd $templates && qemu-img create -f qcow2 -b ${templates}guest.qcow2 ${templates}rh124-guest-snap.ovl >> $LOG\
+	&& virsh define ${xml_path}rh124-plantilla-guest.xml 2>> $LOG&& virsh start --domain $nguest 2>> $LOG
+	viewGuest
 }
 
 function createNewServer {
@@ -101,7 +114,7 @@ function viewRandom(){
 }
 
 function  helpCmd {
-	echo -e "${w}Usage: ${y}$(basename $0)${d} ${r}[${c}new${d}${r}] | [${d}${g}reset${d}${r}|${g}view ${r}${w}${u}desktop${d}${r}|${w}${u}server${d}${r}|${w}${u}all${d}${r}]${d}"
+	echo -e "${w}Usage: ${y}$(basename $0)${d} ${r}[${c}new${d}${r}] | [${d}${g}reset${d}${r}|${g}view ${r}${w}${u}desktop${d}${r}|${w}${u}server${d}${r}|${w}${u}guest${d}${r}|${w}${u}all${d}${r}]${d}"
 }
 
 function helpOption {
@@ -109,7 +122,7 @@ function helpOption {
 	if [ ! -z $1 ] ; then
 		case $arg in
 			reset|view)
-				response="${w}Usage: ${y}$(basename $0)${d} ${g}${arg}${d} ${w}${u}desktop${d}${r}|${d}${w}${u}server${d}"
+				response="${w}Usage: ${y}$(basename $0)${d} ${g}${arg}${d} ${w}${u}desktop${d}${r}|${d}${w}${u}server${d}${r}|${d}${w}${u}guest${d}"
 				;;
 				new)
 				response="${w}Usage: ${y}$(basename $0)${d} ${g}${arg}${d}"
@@ -128,6 +141,8 @@ if [[ "$action" != "" && "$machinet" != "" ]] ; then
 			resetDeskTop
 		elif [ "$machinet" = "server" ] ; then
 			resetServer
+		elif [ "$machinet" = "guest" ] ; then
+			resetGuest
 		elif [ "$machinet" = "all" ] ; then
 			resetDeskTop && resetServer
 		else
@@ -138,10 +153,9 @@ if [[ "$action" != "" && "$machinet" != "" ]] ; then
 			viewDesktop
 		elif [ "$machinet" = "server" ] ; then
 			viewServer
-		elif [[ "$machinet" = "server" ]]; then
+		elif [[ "$machinet" = "guest" ]]; then
 			viewGuest
 		elif [ ! -z "$machinet" ] ; then
-			echo entra
 			helpOption $action
 		fi
 	elif [ "$action" = "new" ] ; then
