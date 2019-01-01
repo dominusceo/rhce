@@ -122,6 +122,8 @@ if [[ "$action" != "" && "$machinet" != "" ]] ; then
 				viewDesktop
 			elif [ "$machinet" = "server" ] ; then
 				viewServer
+			elif [ -z "$machinet" ] ; then
+				helpOption $action
 			fi
 		else
 			helpOption $action
@@ -133,6 +135,8 @@ if [[ "$action" != "" && "$machinet" != "" ]] ; then
 	fi
 elif [ "$action" = "new" ] ; then
 	createNewServer
+elif [[ "$action" != "" && "$machinet" = "" ]] ; then
+	helpOption $action
 else
 	helpCmd
 fi
