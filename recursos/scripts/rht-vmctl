@@ -93,6 +93,22 @@ function viewRandom(){
 function  helpCmd {
 	echo -e "${w}Usage: ${y}$(basename $0)${d} ${r}[${c}new${d}${r}] | [${d}${g}reset${d}${r}|${g}view ${r}${w}${u}desktop${d}${r}|${w}${u}server${d}${r}|${w}${u}all${d}${r}]${d}"
 }
+
+function helpOption {
+	arg=$(echo $1|tr "[:upper:]" "[:lower:]")
+	if [ ! -z $1 ] ; then
+		case $arg in
+			reset|view)
+				response="${w}Usage: ${y}$(basename $0)${d} ${g}${arg}${d} ${w}${u}desktop${d}${r}|${d}${w}${u}server${d}"
+				;;
+				new)
+				response="${w}Usage: ${y}$(basename $0)${d} ${g}${arg}${d}"
+				;;
+		esac
+		echo -e ${response}
+	fi
+}
+
 if [[ "$action" != "" && "$machinet" != "" ]] ; then
 	if [ "$action" = "reset" ] ; then
 		if [ "$machinet" = "desktop" ] ; then
@@ -101,17 +117,19 @@ if [[ "$action" != "" && "$machinet" != "" ]] ; then
 			resetServer
 		elif [ "$machinet" = "all" ] ; then
 			resetDeskTop && resetServer
+		elif [ "$action" = "view" ] ; then
+			if [ "$machinet" = "desktop" ] ; then
+				viewDesktop
+			elif [ "$machinet" = "server" ] ; then
+				viewServer
+			fi
 		else
-			helpCmd
+			helpOption $action
 		fi
-	elif [ "$action" = "view" ] ; then
-		if [ "$machinet" = "desktop" ] ; then
-			viewDesktop
-		elif [ "$machinet" = "server" ] ; then
-			viewServer
-		fi
+	elif [ "$action" = "new" ] ; then
+		createNewServer
 	else
-		helpCmd
+		helpOption $action
 	fi
 elif [ "$action" = "new" ] ; then
 	createNewServer
