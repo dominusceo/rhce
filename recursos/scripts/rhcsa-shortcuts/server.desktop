@@ -1,0 +1,13 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Name=Red Hat Server
+Exec=/usr/bin/rht-vmctl view desktop
+Icon=/home/student/Imágenes/redhat.png
+Terminal=false
+Type=Application
+MimeType=text/xml;application/xhtml+xml;
+StartupNotify=true
+X-Desktop-File-Install-Version=0.1
+Categories=Application;
