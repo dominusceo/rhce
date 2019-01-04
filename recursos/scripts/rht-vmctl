@@ -46,7 +46,7 @@ function resetServer {
 
 function resetGuest {
 	cd $templates && rm -f ${templates}/rh124-guest-snap.ovl && rm -f ${xml_path}rh124-plantilla-guest.xml \
-	&& virsh undefine $nserver 2>> $LOG && virsh destroy $nserver 2>> $LOG
+	&& virsh undefine $nguest 2>> $LOG && virsh destroy $nguest 2>> $LOG
 	cp -vap ${xml_tpl_sg} ${xml_path}rh124-plantilla-guest.xml >> $LOG\
 	&& sed -i -e "s/rhcsa-plantilla-guest/guest\.example\.com/g" ${xml_path}rh124-plantilla-guest.xml \
 	&& sed -i -e "s/9d49d447-a8b3-4f0e-8819-c011599a3f62/$(uuidgen)/g" ${xml_path}rh124-plantilla-guest.xml \
