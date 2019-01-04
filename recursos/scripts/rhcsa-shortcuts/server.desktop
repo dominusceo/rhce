@@ -2,8 +2,8 @@
 [Desktop Entry]
 Version=1.0
 Encoding=UTF-8
-Name=Red Hat Server
-Exec=/usr/bin/rht-vmctl view desktop
+Name=Red Hat View Server
+Exec=/usr/bin/rht-vmctl view server
 Icon=/usr/share/icons/gnome/scalable/apps/redhat-shadowman.svg
 Terminal=false
 Type=Application

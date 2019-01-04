@@ -2,9 +2,9 @@
 [Desktop Entry]
 Version=1.0
 Encoding=UTF-8
-Name=Red Hat View Guest
-Exec=/usr/bin/rht-vmctl view guest
-Icon=/usr/share/icons/gnome/scalable/apps/redhat-shadowman.svg
+Name=Red Hat Reset Guest
+Exec=/usr/bin/rht-vmctl reset guest
+Icon=/usr/share/icons/gnome/scalable/apps/redhat-shadowman-bg.svg
 Terminal=false
 Type=Application
 MimeType=text/xml;application/xhtml+xml;
