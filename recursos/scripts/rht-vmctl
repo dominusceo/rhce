@@ -85,11 +85,11 @@ function viewGuest(){
 }
 
 function viewServer(){
-	nomDomainS=$(virsh list --all | egrep -i -e "$ndestktop" | awk '{print $3}')
+	nomDomainS=$(virsh list --all | egrep -i -e "$nserver" | awk '{print $3}')
 	if [[ "$nomDomainS" = "apagado" ]] ; then
-		virsh start $(echo $ndestktop) >>$LOG && virt-viewer --domain-name $ndestktop 2>/dev/null >> $LOG &
+		virsh start $(echo $nserver) >>$LOG && virt-viewer --domain-name $nserver 2>/dev/null >> $LOG &
 	else
-		virt-viewer --domain-name $ndestktop 2>/dev/null >> $LOG &
+		virt-viewer --domain-name $nserver 2>/dev/null >> $LOG &
 	fi
 }
 
