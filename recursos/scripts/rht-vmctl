@@ -1,5 +1,4 @@
 #!/bin/bash
-<<<<<<< HEAD
 # Based on anontymous "rht-vmctl" script overview
 # Modifications: Ricardo David Carrillo Sanchez
 action=$(echo $1| tr "[[:upper:]]" "[[:lower:]]")
@@ -98,33 +97,76 @@ function viewDesktop(){
 	nomDomainS=$(virsh list --all | egrep -i -e "$ndestktop" | awk '{print $3}')
 	if [[ "$nomDomainS" = "apagado" ]] ; then
 		virsh start $(echo $ndestktop) >>$LOG && virt-viewer --domain-name $ndestktop 2>/dev/null >> $LOG &
-=======
-# Anontymous "rht-vmctl"  script overview
-source ./.datalab
-source ./init-functions
-val=$(cat .foundation)
-nsnapshot=$foundation${val}
-if [ "$1" = "reset" ] ; then
-	if [ "$2" = "desktop" ] ; then
-		cd ${sdirectory}$nsnapshot && rm -f rh124-desktop-snap.ovl
-           	qemu-img create -b ${sdirectory}rh124-$OSVARIANT-template.img -f qcow2 ${sdirectory}${nsnapshot}/rh124-desktop-snap.ovl
-	elif [ "$2" = "server" ] ; then
-		cd ${sdirectory}$nsnapshot && rm -f rh124-server-snap.ovl
-		qemu-img create -b ${sdirectory}rh124-$OSVARIANT-template.img -f qcow2 ${sdirectory}${nsnapshot}/rh124-server-snap.ovl
-	elif [ "$2" = "all" ] ; then
-  		cd ${sdirectory}$nsnapshot && rm -f rh124-desktop-snap.ovl && rm -f rh124-server-snap.ovl
-                qemu-img create -b ${sdirectory}rh124-$OSVARIANT-template.img -f qcow2 ${sdirectory}${nsnapshot}/rh124-desktop-snap.ovl
-                qemu-img create -b ${sdirectory}rh124-$OSVARIANT-template.img -f qcow2 ${sdirectory}${nsnapshot}/rh124-server-snap.ovl
->>>>>>> 066d0a54d3b876b0efd3ed7e505f84b88e93331d
 	else
-		echo "Usage \"desktop\" or \"server\" or \"all\"."
+		virt-viewer --domain-name $ndestktop 2>/dev/null >> $LOG &
 	fi
-elif [ "$1" = "view" ] ; then
-	if [ "$2" = "desktop" ] ; then
-		virt-viewer ${desktop}$val"."$(getDomainMachine ${desktop}$val)
-	elif [ "$2" = "server" ] ; then
-		virt-viewer ${server}$val"."$(getDomainMachine ${server}$val)		
+}
+
+function viewRandom(){
+	nomDomainS=$(virsh list --all | egrep -i -e "$1" | awk '{print $3}')
+	if [ ! -z $1 ] ; then
+		if [[ "$nomDomainS" == "apagado" ]] ; then
+			virsh start $(echo $1) >>$LOG && virt-viewer --domain-name $1 2>/dev/null >> $LOG &
+		else
+			virt-viewer --domain-name $1 2>/dev/null >> $LOG &
+		fi
 	fi
-else 
-	echo "Usage \"reset\""
+}
+
+function  helpCmd {
+	echo -e "${w}Usage: ${y}$(basename $0)${d} ${r}[${c}new${d}${r}] | [${d}${g}reset${d}${r}|${g}view ${r}${w}${u}desktop${d}${r}|${w}${u}server${d}${r}|${w}${u}guest${d}${r}|${w}${u}all${d}${r}]${d}"
+}
+
+function helpOption {
+	arg=$(echo $1|tr "[:upper:]" "[:lower:]")
+	if [ ! -z $1 ] ; then
+		case $arg in
+			reset|view)
+				response="${w}Usage: ${y}$(basename $0)${d} ${g}${arg}${d} ${w}${u}desktop${d}${r}|${d}${w}${u}server${d}${r}|${d}${w}${u}guest${d}"
+				;;
+				new)
+				response="${w}Usage: ${y}$(basename $0)${d} ${g}${arg}${d}"
+				;;
+				*)
+					helpCmd
+				;;
+		esac
+		echo -e ${response}
+	fi
+}
+
+if [[ "$action" != "" && "$machinet" != "" ]] ; then
+	if [ "$action" = "reset" ] ; then
+		if [ "$machinet" = "desktop" ] ; then
+			resetDeskTop
+		elif [ "$machinet" = "server" ] ; then
+			resetServer
+		elif [ "$machinet" = "guest" ] ; then
+			resetGuest
+		elif [ "$machinet" = "all" ] ; then
+			resetDeskTop && resetServer && resetGuest
+		else
+			helpOption $action
+		fi
+	elif [ "$action" = "view" ] ; then
+		if [ "$machinet" = "desktop" ] ; then
+			viewDesktop
+		elif [ "$machinet" = "server" ] ; then
+			viewServer
+		elif [[ "$machinet" = "guest" ]]; then
+			viewGuest
+		elif [ ! -z "$machinet" ] ; then
+			helpOption $action
+		fi
+	elif [ "$action" = "new" ] ; then
+		createNewServer
+	else
+		helpOption $action
+	fi
+elif [ "$action" = "new" ] ; then
+	createNewServer
+elif [[ "$action" != "" && "$machinet" = "" ]] ; then
+	helpOption $action
+else
+	helpCmd
 fi
