@@ -5,6 +5,7 @@ action=$(echo $1| tr "[[:upper:]]" "[[:lower:]]")
 machinet=$(echo $2| tr "[[:upper:]]" "[[:lower:]]")
 templates="/home/ricardo.carrillo/Virtual_Machines/"
 xml_path="/etc/libvirt/qemu/"
+xml_storage="/etc/libvirt/storage/"
 xml_tpl_ss="${xml_path}rh124-plantilla-servidor.xml"
 xml_tpl_sd="${xml_path}rh124-plantilla-cliente.xml"
 xml_tpl_rh="${xml_path}rhcsa-plantilla-random.xml"
@@ -114,7 +115,9 @@ function viewRandom(){
 }
 
 function  helpCmd {
-	echo -e "${w}Usage: ${y}$(basename $0)${d} ${r}[${c}new${d}${r}] | [${d}${g}reset${d}${r}|${g}view ${r}${w}${u}desktop${d}${r}|${w}${u}server${d}${r}|${w}${u}guest${d}${r}|${w}${u}all${d}${r}]${d}"
+	#echo -e "${w}Usage: ${y}$(basename $0)${d} ${r}[${c}new${d}${r}] | [${d}${g}addDisk${d}${r}|${d}${g}reset${d}${r}|${g}view ${r}${w}${u}desktop${d}${r}|${w}${u}server${d}${r}|${w}${u}guest${d}${r}|${w}${u}all${d}${r}]${d}"
+	echo -e "${w}Usage: ${y}$(basename $0)${d} ${r}[${c}new${d}${r}] | [${d}${g}add-disk${d}${r}|${d}${g}reset${d}${r}|${g}view ${r}${w}${u}desktop${d}${r}|${w}${u}server${d}${r}|${w}${u}guest${d}${r}|${w}${u}all${d}${r}]${d}"
+
 }
 
 function helpOption {
@@ -127,12 +130,29 @@ function helpOption {
 				new)
 				response="${w}Usage: ${y}$(basename $0)${d} ${g}${arg}${d}"
 				;;
+				add-disk)
+				response="${w}Usage: ${y}$(basename $0)${d} ${g}${arg}${d} ${w}${u}desktop${d}${r}|${d}${w}${u}server${d}${r}|${d}${w}${u}guest${d}"
+				;;
 				*)
 					helpCmd
 				;;
 		esac
 		echo -e ${response}
 	fi
+}
+
+function addDisk(){
+	mv=$1
+	diskLetter=$(tr -cd '[:lower:]' < /dev/urandom | fold -w1 | head -n1)
+	disco="$mv-san-$diskLetter.img"
+	xml="${xml_storage}$mv-$diskLetter.xml"
+	qemu-img create -f raw ${templates}/$disco 1G
+	echo "<disk type='block' device='disk'>" > $xml
+	echo "<driver name='qemu' type='raw' cache='none'/>">> $xml
+	echo "<source dev='${templates}/$disco'/>">> $xml
+	echo "<target dev='vdc' bus='virtio'/>">> $xml
+	echo "</disk>">> $xml
+	virsh attach-disk ${mv} ${templates}/$disco vd$diskLetter && echo "Disco  vd$diskLetter adjuntado"
 }
 
 if [[ "$action" != "" && "$machinet" != "" ]] ; then
