@@ -1,1 +1,5 @@
-/repositorio 10.0.0.*(resvport,rw,no_root_squash) 192.168.122.*(resvport,rw,no_root_squash)
+/repositorio/Isos 10.0.0.*(rw,no_root_squash,insecure) 192.168.122.*(rw,no_root_squash,insecure)
+/repositorio/Libros 10.0.0.*(rw,no_root_squash,insecure) 192.168.122.*(rw,no_root_squash,insecure)
+/repositorio/Cursos 11.0.0.*(rw,no_root_squash,insecure) 192.168.122.*(rw,no_root_squash,insecure)
+/repositorio/Peliculas 11.0.0.*(rw,no_root_squash,insecure) 192.168.122.*(rw,no_root_squash,insecure)
+
