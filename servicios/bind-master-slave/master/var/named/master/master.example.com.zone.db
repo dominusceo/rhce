@@ -18,6 +18,9 @@ server	IN	A	192.168.122.121
 servidor IN	CNAME	server.example.com.
 intruder	IN	A	192.168.122.150
 intruso	IN	CNAME	intruder.example.com.
+guest  IN      A       192.168.122.123
+invitado  IN      A    guest.example.com.
+
 $ORIGIN idm.example.com.
 @             IN        NS      ipa.idm.example.com.
               IN        NS      dns.example.com.

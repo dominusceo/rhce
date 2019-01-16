@@ -1,9 +1,10 @@
-#!/bin/bash
+#!/bin/bash -x
 # Based on anontymous "rht-vmctl" script overview
 # Modifications: Ricardo David Carrillo Sanchez
 action=$(echo $1| tr "[[:upper:]]" "[[:lower:]]")
 machinet=$(echo $2| tr "[[:upper:]]" "[[:lower:]]")
-templates="/home/ricardo.carrillo/Virtual_Machines/"
+#templates="/home/ricardo.carrillo/Virtual_Machin es_kvm/"
+templates="/mnt/disco1/Virtual_Machines_kvm/"
 xml_path="/etc/libvirt/qemu/"
 xml_storage="/etc/libvirt/storage/"
 xml_tpl_ss="${xml_path}rh124-plantilla-servidor.xml"
@@ -63,7 +64,7 @@ function createNewServer {
 	nameServer="rhcsa-${uuid}.example.com"
 	nameServerTPL="rhcsa-plantilla-random"
 	cd $templates && virt-clone --original ${nameServerTPL} --name ${nameServer} --auto-clone && virsh start --domain ${nameServer} 2>>$LOG
-	sleep 20 && echo -e "${w}Maquina:${d} ${y}${nameServer}${d} ${w}cuenta con IP:${d} ${g}$(detectIP)${d}" && viewRandom ${nameServer}
+	sleep 10 && echo -e "${w}Maquina:${d} ${y}${nameServer}${d} ${w}cuenta con IP:${d} ${g}$(detectIP)${d}" && viewRandom ${nameServer}
 }
 
 function detectIP(){
@@ -178,7 +179,7 @@ if [[ "$action" != "" && "$machinet" != "" ]] ; then
 		elif [ ! -z "$machinet" ] ; then
 			helpOption $action
 		fi
-	elif [ "$action" = "new" ] ; then
+	elif [[ "$action" = "new" && "$machinet" = "" ]] ; then
 		createNewServer
 	else
 		helpOption $action

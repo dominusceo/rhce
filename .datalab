@@ -5,11 +5,11 @@
 ## Objetivo: Definicion de variables globales para el funcionamiento
 ## del conjunto de scripts para la maqueta de redhat laboratorios.
 #############################################################################
-PROVIDER=192.168.122.2
-DNS=192.168.1.3
+PROVIDER=192.168.122.3
+DNS=192.168.122.3
 GATEWAY="$PROVIDER"
-IPASERVER="servidoripa"
-DOMAIN0="example.org"
+IPASERVER="ipa"
+DOMAIN0="example.com"
 DOMAIN1="redhat-labs.com"
 DOMAIN2="mynet.org"
 DOMAIN3="cracker.org"
