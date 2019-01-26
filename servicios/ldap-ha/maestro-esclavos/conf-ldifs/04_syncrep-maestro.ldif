@@ -1,0 +1,24 @@
+# In order to the configuration master-slave works, you must change the rid parameter for each replica.
+# For example, for ldap-slave-n1 rid=001, for ldap-slave-n2 rid=002, for ldap-slave-n3 rid=003 and so on.
+dn: olcDatabase={2}hdb,cn=config
+changetype: modify
+add: olcSyncRepl
+olcSyncRepl: rid=001
+  provider=ldap://ldap-master.example.com:389
+  bindmethod=simple
+  binddn="uid=replicacion,ou=Generic,dc=example,dc=com"
+  credentials=redhat
+  searchbase="dc=example,dc=com"
+  filter="(objectclass=*)"
+  scope=sub
+  schemachecking=on
+  type=refreshAndPersist
+  retry="60 +"
+  interval=00:00:05:00
+# TLS/SSL Support feature disabled
+#  tls_cert=/etc/pki/tls/certs/host.example.com.crt
+#  tls_key=/etc/pki/tls/private/cert-host.example.com.key
+#  tls_cacert=/etc/pki/CA/certs/CA-cert.crt
+#  starttls=no
+#  tls_reqcert="try"
+#  retry="30 5 300 3"

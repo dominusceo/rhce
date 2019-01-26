@@ -1,6 +1,6 @@
 #!/bin/bash
 # Defining variables
-HOME_LDAP=/root/maestro-esclavos
+HOME_LDAP=/tmp/maestro-esclavos
 HOME_LDIFSC="$HOME_LDAP/conf-ldifs/"
 HOME_LDIFSD="$HOME_LDAP/data-ldifs/"
 DB_LDAP="/var/lib/ldap"
@@ -12,9 +12,8 @@ ETC_SLAPD="/etc/openldap"
 function verify_ldap_rules(){
     verify=$(iptables -L -n | egrep -i -e "389|636")
     if [[ -z "$verify"  && "$verify" = ""  ]] ; then
-        firewall-cmd --add-service={ldap,ldaps}
-        firewall-cmd --add-service={ldap,ldaps} –permanent
-        firewall-cmd –reload
+        firewall-cmd --add-service={ldap,ldaps} --permanent
+        firewall-cmd --reload
     fi
 }
 
@@ -23,7 +22,7 @@ function validating_rsyslog_ldap(){
     [ "$existe" == "1" ]  && continue || $(which yum) install -y rsyslog
     if [[ -z "$verify" && "$verify" == "" ]] ; then
       echo "local4.* /var/log/ldap.log" | tee -a /etc/rsyslog.conf
-      systemctl restart rsyslog && systemctl status rsyslog  &&  systemctl restart slapd
+      systemctl enable rsyslog && systemctl restart rsyslog && systemctl status rsyslog && systemctl restart slapd
     fi
 }
 

@@ -1,0 +1,1 @@
+ldapsearch -Y EXTERNAL -H ldapi:/// -b "cn=config"  | egrep -i "(olcDbNoSync|thr|olcThreads|olcDbMaxSize|olcDbMaxReaders|olcDbRtxnSize|olcDbEnvFlags|entryDN|olcDbCacheSize|olcListenerThreads|olcTimeLimit):"
