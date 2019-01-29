@@ -11,7 +11,7 @@ olcRootDN: cn=Manager,dc=example,dc=com
 dn: olcDatabase={2}hdb,cn=config
 changetype: modify
 replace: olcRootPW
-olcRootPW: {SSHA}uB0nppCQ777raWcrSL9fN/MbleMybgWK
+olcRootPW: {SSHA}cjUSFwgqPIJoep14vOQHoV91rEZkh77t
 
 dn: cn=config
 changetype: modify

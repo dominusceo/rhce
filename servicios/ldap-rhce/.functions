@@ -1,6 +1,6 @@
 #!/bin/bash
 # Defining variables
-HOME_LDAP=/tmp/maestro-esclavos
+HOME_LDAP=/root/ldap-rhce/
 HOME_LDIFSC="$HOME_LDAP/conf-ldifs/"
 HOME_LDIFSD="$HOME_LDAP/data-ldifs/"
 DB_LDAP="/var/lib/ldap"
