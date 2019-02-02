@@ -7,9 +7,9 @@ objectClass: ExAccount
 objectClass: inetOrgPerson
 objectClass: shadowAccount
 objectClass: inetLocalMailRecipient
-loginShell: /bin/false
+loginShell: /bin/bash
 gidNumber: 11
-uidNumber: 2
+uidNumber: 1000
 mailLocalAddress: esther.leandro
 uid: esther.leandro
 mail: esther.leandro@example.com
@@ -37,8 +37,8 @@ objectClass: ExAccount
 objectClass: inetOrgPerson
 objectClass: shadowAccount
 objectClass: inetLocalMailRecipient
-loginShell: /bin/false
-uidNumber: 3
+loginShell: /bin/bash
+uidNumber: 1001
 gidNumber: 11
 mailLocalAddress: svetlana.garcia
 uid: svetlana.garcia
@@ -68,8 +68,8 @@ objectClass: ExAccount
 objectClass: inetOrgPerson
 objectClass: shadowAccount
 objectClass: inetLocalMailRecipient
-loginShell: /bin/false
-uidNumber: 4
+loginShell: /bin/bash
+uidNumber: 1003
 mailLocalAddress: marie.gadoy
 gidNumber: 11
 uid: marie.gadoy
