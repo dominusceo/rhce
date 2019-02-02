@@ -14,6 +14,8 @@ $TTL 800
 120	IN	PTR	servidor.example.com.
 121	IN	PTR	desktop.example.com.
 121	IN	PTR	cliente.example.com.
+123	IN	PTR	guest.example.com.
+123	IN	PTR	invitado.example.com.
 150	IN	PTR	intruder.example.com.
 150	IN	PTR	intruso.example.com.
 4	IN	PTR	mail.example.com.

@@ -1,13 +1,13 @@
 <!--
 WARNING: THIS IS AN AUTO-GENERATED FILE. CHANGES TO IT ARE LIKELY TO BE
 OVERWRITTEN AND LOST. Changes to this xml configuration should be made using:
-  virsh edit rhcsa-plantilla-random
+  virsh edit rhcsa-plantilla-desktop
 or other application using the libvirt API.
 -->
 
 <domain type='kvm'>
-  <name>rhcsa-plantilla-random</name>
-  <uuid>f6160149-815f-42fa-9964-b01a8646f721</uuid>
+  <name>rhcsa-plantilla-desktop</name>
+  <uuid>d0670c2a-a7f3-4b54-b3ab-7a1180053717</uuid>
   <memory unit='KiB'>1048576</memory>
   <currentMemory unit='KiB'>1048576</currentMemory>
   <vcpu placement='static'>1</vcpu>
@@ -38,7 +38,7 @@ or other application using the libvirt API.
     <emulator>/usr/libexec/qemu-kvm</emulator>
     <disk type='file' device='disk'>
       <driver name='qemu' type='qcow2'/>
-      <source file='/home/ricardo.carrillo/Virtual_Machines/random.qcow2'/>
+      <source file='/home/ricardo.carrillo/Virtual_Machines/desktop.qcow2'/>
       <target dev='vda' bus='virtio'/>
       <address type='pci' domain='0x0000' bus='0x00' slot='0x07' function='0x0'/>
     </disk>
@@ -58,14 +58,11 @@ or other application using the libvirt API.
       <address type='pci' domain='0x0000' bus='0x00' slot='0x05' function='0x2'/>
     </controller>
     <controller type='pci' index='0' model='pci-root'/>
-    <controller type='ide' index='0'>
-      <address type='pci' domain='0x0000' bus='0x00' slot='0x01' function='0x1'/>
-    </controller>
     <controller type='virtio-serial' index='0'>
       <address type='pci' domain='0x0000' bus='0x00' slot='0x06' function='0x0'/>
     </controller>
     <interface type='network'>
-      <mac address='52:54:00:6d:77:74'/>
+      <mac address='52:54:00:c2:02:66'/>
       <source network='default'/>
       <model type='virtio'/>
       <address type='pci' domain='0x0000' bus='0x00' slot='0x03' function='0x0'/>
@@ -111,9 +108,5 @@ or other application using the libvirt API.
     <memballoon model='virtio'>
       <address type='pci' domain='0x0000' bus='0x00' slot='0x08' function='0x0'/>
     </memballoon>
-    <rng model='virtio'>
-      <backend model='random'>/dev/urandom</backend>
-      <address type='pci' domain='0x0000' bus='0x00' slot='0x09' function='0x0'/>
-    </rng>
   </devices>
 </domain>
