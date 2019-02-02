@@ -7,7 +7,7 @@ or other application using the libvirt API.
 
 <domain type='kvm'>
   <name>rhcsa-plantilla-random</name>
-  <uuid>6fd62a92-f014-4f79-bf6d-d4dc9962cbcf</uuid>
+  <uuid>f6160149-815f-42fa-9964-b01a8646f721</uuid>
   <memory unit='KiB'>1048576</memory>
   <currentMemory unit='KiB'>1048576</currentMemory>
   <vcpu placement='static'>1</vcpu>

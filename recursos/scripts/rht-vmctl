@@ -6,8 +6,8 @@ machinet=$(echo $2| tr "[[:upper:]]" "[[:lower:]]")
 templates="/home/ricardo.carrillo/Virtual_Machines/"
 xml_path="/etc/libvirt/qemu/"
 xml_storage="/etc/libvirt/storage/"
-xml_tpl_ss="${xml_path}rh124-plantilla-servidor.xml"
-xml_tpl_sd="${xml_path}rh124-plantilla-cliente.xml"
+xml_tpl_ss="${xml_path}rhcsa-plantilla-server.xml"
+xml_tpl_sd="${xml_path}rhcsa-plantilla-desktop.xml"
 xml_tpl_rh="${xml_path}rhcsa-plantilla-random.xml"
 xml_tpl_sg="${xml_path}rhcsa-plantilla-guest.xml"
 ndestktop="desktop.example.com"
@@ -25,7 +25,7 @@ function resetDeskTop {
 		cd $templates && rm -f ${templates}rh124-desktop-snap.ovl && rm -f ${xml_path}rh124-plantilla-desktop.xml \
 			&& virsh undefine $ndestktop >>$LOG&& virsh destroy $ndestktop >>$LOG
 			cp -vap ${xml_tpl_sd} ${xml_path}rh124-plantilla-desktop.xml >>$LOG \
-			&& sed -i -e "s/rh124-plantilla-cliente/desktop\.example\.com/g" ${xml_path}rh124-plantilla-desktop.xml \
+			&& sed -i -e "s/rhcsa-plantilla-desktop/desktop\.example\.com/g" ${xml_path}rh124-plantilla-desktop.xml \
 			&& sed -i -e "s/d0670c2a-a7f3-4b54-b3ab-7a1180053717/$(uuidgen)/g" ${xml_path}rh124-plantilla-desktop.xml \
 			&& sed -i -e "s/desktop.qcow2/rh124-desktop-snap\.ovl/g" ${xml_path}rh124-plantilla-desktop.xml
 			cd $templates &&	qemu-img create -f qcow2 -b ${templates}/desktop.qcow2 ${templates}rh124-desktop-snap.ovl >> $LOG \
@@ -37,7 +37,7 @@ function resetServer {
 	cd $templates && rm -f ${templates}/rh124-server-snap.ovl && rm -f ${xml_path}rh124-plantilla-server.xml \
 	&& virsh undefine $nserver 2>> $LOG && virsh destroy $nserver 2>> $LOG
 	cp -vap ${xml_tpl_ss} ${xml_path}rh124-plantilla-server.xml >> $LOG\
-	&& sed -i -e "s/rh124-plantilla-servidor/server\.example\.com/g" ${xml_path}rh124-plantilla-server.xml \
+	&& sed -i -e "s/rhcsa-plantilla-server/server\.example\.com/g" ${xml_path}rh124-plantilla-server.xml \
 	&& sed -i -e "s/be01ea9c-3284-4978-95a7-2bc71ad94107/$(uuidgen)/g" ${xml_path}rh124-plantilla-server.xml \
 	&& sed -i -e "s/server.qcow2/rh124-server-snap\.ovl/g" ${xml_path}rh124-plantilla-server.xml
 	cd $templates && qemu-img create -f qcow2 -b ${templates}/server.qcow2 ${templates}/rh124-server-snap.ovl >> $LOG\
