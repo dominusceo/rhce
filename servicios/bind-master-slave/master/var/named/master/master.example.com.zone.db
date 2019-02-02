@@ -1,7 +1,7 @@
-$TTL 100
+$TTL 800
 $ORIGIN example.com.
 @	IN SOA	dns.example.com. hostmaster.example.com. (
-					2018122902 ;	 serial
+					2019012201 ;	 serial
 					1D 	 ; refresh
 					1H 	 ; retry
 					1W  	 ; expire
@@ -10,14 +10,14 @@ $ORIGIN example.com.
 	IN 	MX	10	correo.example.com.
 dns	IN	A	192.168.122.3
 provider	IN	CNAME dns.example.com.
+classroom	IN	CNAME dns.example.com.
+ldap	IN	CNAME dns.example.com.
+guest	IN	A	192.168.122.2
 correo	IN	A	192.168.122.4
-ldap	IN	A	192.168.122.199
 desktop	IN	A	192.168.122.120
 cliente IN	CNAME	desktop.example.com.
 server	IN	A	192.168.122.121
 servidor IN	CNAME	server.example.com.
 intruder	IN	A	192.168.122.150
 intruso	IN	CNAME	intruder.example.com.
-$ORIGIN idm.example.com.
-@             IN        NS      ipa.idm.example.com.
-              IN        NS      dns.example.com.
+desarrollo	IN	CNAME	192.168.122.241

@@ -10,6 +10,8 @@ xml_tpl_ss="${xml_path}rhcsa-plantilla-server.xml"
 xml_tpl_sd="${xml_path}rhcsa-plantilla-desktop.xml"
 xml_tpl_rh="${xml_path}rhcsa-plantilla-random.xml"
 xml_tpl_sg="${xml_path}rhcsa-plantilla-guest.xml"
+nameServerTPL="rhcsa-plantilla-random"
+nameServerSRV="rh124-plantilla-servidor"
 ndestktop="desktop.example.com"
 nserver="server.example.com"
 nguest="guest.example.com"
@@ -22,6 +24,7 @@ c="\e[36m"
 d="\e[m"
 u="\e[4m"
 function resetDeskTop {
+<<<<<<< HEAD
 		cd $templates && rm -f ${templates}rh124-desktop-snap.ovl && rm -f ${xml_path}rh124-plantilla-desktop.xml \
 			&& virsh undefine $ndestktop >>$LOG&& virsh destroy $ndestktop >>$LOG
 			cp -vap ${xml_tpl_sd} ${xml_path}rh124-plantilla-desktop.xml >>$LOG \
@@ -38,10 +41,28 @@ function resetServer {
 	&& virsh undefine $nserver 2>> $LOG && virsh destroy $nserver 2>> $LOG
 	cp -vap ${xml_tpl_ss} ${xml_path}rh124-plantilla-server.xml >> $LOG\
 	&& sed -i -e "s/rhcsa-plantilla-server/server\.example\.com/g" ${xml_path}rh124-plantilla-server.xml \
+=======
+	cd $templates && rm -f ${templates}rh124-desktop-snap.ovl && rm -f ${xml_path}rh124-plantilla-desktop.xml \
+	&& virsh undefine $ndestktop >>$LOG&& virsh destroy $ndestktop >>$LOG
+	cp -vap ${xml_tpl_sd} ${xml_path}rh124-plantilla-desktop.xml >>$LOG \
+	&& sed -i -e "s/rh124-plantilla-cliente/desktop\.example\.com/g" ${xml_path}rh124-plantilla-desktop.xml \
+	&& sed -i -e "s/d0670c2a-a7f3-4b54-b3ab-7a1180053717/$(uuidgen)/g" ${xml_path}rh124-plantilla-desktop.xml \
+	&& sed -i -e "s/desktop.qcow2/rh124-desktop-snap\.ovl/g" ${xml_path}rh124-plantilla-desktop.xml
+	cd $templates && qemu-img create -f qcow2 -b ${templates}desktop.qcow2 ${templates}rh124-desktop-snap.ovl >> $LOG \
+	&& virsh define ${xml_path}rh124-plantilla-desktop.xml 2>> $LOG && virsh start --domain $ndestktop 2>> $LOG
+	viewDesktop
+}
+
+function resetServer {
+	cd $templates && rm -f ${templates}rh124-server-snap.ovl && rm -f ${xml_path}rh124-plantilla-server.xml \
+	virsh undefine $nserver 2>> $LOG && virsh destroy $nserver 2>> $LOG
+	cp -p ${xml_tpl_ss} ${xml_path}rh124-plantilla-server.xml >> $LOG \
+	&& sed -i -e "s/rh124-plantilla-servidor/server\.example\.com/g" ${xml_path}rh124-plantilla-server.xml \
+>>>>>>> 58e3c459d6b61cd6ea8ab562c3f5050203d648d6
 	&& sed -i -e "s/be01ea9c-3284-4978-95a7-2bc71ad94107/$(uuidgen)/g" ${xml_path}rh124-plantilla-server.xml \
-	&& sed -i -e "s/server.qcow2/rh124-server-snap\.ovl/g" ${xml_path}rh124-plantilla-server.xml
-	cd $templates && qemu-img create -f qcow2 -b ${templates}/server.qcow2 ${templates}/rh124-server-snap.ovl >> $LOG\
-	&& virsh define ${xml_path}rh124-plantilla-server.xml 2>> $LOG&& virsh start --domain $nserver 2>> $LOG
+	&& sed -i -e "s/server.qcow2/rh124-server-snap\.ovl/g" ${xml_path}rh124-plantilla-server.xml &&  cd $templates
+	qemu-img create -f qcow2 -b ${templates}server.qcow2 ${templates}rh124-server-snap.ovl >> $LOG
+	virsh define ${xml_path}rh124-plantilla-server.xml 2>> $LOG&& virsh start --domain $nserver 2>> $LOG
 	viewServer
 }
 
@@ -61,9 +82,8 @@ function createNewServer {
 	rdnid=$(uuidgen) && uuid=$(echo $rdnid|cut -b 1-6)
 	nameMachXML="rhcsa-${uuid}.xml"
 	nameServer="rhcsa-${uuid}.example.com"
-	nameServerTPL="rhcsa-plantilla-random"
-	cd $templates && virt-clone --original ${nameServerTPL} --name ${nameServer} --auto-clone && virsh start --domain ${nameServer} 2>>$LOG
-	sleep 20 && echo -e "${w}Maquina:${d} ${y}${nameServer}${d} ${w}cuenta con IP:${d} ${g}$(detectIP)${d}" && viewRandom ${nameServer}
+	cd $templates && virt-clone --original ${nameServerTPL} --name ${nameServer} --auto-clone --check path_in_use=off && virsh start --domain ${nameServer} 2>>$LOG
+	#sleep 20 && echo -e "${w}Maquina:${d} ${y}${nameServer}${d} ${w}cuenta con IP:${d} ${g}$(detectIP)${d}" && viewRandom ${nameServer}
 }
 
 function detectIP(){

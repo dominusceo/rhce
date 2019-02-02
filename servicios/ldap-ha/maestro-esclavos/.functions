@@ -13,7 +13,7 @@ function verify_ldap_rules(){
     verify=$(iptables -L -n | egrep -i -e "389|636")
     if [[ -z "$verify"  && "$verify" = ""  ]] ; then
         firewall-cmd --add-service={ldap,ldaps}
-        firewall-cmd --add-service={ldap,ldaps} –permanent
+        firewall-cmd --add-service={ldap,ldaps} --permanent
         firewall-cmd –reload
     fi
 }

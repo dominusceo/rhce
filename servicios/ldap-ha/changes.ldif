@@ -1,12 +1,12 @@
 dn: olcDatabase={2}hdb,cn=config
 changetype: modify
 replace: olcSuffix
-olcSuffix: dc=_DOMAIN1_,dc=_DOMAIN2_
+olcSuffix: dc=example,dc=com
 
 dn: olcDatabase={2}hdb,cn=config
 changetype: modify
 replace: olcRootDN
-olcRootDN: cn=Manager,dc=_DOMAIN1_,dc=_DOMAIN2_
+olcRootDN: cn=Manager,dc=example,dc=com
 
 dn: olcDatabase={2}hdb,cn=config
 changetype: modify
@@ -31,4 +31,4 @@ olcLogLevel: -1
 dn: olcDatabase={1}monitor,cn=config
 changetype: modify
 replace: olcAccess
-olcAccess: {0}to * by dn.base="gidNumber=0+uidNumber=0,cn=peercred,cn=external,cn=auth" read by dn.base="cn=Manager,dc=_DOMAIN1_,dc=_DOMAIN2_" read by * none
+olcAccess: {0}to * by dn.base="gidNumber=0+uidNumber=0,cn=peercred,cn=external,cn=auth" read by dn.base="cn=Manager,dc=example,dc=com" read by * none

@@ -1,0 +1,4 @@
+dn: cn=example,cn=schema,cn=config
+objectClass: olcSchemaConfig
+cn: example
+olcObjectClasses: ( 2.16.840.1.113730.3.2.3 NAME 'ExAccount' SUP inetOrgPerson STRUCTURAL MAY ( c $ personalTitle ) )

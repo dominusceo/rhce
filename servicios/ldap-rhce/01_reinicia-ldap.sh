@@ -1,11 +1,11 @@
 #!/bin/bash
 ################################################################################
-## Goal: This script file set a ldap configuration in slave mode
+## Goal: This script file set a ldap configuration in master mode
 ## Date: @vie jul 20 10:43:40 CDT 2018
 ## Autor: Ricardo D. Carrillo Sanchez <dominus.ceo@gmail.com> @openinsecureit
 ################################################################################
 source ./.functions
-# Validating/Installing  rsyslog service with ldap loggin
+# Validating/Installing rsyslog service with ldap logging
 validating_rsyslog_ldap
 # Verifiying iptables rules related ldap service, if exist any rule won't
 # apply any rule, otherwise will be applied ldap rules.
@@ -16,7 +16,7 @@ echo "Creating DB_CONFIG initial configuration"
 echo "#Transaction Log settings"
 echo "set_lg_regionmax       31457280"              | tee ${DB_LDAP}/$DB_CONFIG
 echo "set_lg_bsize           4194304"               | tee -a ${DB_LDAP}/$DB_CONFIG
-echo "# one 16 GB cache"                            | tee -a ${DB_LDAP}/$DB_CONFIG
+echo "#one 16 GB cache"                             | tee -a ${DB_LDAP}/$DB_CONFIG
 echo "set_cachesize          0   1610612736    1"   | tee -a ${DB_LDAP}/$DB_CONFIG
 echo "set_flags              DB_LOG_AUTOREMOVE"     | tee -a ${DB_LDAP}/$DB_CONFIG
 echo "set_lk_max_locks       1000000"               | tee -a ${DB_LDAP}/$DB_CONFIG
@@ -46,11 +46,13 @@ cd $HOME_LDIFSC && echo "Restarting services" && sleep 1.2
 systemctl stop slapd  &&  systemctl start slapd && systemctl status slapd && sleep 1.2
 ldapadd -Y EXTERNAL -H ldapi:/// -D "cn=config" -f 01_sinlimite-busqueda.ldif
 ldapadd -Y EXTERNAL -H ldapi:/// -D "cn=config" -f EXAMPLE.ldif
+cd $HOME_LDIFSD
+ldapadd -x -h $(hostname) -D "cn=manager,dc=example,dc=com" -f 02_rama_inicial.ldif -w redhat
+ldapadd -x -h $(hostname) -D "cn=manager,dc=example,dc=com" -f 04d_usuario-rep.ldif -w redhat
+ldapadd -x -h $(hostname) -D "cn=manager,dc=example,dc=com" -f base-muestra.ldif -w redhat
 cd $HOME_LDIFSC
 ldapadd -Y EXTERNAL -H ldapi:/// -D "cn=config" -f 03a_modulo-replicacion.ldif
 ldapadd -Y EXTERNAL -H ldapi:/// -D "cn=config" -f 03b_overlay-replicacion.ldif
 ldapadd -Y EXTERNAL -H ldapi:/// -D "cn=config" -f 03c_modulo-replicacion.ldif
-ldapadd -Y EXTERNAL -H ldapi:/// -D "cn=config" -f 04_syncrep-maestro.ldif
 ldapadd -Y EXTERNAL -H ldapi:/// -D "cn=config" -f 05_acl-usuarios.ldif
 ldapadd -Y EXTERNAL -H ldapi:/// -D "cn=config" -f 07a_agregar_indices.ldif
-#ldapadd -Y EXTERNAL -H ldapi:/// -D "cn=config" -f 08a_activacion_tls_01.ldif

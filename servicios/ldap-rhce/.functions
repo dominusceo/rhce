@@ -1,0 +1,40 @@
+#!/bin/bash
+# Defining variables
+HOME_LDAP=/root/ldap-rhce/
+HOME_LDIFSC="$HOME_LDAP/conf-ldifs/"
+HOME_LDIFSD="$HOME_LDAP/data-ldifs/"
+DB_LDAP="/var/lib/ldap"
+DB_CONFIG=DB_CONFIG
+SLAPD=$(ps -fea | grep -i slapd|awk '{print $2}')
+ETC_SLAPD="/etc/openldap"
+
+# Verifiying rules and packages
+function verify_ldap_rules(){
+    verify=$(iptables -L -n | egrep -i -e "389|636")
+    if [[ -z "$verify"  && "$verify" = ""  ]] ; then
+        firewall-cmd --add-service={ldap,ldaps} --permanent
+        firewall-cmd --reload
+    fi
+}
+
+function validating_rsyslog_ldap(){
+    exist=$(rpm -qa | grep rsyslog) ; verify=$(egrep -i -e "ldap\.log" /etc/rsyslog.conf)
+    [ "$existe" == "1" ]  && continue || $(which yum) install -y rsyslog
+    if [[ -z "$verify" && "$verify" == "" ]] ; then
+      echo "local4.* /var/log/ldap.log" | tee -a /etc/rsyslog.conf
+      systemctl enable rsyslog && systemctl restart rsyslog && systemctl status rsyslog && systemctl restart slapd
+    fi
+}
+
+function installing_ldap_packages(){
+    verify=$(rpm -qa | egrep -i -e "(openldap|-clients|openldap-devel|openldap-servers)"  | wc -l )
+    if [[ ! -z "$verify"  && "$verify" == "1" ]] ; then
+        $(which yum) install -y openldap-clients openldap-devel openldap-servers openldap-servers-sql
+        systemctl restart rsyslog && systemctl status rsyslog && systemctl restart slapd
+    else
+        $(which yum) remove -y openldap-clients openldap-devel openldap-servers  openldap-servers-sql
+        $(which yum) install -y openldap-clients openldap-devel openldap-servers  openldap-servers-sql   
+        systemctl restart rsyslog && systemctl status rsyslog  &&  systemctl restart slapd
+    fi
+}
+#
