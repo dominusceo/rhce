@@ -8,30 +8,30 @@ if {$force_conservative} {
 		exp_send -s -- $arg
 	}
 }
-set nhost [lindex $argv 0]
-set domain [lindex $argv 1]
+
 set timeout -1
 spawn $env(SHELL)
 match_max 100000
-expect "# "
-send -- "openssl req -new -x509 -nodes -out /etc/openldap/certs/cert.pem -keyout /etc/openldap/certs/priv.pem -days 365\r"
-expect ":"
+expect -exact "\# "
+send -- "openssl req -new -key classroom-ldap.key  -out classroom-ldap.csr\r"
+expect -exact ":"
 send -- "MX\r"
-expect ":"
+expect -exact ":"
 send -- "Ciudad de Mexico\r"
-expect  ":"
-send -- "Mexico\r"
 expect -exact ":"
-send -- "Red Hat Labs\r"
+send -- "Ciudad de Mexico\r"
 expect -exact ":"
-send -- "Red Hat Labs\r"
+send -- "Organization Example Com\r"
 expect -exact ":"
-send -- "$nhost\r"
+send -- "Organization Example Com IT\r"
 expect -exact ":"
-send -- "ca@$domain\r"
-expect -exact "# "
-send -- "mkdir -pv /etc/openldap/cacerts"
+send -- "classroom.example.com\r"
+expect -exact ":"
+send -- "ca@example.com\r"
+expect -exact ":"
 send -- "\r"
-expect -exact "\r"
+expect -exact ":"
+send -- "\r"
+expect -exact "\# "
 send -- "exit\r"
 expect eof
